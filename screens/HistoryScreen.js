@@ -20,7 +20,7 @@ export default class HistoryScreen extends React.Component {
 
   updateText(testText){
     console.log('Clocked');
-    this.props.screenProps.setGlobalState({testText: "IT WORKED"});
+    this.props.screenProps.setGlobalState({testText: testText});
   }
   render() {
     return (
