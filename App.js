@@ -2,11 +2,34 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+// import firebase from "firebase";
+// import firebaseui from "firebaseui";
+//
+// var config = {
+//   apiKey: "AIzaSyCYu5wok4P58FtfezFofQBuJE14HIxR3tI",
+//   authDomain: "whichgig-39099.firebaseapp.com",
+//   databaseURL: "https://whichgig-39099.firebaseio.com",
+//   projectId: "whichgig-39099",
+//   storageBucket: "whichgig-39099.appspot.com",
+//   messagingSenderId: "454631199821"
+// };
+// const firebaseApp = firebase.initializeApp(config);
 
 export default class App extends React.Component {
-  state = {
-    isLoadingComplete: false,
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+        isLoadingComplete: false,
+        testText: "",
+        //Add additional state variables here
+      };
+      this.setGlobalState = this.setGlobalState.bind(this);
+  }
+
+  setGlobalState(newState){
+    console.log(newState);
+    this.setState(newState);
+  }
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
@@ -18,10 +41,14 @@ export default class App extends React.Component {
         />
       );
     } else {
+      const screenProps = {
+        setGlobalState: this.setGlobalState,
+        globalState: this.state,
+      };
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
+          <AppNavigator screenProps = {screenProps}/>
         </View>
       );
     }
