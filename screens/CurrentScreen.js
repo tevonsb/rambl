@@ -12,9 +12,14 @@ import { MapView } from 'expo';
 
 export default class CurrentScreen extends React.Component {
   static navigationOptions = {
-    title: 'Rambl',
+    title: 'Rambl',a
   };
-
+  constructor(props){
+    super(props);
+    this.state = {
+      currentView = "choose", //Options are Choose, suggest, rambl
+    }
+  }
   render() {
     return (
       <MapView
