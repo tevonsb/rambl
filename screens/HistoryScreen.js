@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Image,
   Platform,
@@ -8,6 +9,7 @@ import {
   TouchableOpacity,
   View,
   Button,
+  SegmentedControlIOS,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -15,8 +17,16 @@ import { MonoText } from '../components/StyledText';
 
 export default class HistoryScreen extends React.Component {
   static navigationOptions = {
-    title: 'Rambl History',
+    title: 'Past Rambls',
   };
+
+  constructor(props){
+    super(props);
+    this.state = {
+        selectedIndex: 0,
+        testText: "",
+      };
+  }
 
   updateText(testText){
     console.log('Clocked');
@@ -27,51 +37,13 @@ export default class HistoryScreen extends React.Component {
       <View
         style={{ flex: 1 }}
       >
-      <Button title="test" onPress={()=> this.updateText("IT WORKED")}>Try to update state</Button>
+      <View>
+          <SegmentedControlIOS values={['My Rambls', 'Friends\' Rambls']} selectedIndex={0} />
+        </View>
+
       </View>
     );
   }
-
-  // />
-    // <View style={styles.tabBarInfoContainer}>
-    //   <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-    //
-    //   <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-    //     <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-    //   </View>
-    // </View>
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
 const styles = StyleSheet.create({
