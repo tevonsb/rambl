@@ -25,24 +25,49 @@ export default class HistoryScreen extends React.Component {
     this.state = {
         selectedIndex: 0,
         testText: "",
+        values: ['My Rambls', 'Friends\' Rambls'],
+        value: 'My Rambls',
       };
+      this._onChange = this._onChange.bind(this);
+      this._onValueChange = this._onValueChange.bind(this);
   }
 
-  updateText(testText){
-    console.log('Clocked');
-    this.props.screenProps.setGlobalState({testText: testText});
+  _onValueChange(value){
+    this.setState({value: value});
+    console.log(value);
   }
-  render() {
+
+  _onChange(event){
+    this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+  }
+
+  render(){
+    var currentView = null;
+    if(this.state.value === "My Rambls"){
+      currentView = (
+        <Text>MY RAMBLES</Text>
+      )
+    }
+    if(this.state.value === "Friends\' Rambls"){
+      currentView = (
+        <Text>YO RAMBLES</Text>
+      )
+    }
     return (
       <View
         style={{ flex: 1 }}
       >
       <View>
-          <SegmentedControlIOS values={['My Rambls', 'Friends\' Rambls']} selectedIndex={0} />
+          <SegmentedControlIOS
+            values={this.state.values}
+            selectedIndex={this.state.selectedIndex}
+            onChange = {this._onChange}
+            onValueChange= {this._onValueChange} />
         </View>
-
+        {currentView}
       </View>
     );
+
   }
 }
 
