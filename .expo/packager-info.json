@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://a5-htu.anonymous.rambl.exp.direct",
+  "packagerNgrokUrl": "https://packager.a5-htu.anonymous.rambl.exp.direct",
+  "ngrokPid": 96526
 }
