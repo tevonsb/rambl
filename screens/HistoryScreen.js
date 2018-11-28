@@ -24,15 +24,15 @@ export default class HistoryScreen extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        selectedIndex: 0,
-        testText: "",
-        values: ['My Rambls', 'Friends\' Rambls'],
-        value: 'My Rambls',
-      };
-      this._onChange = this._onChange.bind(this);
-      this._onValueChange = this._onValueChange.bind(this);
-      this.getMyRambls = this.getMyRambls.bind(this);
-      this.getFriendsRambls = this.getFriendsRambls.bind(this);
+      selectedIndex: 0,
+      testText: "",
+      values: ['My Rambls', 'Friends\' Rambls'],
+      value: 'My Rambls',
+    };
+    this._onChange = this._onChange.bind(this);
+    this._onValueChange = this._onValueChange.bind(this);
+    this.getMyRambls = this.getMyRambls.bind(this);
+    this.getFriendsRambls = this.getFriendsRambls.bind(this);
   }
 
   getMyRambls(){
@@ -54,14 +54,13 @@ export default class HistoryScreen extends React.Component {
 
   render(){
     var currentView = null;
-    console.log(this.getMyRambls());
-        if(this.state.value === "My Rambls"){
+    if(this.state.value === "My Rambls"){
       currentView = (
         <View style={{flex: 1, padding: 22}}>
           <FlatList
             data={this.getMyRambls()}
             renderItem={({item}) => <Text>{item.title}</Text>}
-          />
+            />
         </View>
       )
     }
@@ -71,15 +70,15 @@ export default class HistoryScreen extends React.Component {
           <FlatList
             data={this.getFriendsRambls()}
             renderItem={({item}) => <Text>{item.title}</Text>}
-          />
+            />
         </View>
       )
     }
     return (
       <View
         style={{ flex: 1 }}
-      >
-      <View>
+        >
+        <View>
           <SegmentedControlIOS
             values={this.state.values}
             selectedIndex={this.state.selectedIndex}

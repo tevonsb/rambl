@@ -1,102 +1,93 @@
 [{
     "key": "1",
     "title": "Lunch in the Park",
-    "footprints": {
-      "1": {
+    "footprints": [{
         "title": "Dishoom",
         "Address":"222 Moxon Street, London UK",
         "rating": 4.5,
         "stake":200,
         "stake_time": "12/06/2018",
       },
-      "2": {
+      {
         "title": "Regents Park",
         "Address":"222 Moxon Street, London UK",
         "rating": 4.5,
         "stake":200,
         "stake_time": "12/06/2018",
-      }
-    },
+      }],
     "rating": 4.5,
     "duration": 1,
   },
   {
       "key": "2",
       "title": "Queen of the East",
-      "footprints": {
-        "1": {
+      "footprints": [{
           "title": "Shoreditch Street Art",
           "Address":"Shoreditch High Street, London UK",
           "rating": 4.8,
           "stake":200,
           "stake_time": "12/06/2018",
         },
-        "2": {
+        {
           "title": "Museum of Happiness",
           "Address":"55 Leonard Street, London UK",
           "rating": 4.6,
           "stake":"N/A",
           "stake_time": "N/A",
         },
-        "3": {
+        {
           "title": "Queen of Hoxton",
           "Address":"1 Curtain Road, London UK",
           "rating": 4.6,
           "stake":"N/A",
           "stake_time": "N/A",
-        }
-      },
+        }],
       "rating": 4.6,
       "duration": 1.8,
     },
     {
         "key": "3",
         "title": "Get Dialed Up",
-        "footprints": {
-          "1": {
+        "footprints": [
+          {
             "title": "7 Dials Shopping",
             "Address":"Mercer and Earlham Street Intersection, London, UK",
             "rating": 4.8,
             "stake":200,
             "stake_time": "12/06/2018",
           },
-          "2": {
+          {
             "title": "Cafe Nero",
             "Address":"30 Monmouth Street, London UK",
             "rating": 4.6,
             "stake":"N/A",
             "stake_time": "N/A",
-          }
-        },
+          }],
         "rating": 4.7,
         "duration": 1.5,
       },
     {
         "key": "4",
         "title": "Where's Banksy?",
-        "footprints": {
-          "1": {
+        "footprints": [{
             "title": "Falling Shopper",
             "Address":"Bruton Street, London, UK",
             "rating": 4.9,
             "stake":200,
             "stake_time": "12/06/2018",
-          },
-          "2": {
+          },{
             "title": "Always Fall",
             "Address":"Farrington Road, London UK",
             "rating": 4.6,
             "stake":"N/A",
             "stake_time": "N/A",
-          },
-          "2": {
+          },{
             "title": "Cash Machine",
             "Address":"Rosebury Avenue, London UK",
             "rating": 4.2,
             "stake":"N/A",
             "stake_time": "N/A",
-          }
-        },
+          }],
         "rating": 4.4,
         "duration": 3,
       }
