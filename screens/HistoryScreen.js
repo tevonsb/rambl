@@ -10,6 +10,7 @@ import {
   View,
   Button,
   SegmentedControlIOS,
+  FlatList,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -30,6 +31,9 @@ export default class HistoryScreen extends React.Component {
       };
       this._onChange = this._onChange.bind(this);
       this._onValueChange = this._onValueChange.bind(this);
+      this.checkDuration = this.checkDuration.bind(this);
+      this.getMyRambls = this.getMyRambls.bind(this);
+      this.getFriendsRambls = this.getFriendsRambls.bind(this);
   }
 
   checkDuration(rambl){
@@ -54,20 +58,25 @@ export default class HistoryScreen extends React.Component {
 
   render(){
     var currentView = null;
-    if(this.state.value === "My Rambls"){
+    console.log(this.getMyRambls());
+        if(this.state.value === "My Rambls"){
       currentView = (
-        <FlatList
-          data={this.getMyRambls()}
-          renderItem={({item}) => <Text>{item.title}</Text>}
-        />
+        <View style={{flex: 1, padding: 22}}>
+          <FlatList
+            data={this.getMyRambls()}
+            renderItem={({item}) => <Text>{item.title}</Text>}
+          />
+        </View>
       )
     }
     if(this.state.value === "Friends\' Rambls"){
       currentView = (
-        <FlatList
-          data={this.getFriendsRambls()}
-          renderItem={({item}) => <Text>{item.title}</Text>}
-        />
+        <View style={{flex: 1, padding: 22}}>
+          <FlatList
+            data={this.getFriendsRambls()}
+            renderItem={({item}) => <Text>{item.title}</Text>}
+          />
+        </View>
       )
     }
     return (
