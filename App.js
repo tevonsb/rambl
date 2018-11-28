@@ -17,7 +17,6 @@ export default class App extends React.Component {
   }
 
   setGlobalState(newState){
-    console.log(rambls);
     this.setState(newState);
   }
 
@@ -34,6 +33,7 @@ export default class App extends React.Component {
       const screenProps = {
         setGlobalState: this.setGlobalState,
         globalState: this.state,
+        rambls: rambls,
       };
       return (
         <View style={styles.container}>
