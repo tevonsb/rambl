@@ -27,26 +27,17 @@ export default class HistoryScreen extends React.Component {
     this.state = {
       selectedIndex: 0,
       testText: "",
-<<<<<<< HEAD
-      values: ['My Rambls', 'Friends\' Rambls'],
-      value: 'My Rambls',
-=======
       values: ["My Rambls", "Friends' Rambls"],
       value: "My Rambls",
       currentView: "unselected"
->>>>>>> 22eace4927e117be1878e098b56e494d1b483c26
     };
     this._onChange = this._onChange.bind(this);
     this._onValueChange = this._onValueChange.bind(this);
     this.getMyRambls = this.getMyRambls.bind(this);
-<<<<<<< HEAD
-    this.getFriendsRambls = this.getFriendsRambls.bind(this);
-=======
     this.getMyUsername = this.getMyUsername.bind(this); // added this
     this.getMyLocation = this.getMyLocation.bind(this); // added this
     this.getFriendsRambls = this.getFriendsRambls.bind(this);
     this.handleRamblPress = this.handleRamblPress.bind(this);
->>>>>>> 22eace4927e117be1878e098b56e494d1b483c26
   }
 
   getMyRambls() {
@@ -75,34 +66,6 @@ export default class HistoryScreen extends React.Component {
     this.setState({ selectedIndex: event.nativeEvent.selectedSegmentIndex });
   }
 
-<<<<<<< HEAD
-  render(){
-    var currentView = null;
-    if(this.state.value === "My Rambls"){
-      currentView = (
-        <View style={{flex: 1, padding: 22}}>
-          <FlatList
-            data={this.getMyRambls()}
-            renderItem={({item}) => <Text>{item.title}</Text>}
-            />
-        </View>
-      )
-    }
-    if(this.state.value === "Friends\' Rambls"){
-      currentView = (
-        <View style={{flex: 1, padding: 22}}>
-          <FlatList
-            data={this.getFriendsRambls()}
-            renderItem={({item}) => <Text>{item.title}</Text>}
-            />
-        </View>
-      )
-    }
-    return (
-      <View
-        style={{ flex: 1 }}
-        >
-=======
   handleRamblPress(rambl) {
     this.setState({
       currentRambl: rambl,
@@ -148,7 +111,6 @@ export default class HistoryScreen extends React.Component {
     }
     return (
       <View style={{ flex: 1 }}>
->>>>>>> 22eace4927e117be1878e098b56e494d1b483c26
         <View>
           <SegmentedControlIOS
             values={this.state.values}
