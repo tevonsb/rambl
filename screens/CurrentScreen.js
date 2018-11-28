@@ -38,7 +38,7 @@ export default class CurrentScreen extends React.Component {
       }
 
       checkDuration(rambl){
-        return rambl.duration < this.state.hour * 60 + this.state.minute;
+        return rambl.duration < this.state.hour + this.state.minute / 60;
       }
       getRambls(){
         return this.props.screenProps.rambls.filter(this.checkDuration);
@@ -74,7 +74,6 @@ export default class CurrentScreen extends React.Component {
                   data={this.getRambls()}
                   renderItem={({item}) => <Text>{item.title}</Text>}
                 />
-
               </View>
             </View>
           )

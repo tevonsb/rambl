@@ -4,6 +4,7 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
 var rambls = require('./data/rambls');
+var users = require('./data/users');
 
 export default class App extends React.Component {
   constructor(props){
@@ -34,6 +35,7 @@ export default class App extends React.Component {
         setGlobalState: this.setGlobalState,
         globalState: this.state,
         rambls: rambls,
+        users, users,
       };
       return (
         <View style={styles.container}>
