@@ -15,6 +15,8 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import RamblDetailComponent from './RamblDetailScreen.js'
+
 
 export default class HistoryScreen extends React.Component {
   static navigationOptions = {
@@ -28,11 +30,13 @@ export default class HistoryScreen extends React.Component {
         testText: "",
         values: ['My Rambls', 'Friends\' Rambls'],
         value: 'My Rambls',
+        currentView: 'unselected',
       };
       this._onChange = this._onChange.bind(this);
       this._onValueChange = this._onValueChange.bind(this);
       this.getMyRambls = this.getMyRambls.bind(this);
       this.getFriendsRambls = this.getFriendsRambls.bind(this);
+      this.handleRamblPress = this.handleRamblPress.bind(this);
   }
 
   getMyRambls(){
@@ -52,29 +56,40 @@ export default class HistoryScreen extends React.Component {
     this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
   }
 
+  handleRamblPress(rambl){
+    this.setState({
+      currentRambl: rambl,
+      currentView: "selected",
+    });
+  }
+
   render(){
-    var currentView = null;
-    console.log(this.getMyRambls());
-        if(this.state.value === "My Rambls"){
-      currentView = (
+    var displayView = null;
+    if(this.state.currentView === "selected"){
+      return (
+        <RamblDetailComponent rambl={this.state.currentRambl}/>
+      )
+    }if(this.state.currentView == "unselected"){
+      if(this.state.value === "My Rambls"){
+      displayView = (
         <View style={{flex: 1, padding: 22}}>
           <FlatList
             data={this.getMyRambls()}
-            renderItem={({item}) => <Text>{item.title}</Text>}
+            renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}
           />
         </View>
       )
     }
     if(this.state.value === "Friends\' Rambls"){
-      currentView = (
+      displayView = (
         <View style={{flex: 1, padding: 22}}>
           <FlatList
             data={this.getFriendsRambls()}
-            renderItem={({item}) => <Text>{item.title}</Text>}
+            renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}
           />
         </View>
       )
-    }
+    }}
     return (
       <View
         style={{ flex: 1 }}
@@ -86,7 +101,7 @@ export default class HistoryScreen extends React.Component {
             onChange = {this._onChange}
             onValueChange= {this._onValueChange} />
         </View>
-        {currentView}
+        {displayView}
       </View>
     );
 
