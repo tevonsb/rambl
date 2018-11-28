@@ -31,20 +31,16 @@ export default class HistoryScreen extends React.Component {
       };
       this._onChange = this._onChange.bind(this);
       this._onValueChange = this._onValueChange.bind(this);
-      this.checkDuration = this.checkDuration.bind(this);
       this.getMyRambls = this.getMyRambls.bind(this);
       this.getFriendsRambls = this.getFriendsRambls.bind(this);
   }
 
-  checkDuration(rambl){
-    return rambl.duration < this.state.hour + this.state.minute / 60;
-  }
   getMyRambls(){
     return this.props.screenProps.past_rambls;
   }
 
   getFriendsRambls(){
-    return this.props.screenProps.friends_rambls.filter(this.checkDuration);
+    return this.props.screenProps.friends_rambls;
   }
 
   _onValueChange(value){
