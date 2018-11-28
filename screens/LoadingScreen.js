@@ -16,23 +16,23 @@ import HistoryDetailComponent from './HistoryScreen.js';
 export default class LoadingScreenComponent extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-        component: <LoadingScreenComponent/>
-      };
+    // this.state = {
+    //     component: <LoadingScreenComponent/>
+    //   };
   }
-
-  componentDidMount(){
-
-     // Start counting when the page is loaded
-     this.timeoutHandle = setTimeout(()=>{
-          // Add your logic for the transition
-          this.setState({ component: <HistoryDetailComponent/>})
-     }, 3000);
-}
-
-componentWillUnmount(){
-     clearTimeout(this.timeoutHandle);
-}
+//
+//   componentDidMount(){
+//
+//      // Start counting when the page is loaded
+//      this.timeoutHandle = setTimeout(()=>{
+//           // Add your logic for the transition
+//           this.setState({ component: <HistoryDetailComponent/>})
+//      }, 3000);
+// }
+//
+// componentWillUnmount(){
+//      clearTimeout(this.timeoutHandle);
+// }
 
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
@@ -41,7 +41,6 @@ componentWillUnmount(){
       <View style={{flex:1}}>
       <Image source={require('../data/loading.gif')} />
       <Text>Generating your Rambl! Sit tight.</Text>
-    //  {this.state.component}
       </View>
     );
   }
