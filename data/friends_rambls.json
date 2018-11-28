@@ -1,0 +1,156 @@
+[{
+    "key": "1",
+    "city": "Tokyo",
+    "title": "Rise and Shrine",
+    "month": "November 2018",
+    "footprints": {
+      "1": {
+        "title": "Asakusa Shrine",
+        "Address":"2 Chrome-3-1, Asakusa, Tokyo JP",
+        "rating": 4.5,
+        "stake":"N/A",
+        "stake_time": "N/A",
+      },
+      "2": {
+        "title": "Top of Park Hyatt",
+        "Address":"3-7-1-2, Nishishinjuku, Tokyo JP",
+        "rating": 4.9,
+        "stake":300,
+        "stake_time": "11/04/2018",
+      },
+      "3": {
+        "title": "Meiji Shrine",
+        "Address":"1-1 Yoyogikamizonocho, Shibuya, Tokyo JP",
+        "rating": 4.8,
+        "stake":200,
+        "stake_time": "11/04/2018",
+      }
+    },
+    "rating": 4.6,
+    "duration": 8.3,
+  },
+{
+    "key": "2",
+    "city": "San Francisco",
+    "title": "Love & Haight",
+    "month": "March 2018",
+    "footprints": {
+      "1": {
+        "title": "Wasteland Thrift Shop",
+        "Address":"1660 Haight Street, San Francisco CA",
+        "rating": 4.6,
+        "stake":"N/A",
+        "stake_time": "N/A",
+      },
+      "2": {
+        "title": "The Booksmith",
+        "Address":"1644 Haight Street, San Francisco CA",
+        "rating": 4.9,
+        "stake":200,
+        "stake_time": "3/24/2018",
+      },
+      "3": {
+        "title": "Cha Cha Cha",
+        "Address":"1801 Haight Street, San Francisco CA",
+        "rating": 4.7,
+        "stake":100,
+        "stake_time": "3/24/2018",
+      },
+      "3": {
+        "title": "Murio's Trophy Room",
+        "Address":"1811 Haight Street, San Francisco CA",
+        "rating": 4.7,
+        "stake":100,
+        "stake_time": "3/24/2018",
+      },
+    },
+    "rating": 4.8,
+    "duration": 6.3,
+  },
+  {
+      "key": "3",
+      "city": "Los Angeles",
+      "title": "Up and Down",
+      "month": "July 2017",
+      "footprints": {
+        "1": {
+          "title": "Venice Beach Shopping",
+          "Address":"Abbot Kinney Blvd, Los Angeles CA",
+          "rating": 4.9,
+          "stake":100,
+          "stake_time": "07/14/2017",
+        },
+        "2": {
+          "title": "Griffith Observatory",
+          "Address":"2800 E Observatory Road, Los Angeles CA",
+          "rating": 4.6,
+          "stake":"N/A",
+          "stake_time": "N/A",
+        },
+        "3": {
+          "title": "Runyon Canyon Park",
+          "Address":"2000 N Fuller Boulevard, Los Angeles CA",
+          "rating": 4.8,
+          "stake":200,
+          "stake_time": "07/14/2017",
+        },
+        "3": {
+          "title": "Perch",
+          "Address":"448 S Hill Street, Los Angeles CA",
+          "rating": 4.7,
+          "stake":"N/A",
+          "stake_time": "N/A",
+        }
+      },
+      "rating": 4.7,
+      "duration": 8.1,
+    },
+    {
+        "key": "4",
+        "city": "London",
+        "title": "Dining Light",
+        "month": "February 2017",
+        "footprints": {
+          "1": {
+            "title": "Chez Clarisse",
+            "Address":"8th Ln, Accra, Ghana",
+            "rating": 4.7,
+            "stake":"N/A",
+            "stake_time": "N/A",
+          },
+          "2": {
+            "title": "James Town Lighthouse",
+            "Address":"Cleland Road, Accra, Ghana",
+            "rating": 4.9,
+            "stake":100,
+            "stake_time": "2/21/2017",
+          }
+        },
+        "rating": 4.7,
+        "duration": 3.2,
+      },
+      {
+          "key": "5",
+          "city": "Sydney",
+          "title": "Beaches and Trees",
+          "month": "August 2016",
+          "footprints": {
+            "1": {
+              "title": "Bondi Beach",
+              "Address":"Bondi Pavillion, Sydney, Australia",
+              "rating": 4.8,
+              "stake":"N/A",
+              "stake_time": "N/A",
+            },
+            "2": {
+              "title": "Floating Forest",
+              "Address":"Olympic Park, Sydney, Australia",
+              "rating": 4.9,
+              "stake":100,
+              "stake_time": "08/18/2016",
+            }
+          },
+          "rating": 4.7,
+          "duration": 3.2,
+        }
+]
