@@ -32,6 +32,17 @@ export default class HistoryScreen extends React.Component {
       this._onValueChange = this._onValueChange.bind(this);
   }
 
+  checkDuration(rambl){
+    return rambl.duration < this.state.hour + this.state.minute / 60;
+  }
+  getMyRambls(){
+    return this.props.screenProps.past_rambls.filter(this.checkDuration);
+  }
+
+  getFriendsRambls(){
+    return this.props.screenProps.friends_rambls.filter(this.checkDuration);
+  }
+
   _onValueChange(value){
     this.setState({value: value});
     console.log(value);
@@ -45,12 +56,18 @@ export default class HistoryScreen extends React.Component {
     var currentView = null;
     if(this.state.value === "My Rambls"){
       currentView = (
-        <Text>MY RAMBLES</Text>
+        <FlatList
+          data={this.getMyRambls()}
+          renderItem={({item}) => <Text>{item.title}</Text>}
+        />
       )
     }
     if(this.state.value === "Friends\' Rambls"){
       currentView = (
-        <Text>YO RAMBLES</Text>
+        <FlatList
+          data={this.getFriendsRambls()}
+          renderItem={({item}) => <Text>{item.title}</Text>}
+        />
       )
     }
     return (

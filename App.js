@@ -5,6 +5,8 @@ import AppNavigator from './navigation/AppNavigator';
 
 var rambls = require('./data/rambls');
 var users = require('./data/users');
+var friends_rambls = require('./data/friends_rambls');
+var past_rambls = require('./data/past_rambls');
 
 export default class App extends React.Component {
   constructor(props){
@@ -35,7 +37,9 @@ export default class App extends React.Component {
         setGlobalState: this.setGlobalState,
         globalState: this.state,
         rambls: rambls,
-        users, users,
+        users: users,
+        friends_rambls: friends_rambls,
+        past_rambls: past_rambls,
       };
       return (
         <View style={styles.container}>
