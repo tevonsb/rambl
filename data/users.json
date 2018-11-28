@@ -1,0 +1,65 @@
+[
+  {
+    "key": "1",
+    "rambls": [1, 3, 4],
+    "username": "Amanda",
+    "cities": ["San Francisco", "Los Angeles"],
+    "points": 200
+  },
+  {
+    "key": "2",
+    "rambls": [2, 4, 5],
+    "username": "Clare",
+    "cities": ["London", "Sydney"],
+    "points": 300
+  },
+  {
+    "key": "3",
+    "rambls": [2, 3, 4],
+    "username": "Kally",
+    "cities": ["Los Angeles", "Tokyo"],
+    "points": 300
+  },
+  {
+    "key": "4",
+    "rambls": [1, 3, 4],
+    "username": "Tevon",
+    "cities": ["San Francisco", "Los Angeles"],
+    "points": 200
+  },
+  {
+    "key": "5",
+    "rambls": [2, 4, 5],
+    "username": "Sam",
+    "cities": ["London", "Sydney"],
+    "points": 300
+  },
+  {
+    "key": "6",
+    "rambls": [2, 3, 4],
+    "username": "Sansa",
+    "cities": ["Los Angeles", "Tokyo"],
+    "points": 300
+  },
+  {
+    "key": "7",
+    "rambls": [1, 3, 4],
+    "username": "Aria",
+    "cities": ["San Francisco", "Los Angeles"],
+    "points": 200
+  },
+  {
+    "key": "8",
+    "rambls": [2, 4, 5],
+    "username": "Brandon",
+    "cities": ["London", "Sydney"],
+    "points": 300
+  },
+  {
+    "key": "9",
+    "rambls": [2, 3, 4],
+    "username": "Rickon",
+    "cities": ["Los Angeles", "Tokyo"],
+    "points": 300
+  }
+]

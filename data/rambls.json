@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "1":{
     "title": "Lunch at Dishoom and walk in Regent's Park",
@@ -74,25 +75,108 @@
 
 
    "1":{
+=======
+[{
+    "key": "1",
+>>>>>>> 13e37e6b90fc6d6f78b05b667c93e0ccaf627fb5
     "title": "Lunch in the Park",
-    "footprints": {
-      "1": {
+    "footprints": [{
         "title": "Dishoom",
         "Address":"222 Moxon Street, London UK",
         "rating": 4.5,
         "stake":200,
-        "stake_time": "2/12/2018",
+        "stake_time": "12/06/2018",
       },
-      "2": {
+      {
         "title": "Regents Park",
         "Address":"222 Moxon Street, London UK",
         "rating": 4.5,
         "stake":200,
-        "stake_time": "2/12/2018",
-      }
+        "stake_time": "12/06/2018",
+      }],
+    "rating": 4.5,
+    "duration": 1,
+  },
+  {
+      "key": "2",
+      "title": "Queen of the East",
+      "footprints": [{
+          "title": "Shoreditch Street Art",
+          "Address":"Shoreditch High Street, London UK",
+          "rating": 4.8,
+          "stake":200,
+          "stake_time": "12/06/2018",
+        },
+        {
+          "title": "Museum of Happiness",
+          "Address":"55 Leonard Street, London UK",
+          "rating": 4.6,
+          "stake":"N/A",
+          "stake_time": "N/A",
+        },
+        {
+          "title": "Queen of Hoxton",
+          "Address":"1 Curtain Road, London UK",
+          "rating": 4.6,
+          "stake":"N/A",
+          "stake_time": "N/A",
+        }],
+      "rating": 4.6,
+      "duration": 1.8,
     },
+<<<<<<< HEAD
     "rating": 4.0,
     "duration": 3.0,
     "cost": 90.0,
   }
 }
+=======
+    {
+        "key": "3",
+        "title": "Get Dialed Up",
+        "footprints": [
+          {
+            "title": "7 Dials Shopping",
+            "Address":"Mercer and Earlham Street Intersection, London, UK",
+            "rating": 4.8,
+            "stake":200,
+            "stake_time": "12/06/2018",
+          },
+          {
+            "title": "Cafe Nero",
+            "Address":"30 Monmouth Street, London UK",
+            "rating": 4.6,
+            "stake":"N/A",
+            "stake_time": "N/A",
+          }],
+        "rating": 4.7,
+        "duration": 1.5,
+      },
+    {
+        "key": "4",
+        "title": "Where's Banksy?",
+        "footprints": [{
+            "title": "Falling Shopper",
+            "Address":"Bruton Street, London, UK",
+            "rating": 4.9,
+            "stake":200,
+            "stake_time": "12/06/2018",
+          },{
+            "title": "Always Fall",
+            "Address":"Farrington Road, London UK",
+            "rating": 4.6,
+            "stake":"N/A",
+            "stake_time": "N/A",
+          },{
+            "title": "Cash Machine",
+            "Address":"Rosebury Avenue, London UK",
+            "rating": 4.2,
+            "stake":"N/A",
+            "stake_time": "N/A",
+          }],
+        "rating": 4.4,
+        "duration": 3,
+      }
+
+]
+>>>>>>> 13e37e6b90fc6d6f78b05b667c93e0ccaf627fb5
