@@ -16,6 +16,7 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import RamblDetailComponent from './RamblDetailScreen.js'
+import LoadingScreenComponent from './LoadingScreen.js'
 
 
 export default class HistoryScreen extends React.Component {
@@ -68,6 +69,7 @@ export default class HistoryScreen extends React.Component {
     if(this.state.currentView === "selected"){
       return (
         <RamblDetailComponent rambl={this.state.currentRambl}/>
+      //  <LoadingScreenComponent></LoadingScreenComponent>
       )
     }if(this.state.currentView == "unselected"){
       if(this.state.value === "My Rambls"){
