@@ -11,6 +11,7 @@ import {
   FlatList,
 } from 'react-native';
 import { MapView } from 'expo';
+import RamblDetailComponent from './RamblDetailScreen.js'
 
 export default class CurrentScreen extends React.Component {
   static navigationOptions = {
@@ -43,7 +44,19 @@ export default class CurrentScreen extends React.Component {
       getRambls(){
         return this.props.screenProps.rambls.filter(this.checkDuration);
       }
+
+      handleRamblPress(rambl){
+        this.setState({
+          currentRambl: rambl,
+          currentView: "selected",
+        });
+      }
       getComponentForState(){
+        if(this.state.currentView === "selected"){
+          return (
+            <RamblDetailComponent rambl={this.state.currentRambl}/>
+          )
+        }
         if(this.state.currentView === "choose"){
           return (
             <View
@@ -72,7 +85,7 @@ export default class CurrentScreen extends React.Component {
               <View style={{flex: 1, padding: 22}}>
                 <FlatList
                   data={this.getRambls()}
-                  renderItem={({item}) => <Text>{item.title}</Text>}
+                  renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}
                 />
               </View>
             </View>

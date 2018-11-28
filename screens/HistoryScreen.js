@@ -40,7 +40,7 @@ export default class HistoryScreen extends React.Component {
     return rambl.duration < this.state.hour + this.state.minute / 60;
   }
   getMyRambls(){
-    return this.props.screenProps.past_rambls.filter(this.checkDuration);
+    return this.props.screenProps.past_rambls;
   }
 
   getFriendsRambls(){
