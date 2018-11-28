@@ -21,7 +21,7 @@ export default class ProfileScreen extends React.Component {
     return (
       <View style={{flex:1}}>
       <Text>{this.props.screenProps.globalState.testText}</Text>
-      <Text>Kally's Push</Text>
+      <Text>{this.props.screenProps.globalState.username}</Text>
       </View>
     );
   }
