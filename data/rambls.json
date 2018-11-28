@@ -1,84 +1,5 @@
-<<<<<<< HEAD
-{
-  "1":{
-    "title": "Lunch at Dishoom and walk in Regent's Park",
-    "footprints": {
-      "1": {
-        "title": "Dishoom",
-        "Address":"222 Moxon Street, London UK",
-        "rating": 4.5,
-        "stake":200,
-        "stake_time": "2/12/2018",
-      },
-      "2": {
-        "title": "Regents Park",
-        "Address":"40 Regent's, London UK",
-        "rating": 4.5,
-        "stake":200,
-        "stake_time": "2/12/2018",
-      }
-    },
-    "rating": 4.0,
-    "duration":3.0,
-    "cost": 90.0,
-  },
-
-
-
-   "2":{
-    "title": "The National Gallery and a Light Lunch",
-    "footprints": {
-      "1": {
-        "title": "Regents Park",
-        "Address":"222 Moxon Street, London UK",
-        "rating": 4.5,
-        "stake":200,
-        "stake_time": "2/12/2018",
-      },
-      "2": {
-        "title": "Dishoom",
-        "Address":"222 Moxon Street, London UK",
-        "rating": 4.5,
-        "stake":200,
-        "stake_time": "2/12/2018",
-      }
-    },
-    "rating": 4.0,
-    "duration": 2.5,
-    "cost": 90.0,
-  },
-
-   "3":{
-    "title": "Lunch at the Carnaby Food Festival and walk in Regents Park",
-    "footprints": {
-      "1": {
-        "title": "Dishoom",
-        "Address":"222 Moxon Street, London UK",
-        "rating": 4.5,
-        "stake":200,
-        "stake_time": "2/12/2018",
-      },
-      "2": {
-        "title": "Regents Park",
-        "Address":"222 Moxon Street, London UK",
-        "rating": 4.5,
-        "stake":200,
-        "stake_time": "2/12/2018",
-      }
-    },
-    "rating": 4.0,
-    "duration": 3.0,
-    "cost": 90.0,
-  },
-
-
-
-
-   "1":{
-=======
 [{
     "key": "1",
->>>>>>> 13e37e6b90fc6d6f78b05b667c93e0ccaf627fb5
     "title": "Lunch in the Park",
     "footprints": [{
         "title": "Dishoom",
@@ -124,13 +45,6 @@
       "rating": 4.6,
       "duration": 1.8,
     },
-<<<<<<< HEAD
-    "rating": 4.0,
-    "duration": 3.0,
-    "cost": 90.0,
-  }
-}
-=======
     {
         "key": "3",
         "title": "Get Dialed Up",
@@ -178,4 +92,3 @@
         "duration": 3,
       }
 ]
->>>>>>> 13e37e6b90fc6d6f78b05b667c93e0ccaf627fb5
