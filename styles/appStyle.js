@@ -3,7 +3,7 @@ import {
 } from 'react-native';
 
 
-export default styles =StyleSheet.create({
+export default globalStyles = StyleSheet.create({
   container: {
 
   },
@@ -18,5 +18,8 @@ export default styles =StyleSheet.create({
   },
   listItem: {
 
+  },
+  test: {
+    backgroundColor: '#FFFFFF',
   }
 });
