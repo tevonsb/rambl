@@ -13,8 +13,9 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isLoadingComplete: false,
-      testText: "",
+      // testText: "",
       //Add additional state variables here
+      points: "200",
       username: "Amanda",
       location: "London"
     };
