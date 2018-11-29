@@ -42,7 +42,21 @@ export default class RamblDetailComponent extends React.Component {
   displayFollow(){
     if(this.props.rambl.city ==="London"){
       return(
+<<<<<<< HEAD
         <Button title = "Follow Rambl"/>
+=======
+        <View style = {{flex: 1,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between'}}>
+        <View style = {{flex: 1}}>
+          <Button title = "Cancel"/>
+          </View>
+        <View style = {{flex: 1}}>
+          <Button title = "Follow"/>
+          </View>
+       </View>
+>>>>>>> b4af19eed0244322444ef2b263622bc3b4afa7b1
       );
     }
   }

@@ -7,13 +7,15 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  Button,
   View
 } from 'react-native';
 
 import RamblDetailComponent from './RamblDetailScreen.js';
 import HistoryDetailComponent from './HistoryScreen.js';
+import {Icon} from 'react-native-elements'
 
-export default class LoadingScreenComponent extends React.Component {
+export default class ContinueRambleComponent extends React.Component {
   constructor(props){
     super(props);
     // this.state = {
@@ -39,9 +41,9 @@ export default class LoadingScreenComponent extends React.Component {
      * content, we just wanted to give you a quick view of your config */
     return (
       <View style={{flex:1}}>
+      <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
       <Image source={require('../data/loading.gif')} />
-      <Text style={this.props.screenProps.globalStyle.message}>Generating your Rambl! Sit tight.</Text>
-      </View>
+       </View>
     );
   }
 }
