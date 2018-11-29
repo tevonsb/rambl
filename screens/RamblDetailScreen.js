@@ -12,6 +12,7 @@ import {
 import FootprintDetailComponent from './FootprintDetailScreen.js'
 
 export default class RamblDetailComponent extends React.Component {
+
   constructor(props){
     super(props);
   }
