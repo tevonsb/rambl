@@ -23,10 +23,10 @@ export default class ProfileScreen extends React.Component {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
     return (
-      <View style={{flex:1}}>
-      <Text style={this.props.screenProps.getStyleSheet(this.props.screenProps.globalStyle.test, style.test)} >Username: {this.props.screenProps.globalState.username}</Text>
-      <Text>Current Location: {this.props.screenProps.globalState.location}</Text>
-      <Text>Points: {this.props.screenProps.globalState.points}</Text>
+      <View style={this.props.screenProps.globalStyle.view}>
+      <Text style={this.props.screenProps.globalStyle.message} >Username: {this.props.screenProps.globalState.username}</Text>
+      <Text style={this.props.screenProps.globalStyle.message}>Current Location: {this.props.screenProps.globalState.location}</Text>
+      <Text style={this.props.screenProps.globalStyle.message}>Points: {this.props.screenProps.globalState.points}</Text>
       </View>
     );
   }
