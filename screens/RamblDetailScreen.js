@@ -25,6 +25,17 @@ export default class RamblDetailComponent extends React.Component {
     });
   }
 
+  displayFootprints(){
+    return this.props.rambl.footprints.map((footprint, index) => {
+      return ( <MapView.Marker key = {index.toString()}
+          coordinate = {{latitude: (this.props.rambl.latitude)+Math.random()*(.00799901),
+          longitude: (this.props.rambl.longitude)+Math.random()*(.0089999)}}
+          title = {footprint.title}
+          image = {marker}
+          />);
+    });
+  }
+
   render() {
     return (
       <View style={{flex:1}}>
@@ -33,22 +44,12 @@ export default class RamblDetailComponent extends React.Component {
         initialRegion={{
           latitude: this.props.rambl.latitude,
           longitude: this.props.rambl.longitude,
-          latitudeDelta: .05,
-          longitudeDelta: .05,
+          latitudeDelta: .015,
+          longitudeDelta: .015,
         }}
+        showBuildings = {true}
       >
-      <MapView.Marker
-          coordinate = {{latitude: 51.5387718,
-          longitude: -0.2416814}}
-          title = {"Dishoom"}
-          image = {marker}
-          />
-          <MapView.Marker
-              coordinate = {{latitude: 51.5087200,
-              longitude: -0.2116604}}
-              title = {"Regent's Park"}
-              image = {marker}
-              />
+      {this.displayFootprints()}
       </MapView>
       <Text style={this.props.screenProps.globalStyle.text}>{this.props.rambl.title}</Text>
       <Text style={this.props.screenProps.globalStyle.text}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>

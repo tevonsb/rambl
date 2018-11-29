@@ -80,20 +80,20 @@ export default class HistoryScreen extends React.Component {
     if (this.state.currentView === "unselected") {
       if (this.state.value === "My Rambls") {
         displayView = (
-          <View style={{ flex: 1, padding: 22 }}>
+          <View style={this.props.screenProps.globalStyle.view}>
             <FlatList
               data={this.getMyRambls()}
-              renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}/>
+              renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}/>
               </View>
             )
           }
         if(this.state.value === "Friends\' Rambls"){
           console.log(this.getMyLocation());
           displayView = (
-            <View style={{flex: 1, padding: 22}}>
+            <View  style={this.props.screenProps.globalStyle.view}>
               <FlatList
                 data={this.getFriendsRambls()}
-                renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{this.getMyLocation()==item.city ? item.title: ""}</Text>}/>
+                renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{this.getMyLocation()==item.city ? item.title: ""}</Text>}/>
                 </View>
               )
             }
@@ -102,7 +102,7 @@ export default class HistoryScreen extends React.Component {
           <View>
             <SegmentedControlIOS
               style = {{opacity: 80,height: 50}}
-              tintColor="#00E7FF"
+              tintColor="#54bad0"
               values={this.state.values}
               selectedIndex={this.state.selectedIndex}
               onChange={this._onChange}
@@ -116,13 +116,13 @@ export default class HistoryScreen extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: "#fff"
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     paddingTop: 15,
+//     backgroundColor: "#fff"
+//   }
+// });
 
 // const styles = StyleSheet.create({
 //   container: {
