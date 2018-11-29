@@ -19,28 +19,29 @@ export default globalStyles = StyleSheet.create({
   },
   text: {
     color: '#FFFFFF',
-    // fontWeight: 'bold',
     fontSize: 20,
-    textAlign: 'center',
-    // text-align: center;
   },
   body: {
-    // color: 'blue',
-    // fontWeight: 'bold',
     fontSize: 20,
-    // textAlign: 'center',
-
   },
-  list: {
-
-  },
-  listItem: {
-
-  },
+  // list: {
+  // },
+  // listItem: {
+  // },
   view:{
-    backgroundColor: "#686666"
+    backgroundColor: "#686666",
+    flex:1,
   },
   test: {
     backgroundColor: '#FFFFFF',
+  },
+  footprintlist:{
+    flex:1,
+    flexDirection: 'row',
+    backgroundColor: "#686666",
+  },
+  footprintitem:{
+    color: '#FFFFFF',
+    fontSize: 20,
   }
 });

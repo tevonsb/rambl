@@ -24,10 +24,10 @@ export default class FootprintDetailComponent extends React.Component {
      // map of this rambl
 
     return (
-      <View style={{flex:1, flexDirection: 'row'}}>
-      <Text>{this.props.footprint.title}</Text>
-      <Text>{this.props.footprint.rating}</Text>
-      <Text>This is a footprint</Text>
+      <View style={this.props.screenProps.globalStyle.footprintlist}>
+      <Text style={this.props.screenProps.globalStyle.footprintitem}>{this.props.footprint.title}</Text>
+      <Text style={this.props.screenProps.globalStyle.footprintitem}>{this.props.footprint.rating}</Text>
+      <Text style={this.props.screenProps.globalStyle.footprintitem}>This is a footprint</Text>
       </View>
     );
   }

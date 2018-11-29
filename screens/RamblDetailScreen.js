@@ -19,7 +19,7 @@ export default class RamblDetailComponent extends React.Component {
   getFootprints(){
     console.log(this.props.rambl.footprints);
     return this.props.rambl.footprints.map((footprint, index) => {
-      return (<FootprintDetailComponent key={index.toString()} footprint={footprint}/>);
+      return (<FootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props}/>);
     });
   }
 
@@ -32,8 +32,9 @@ export default class RamblDetailComponent extends React.Component {
      // map of this rambl
      console.log(this.props.screenProps);
     return (
-      <View style={{flex:1}}>
-      <Text style={this.props.screenProps.globalStyle.text}>{this.props.rambl.title}</Text>
+      // <View style={{flex:1}}>
+      <View style={this.props.screenProps.globalStyle.view}>
+      <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
       <Text style={this.props.screenProps.globalStyle.text}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
       <Text style={this.props.screenProps.globalStyle.text}>Footprints (Locations) in this Rambl</Text>
       {this.getFootprints()}
