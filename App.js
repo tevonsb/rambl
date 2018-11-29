@@ -93,13 +93,17 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          <View>
+          <View styles={{
+              justifyContent: "center",
+              width: Dimensions.get('window').width}}>
             <Text
               style={{
                 backgroundColor: "#FFF",
-                width: Dimensions.get('window').width,
-                padding: 20}}
-              >Fake Title</Text>
+                paddingTop: 35,
+                paddingBottom: 20,
+                fontSize: 25,
+                }}
+              >{this.activeScreen}</Text>
           </View>
           {this.state.screens[this.state.activeScreen]}
           <TabNavigator
@@ -113,12 +117,20 @@ export default class App extends React.Component {
               bottom: 0,
               backgroundColor: "#FFF",
             }}
+            activeStyle={{
+              padding: 10,
+              color: 'blue',
+            }}
+            tabStyle={{
+              padding: 10,
+            }}
             tabs={[
               {title: "History"},
               {title: "Current"},
               {title: "Profile"},
             ]}
             onPress={this.handleTabPress}
+            activeTab={this.state.activeScreen}
             />
         </View>
       );
