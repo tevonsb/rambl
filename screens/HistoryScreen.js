@@ -8,15 +8,16 @@ import {
   TouchableOpacity,
   View,
   Button,
-  SegmentedControlIOS,
   FlatList,
-  Picker
+  Picker,
+  Dimensions,
 } from "react-native";
 import { WebBrowser } from "expo";
 import { MapView } from "expo";
 import { MonoText } from "../components/StyledText";
 import RamblDetailComponent from "./RamblDetailScreen.js";
 import LoadingScreenComponent from "./LoadingScreen.js";
+import TabNavigator from "../navigation/TabNavigator";
 
 export default class HistoryScreen extends React.Component {
   static navigationOptions = {
@@ -113,13 +114,24 @@ export default class HistoryScreen extends React.Component {
       return (
         <View style={{ flex: 1 }}>
           <View>
-            <SegmentedControlIOS
-              style = {{opacity: 80,height: 50}}
-              tintColor="#54bad0"
-              values={this.state.values}
-              selectedIndex={this.state.selectedIndex}
-              onChange={this._onChange}
-              onValueChange={this._onValueChange}
+            <TabNavigator
+              style = {{
+                justifyContent: 'space-evenly',
+                height: 50,
+                width: Dimensions.get('window').width,
+                flexDirection: "row",
+                backgroundColor: "#FFF",}}
+              tabStyle = {{
+              }}
+              activeStyle = {{
+                color: 'blue',
+              }}
+              tabs={[
+                {title: "My Rambls"},
+                {title: "Friends\' Rambls"}
+              ]}
+              onPress={this._onValueChange}
+              activeTab={this.state.value}
             />
           </View>
           {displayView}
