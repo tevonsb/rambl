@@ -24,7 +24,6 @@ export default class ProfileScreen extends React.Component {
      * content, we just wanted to give you a quick view of your config */
     return (
       <View style={{flex:1}}>
-      <Text>{this.props.screenProps.globalState.testText}</Text>
       <Text>Username: {this.props.screenProps.globalState.username}</Text>
 
 

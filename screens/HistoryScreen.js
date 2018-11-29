@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Image,
   Platform,
@@ -77,8 +76,7 @@ export default class HistoryScreen extends React.Component {
     var displayView = null;
     if(this.state.currentView === "selected"){
       return (
-      //  <RamblDetailComponent rambl={this.state.currentRambl}/>
-        <LoadingScreenComponent> </LoadingScreenComponent>
+        <RamblDetailComponent rambl={this.state.currentRambl}/>
       )
     }
     if(this.state.currentView === "unselected"){
