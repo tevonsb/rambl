@@ -11,14 +11,14 @@ export default styles =StyleSheet.create({
 
   },
   header: {
-    color: 'FFFFFF',
+    color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 30,
     textAlign: 'center',
     // text-align: center;
   },
   text: {
-    color: 'FFFFFF',
+    color: '#FFFFFF',
     // fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center',
