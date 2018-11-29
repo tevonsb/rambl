@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {MapView} from 'expo';
 import FootprintDetailComponent from './FootprintDetailScreen.js'
 
 export default class RamblDetailComponent extends React.Component {
@@ -24,15 +25,28 @@ export default class RamblDetailComponent extends React.Component {
   }
 
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-     // Other info to add
-     // Friends who have gone on this rambl
-     // Current Stake on this rambl
-     // map of this rambl
-     console.log(this.props.screenProps);
     return (
       <View style={{flex:1}}>
+      <MapView
+      style={{ flex: 1 }}
+        initialRegion={{
+          latitude: 51.5174,
+          longitude: -.1278,
+          latitudeDelta: .05,
+          longitudeDelta: .05,
+        }}
+      >
+      <MapView.Marker
+          coordinate = {{latitude: 51.5124224,
+          longitude: -.1270143}}
+          title = {"Dishoom"}
+          />
+          <MapView.Marker
+              coordinate = {{latitude: 51.5312705,
+              longitude: -.1591581}}
+              title = {"Regent's Park"}
+              />
+      </MapView>
       <Text style={this.props.screenProps.globalStyle.text}>{this.props.rambl.title}</Text>
       <Text style={this.props.screenProps.globalStyle.text}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
       <Text style={this.props.screenProps.globalStyle.text}>Footprints (Locations) in this Rambl</Text>
