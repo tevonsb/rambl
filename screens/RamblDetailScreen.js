@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  Button,
   View,
 } from 'react-native';
 import {MapView} from 'expo';
@@ -29,11 +30,22 @@ export default class RamblDetailComponent extends React.Component {
     return this.props.rambl.footprints.map((footprint, index) => {
       return ( <MapView.Marker key = {index.toString()}
           coordinate = {{latitude: (this.props.rambl.latitude)+Math.random()*(.00799901),
-          longitude: (this.props.rambl.longitude)+Math.random()*(.0089999)}}
+          longitude: (this.props.rambl.longitude)+Math.random()*(.00899901)}}
           title = {footprint.title}
           image = {marker}
           />);
     });
+  }
+
+  displayFollow(){
+    if(this.props.rambl.city ==="London"){
+      return(
+        
+        <Button
+          title = "Follow Rambl"
+        />
+      );
+    }
   }
 
   render() {
@@ -55,6 +67,7 @@ export default class RamblDetailComponent extends React.Component {
       <Text style={this.props.screenProps.globalStyle.text}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
       <Text style={this.props.screenProps.globalStyle.text}>Footprints (Locations) in this Rambl</Text>
       {this.getFootprints()}
+      {this.displayFollow()}
       </View>
     );
   }

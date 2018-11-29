@@ -38,6 +38,8 @@ export default class HistoryScreen extends React.Component {
     this.getMyLocation = this.getMyLocation.bind(this); // added this
     this.getFriendsRambls = this.getFriendsRambls.bind(this);
     this.handleRamblPress = this.handleRamblPress.bind(this);
+    this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
+    this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
   }
 
   getMyRambls() {
@@ -55,6 +57,14 @@ export default class HistoryScreen extends React.Component {
 
   getFriendsRambls() {
     return this.props.screenProps.friends_rambls;
+  }
+
+  getFriendsRamblsMyLocation(){
+      return this.props.screenProps.friends_rambls.filter(friend_rambl => friend_rambl.city == this.props.screenProps.globalState.location);
+  }
+
+  getFriendsRamblsNotMyLocation(){
+      return this.props.screenProps.friends_rambls.filter(friend_rambl => friend_rambl.city != this.props.screenProps.globalState.location);
   }
 
   _onValueChange(value) {
@@ -87,22 +97,40 @@ export default class HistoryScreen extends React.Component {
               </View>
             )
           }
-        if(this.state.value === "Friends\' Rambls"){
-          console.log(this.getMyLocation());
-          displayView = (
-            <View  style={this.props.screenProps.globalStyle.view}>
-              <FlatList
-                data={this.getFriendsRambls()}
-                renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{this.getMyLocation()==item.city ? item.title: ""}</Text>}/>
-                </View>
-              )
-            }
+          if(this.state.value === "Friends\' Rambls"){
+            console.log(this.getMyLocation());
+            displayView = (
+              <View  style={this.props.screenProps.globalStyle.view}>
+                <Text style={this.props.screenProps.globalStyle.message}> Friends' Rambls in Your Location </Text>
+                <FlatList
+                  data={this.getFriendsRamblsMyLocation()}
+                  renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}/>
+                <Text style={this.props.screenProps.globalStyle.message}> All Friends' Rambls </Text>
+                <FlatList
+                  data={this.getFriendsRamblsNotMyLocation()}
+                  renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}/>
+                  </View>
+                )
+              }
+        // if(this.state.value === "Friends\' Rambls"){
+        //   displayView = (
+        //     <View  style={this.props.screenProps.globalStyle.view}>
+        //       <FlatList
+        //         data={this.getFriendsRambls()}
+        //         renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{this.getMyLocation()==item.city ? item.title: ""}</Text>}/>
+        //         </View>
+        //       )
+        //     }
       return (
         <View style={{ flex: 1 }}>
           <View>
             <SegmentedControlIOS
               style = {{opacity: 80,height: 50}}
               tintColor="#54bad0"
+              segmentedStyle={{
+                fontSize: 17,
+                fontWeight: 'bold',
+              }}
               values={this.state.values}
               selectedIndex={this.state.selectedIndex}
               onChange={this._onChange}
