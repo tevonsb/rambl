@@ -17,6 +17,7 @@ import { MapView } from "expo";
 import { MonoText } from "../components/StyledText";
 import RamblDetailComponent from "./RamblDetailScreen.js";
 import LoadingScreenComponent from "./LoadingScreen.js";
+import RamblLoadedComponent from "./RamblLoaded.js"
 
 export default class HistoryScreen extends React.Component {
   static navigationOptions = {
@@ -98,7 +99,8 @@ export default class HistoryScreen extends React.Component {
   render() {
     var displayView = null;
     if (this.state.currentView === "selected") {
-      return <RamblDetailComponent rambl={this.state.currentRambl} {...this.props} />;
+      //return <RamblDetailComponent rambl={this.state.currentRambl} {...this.props} />;
+      return <RamblLoadedComponent {...this.props} />;
     }
     if (this.state.currentView === "unselected") {
       if (this.state.value === "My Rambls") {
