@@ -60,32 +60,39 @@ export default class CurrentScreen extends React.Component {
         if(this.state.currentView === "choose"){
           return (
             <View
-              style={{flex: 1}}
+              style={this.props.screenProps.globalStyle.view}
               >
-              <Text>How long do you have to spend?</Text>
+              <Text style={this.props.screenProps.globalStyle.message}>How long do you have to spend?</Text>
               <View style={{flex: 1, flexDirection: 'row'}}>
-                <Text>Hours</Text>
+
                 <Picker
                   selectedValue={this.state.hour}
-                  style={{ height: 50, width: 100 }}
+
+                  hideUnderline
+                  showSearch
+                  searchPlaceholder={'Search a language'}
+                  itemTextStyle={{ color: 'white' }}
+                  style={{height: 100, width: 50, color: "white", marginLeft: 40,}}
                   onValueChange={(itemValue, itemIndex) => this.setState({hour: itemValue})}
                   >
                   {this.getPickerHours()}
                 </Picker>
-                <Text>Minutes</Text>
+                <Text style={this.props.screenProps.globalStyle.picker} >Hours</Text>
+
                 <Picker
+                  style={{height: 100, width: 50, color: "white"}}
                   selectedValue={this.state.minute}
                   onValueChange={(itemValue, itemIndex) => this.setState({minute: itemValue})}
-                  style={{ height: 50, width: 100 }}
                   >
                   {this.getPickerMinutes()}
                 </Picker>
+                <Text style={this.props.screenProps.globalStyle.picker} >Minutes</Text>
               </View>
-              <Text>Your Rambl is currently for {this.state.hour} and {this.state.minute} minutes.</Text>
-              <View style={{flex: 1, padding: 22}}>
+              <Text style={this.props.screenProps.globalStyle.message}>Your Rambl is currently for {this.state.hour} hour and {this.state.minute} minutes.</Text>
+              <View style={{flex: 1}}>
                 <FlatList
                   data={this.getRambls()}
-                  renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}
+                  renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}
                 />
               </View>
             </View>

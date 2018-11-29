@@ -9,7 +9,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {MapView} from 'expo';
 import FootprintDetailComponent from './FootprintDetailScreen.js'
+import marker from '../assets/images/marker.png'
 
 export default class RamblDetailComponent extends React.Component {
 
@@ -24,18 +26,33 @@ export default class RamblDetailComponent extends React.Component {
     });
   }
 
+  displayFootprints(){
+    return this.props.rambl.footprints.map((footprint, index) => {
+      return ( <MapView.Marker key = {index.toString()}
+          coordinate = {{latitude: (this.props.rambl.latitude)+Math.random()*(.00799901),
+          longitude: (this.props.rambl.longitude)+Math.random()*(.0089999)}}
+          title = {footprint.title}
+          image = {marker}
+          />);
+    });
+  }
+
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-     // Other info to add
-     // Friends who have gone on this rambl
-     // Current Stake on this rambl
-     // map of this rambl
-     console.log(this.props.screenProps);
     return (
-      // <View style={{flex:1}}>
-      <View style={this.props.screenProps.globalStyle.view}>
-      <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
+      <View style={{flex:1}}>
+      <MapView
+      style={{ flex: 1 }}
+        initialRegion={{
+          latitude: this.props.rambl.latitude,
+          longitude: this.props.rambl.longitude,
+          latitudeDelta: .015,
+          longitudeDelta: .015,
+        }}
+        showBuildings = {true}
+      >
+      {this.displayFootprints()}
+      </MapView>
+      <Text style={this.props.screenProps.globalStyle.text}>{this.props.rambl.title}</Text>
       <Text style={this.props.screenProps.globalStyle.text}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
       <Text style={this.props.screenProps.globalStyle.text}>Footprints (Locations) in this Rambl</Text>
       {this.getFootprints()}
