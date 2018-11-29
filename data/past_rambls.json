@@ -3,6 +3,8 @@
     "city": "Tokyo",
     "title": "Rise and Shrine",
     "month": "November 2018",
+    "latitude": 35.6735408,
+    "longitude": 139.5703032,
     "footprints": [{
         "title": "Asakusa Shrine",
         "Address":"2 Chrome-3-1, Asakusa, Tokyo JP",
@@ -30,6 +32,8 @@
     "city": "Barcelona",
     "title": "Let's Get Gaudi",
     "month": "June 2018",
+    "latitude":41.3948976,
+    "longitude":2.0787279,
     "footprints": [{
         "title": "La Alcoba Azul",
         "Address":"Carrer de Salomó Ben Adret, 14, Barcelona SP",
@@ -51,6 +55,8 @@
       "city": "Buenos Aires",
       "title": "Arts Appreciation",
       "month": "October 2017",
+      "latitude":-34.6156625,
+      "longitude":-58.5033383,
       "footprints": [{
           "title": "Desnivel",
           "Address":"Defensa 855, C1065 AAO, Buenos Aires, AG",
@@ -77,6 +83,8 @@
         "key": "4",
         "city": "Accra",
         "title": "Dining Light",
+        "latitude": 5.5913754,
+        "longitude": -0.24977,
         "month": "February 2017",
         "footprints": [{
             "title": "Chez Clarisse",

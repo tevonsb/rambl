@@ -1,6 +1,9 @@
 [{
     "key": "1",
     "title": "Lunch in the Park",
+    "city": "London",
+    "latitude": 51.5287718 ,
+    "longitude": -0.2416814,
     "footprints": [{
         "title": "Dishoom",
         "Address":"222 Moxon Street, London UK",
@@ -21,6 +24,9 @@
   {
       "key": "2",
       "title": "Queen of the East",
+      "city": "London",
+      "latitude": 51.5287718 ,
+      "longitude": -0.2416814,
       "footprints": [{
           "title": "Shoreditch Street Art",
           "Address":"Shoreditch High Street, London UK",
@@ -48,6 +54,9 @@
     {
         "key": "3",
         "title": "Get Dialed Up",
+        "city": "London",
+        "latitude": 51.5287718 ,
+        "longitude": -0.2416814,
         "footprints": [
           {
             "title": "7 Dials Shopping",
@@ -69,6 +78,9 @@
     {
         "key": "4",
         "title": "Where's Banksy?",
+        "city": "London",
+        "latitude": 51.5287718 ,
+        "longitude": -0.2416814,
         "footprints": [{
             "title": "Falling Shopper",
             "Address":"Bruton Street, London, UK",

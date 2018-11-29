@@ -31,8 +31,8 @@ export default class RamblDetailComponent extends React.Component {
       <MapView
       style={{ flex: 1 }}
         initialRegion={{
-          latitude: 51.5174,
-          longitude: -.1278,
+          latitude: this.props.rambl.latitude,
+          longitude: this.props.rambl.longitude,
           latitudeDelta: .05,
           longitudeDelta: .05,
         }}

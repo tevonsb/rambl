@@ -3,6 +3,8 @@
     "city": "Tokyo",
     "title": "Rise and Shrine",
     "month": "November 2018",
+    "latitude": 35.6735408,
+    "longitude": 139.5703032,
     "footprints": [{
         "title": "Asakusa Shrine",
         "Address":"2 Chrome-3-1, Asakusa, Tokyo JP",
@@ -30,6 +32,8 @@
     "city": "San Francisco",
     "title": "Love & Haight",
     "month": "March 2018",
+    "latitude": 37.757815,
+    "longitude":-122.5076401,
     "footprints": [{
         "title": "Wasteland Thrift Shop",
         "Address":"1660 Haight Street, San Francisco CA",
@@ -64,6 +68,8 @@
       "city": "Los Angeles",
       "title": "Up and Down",
       "month": "July 2017",
+      "latitude": 34.0207305 ,
+      "longitude":-118.6919209,
       "footprints": [{
           "title": "Venice Beach Shopping",
           "Address":"Abbot Kinney Blvd, Los Angeles CA",
@@ -98,6 +104,8 @@
         "city": "Accra",
         "title": "Dining Light",
         "month": "February 2017",
+        "latitude": 5.5913754,
+        "longitude": -0.24977,
         "footprints": [{
             "title": "Chez Clarisse",
             "Address":"8th Ln, Accra, Ghana",
@@ -120,6 +128,8 @@
           "city": "Sydney",
           "title": "Beaches and Trees",
           "month": "August 2016",
+          "latitude": -33.8473567,
+          "longitude":150.6517901,
           "footprints": [{
               "title": "Bondi Beach",
               "Address":"Bondi Pavillion, Sydney, Australia",
@@ -141,6 +151,8 @@
           "key": "6",
           "city": "London",
           "title": "Markets Are Up",
+          "latitude": 51.5287718,
+          "longitude": -0.2416814,
           "month": "August 2018",
           "footprints": [{
               "title": "Diagon Alley (Leadenhall Market)",
@@ -169,6 +181,8 @@
           "key": "7",
           "city": "London",
           "title": "Hello to the Potter Side",
+          "latitude": 51.5287718 ,
+          "longitude": -0.2416814,
           "month": "October 2018",
           "footprints": [{
               "title": "Diagon Alley (Leadenhall Market)",
@@ -196,6 +210,8 @@
         {
           "key": "8",
           "city": "London",
+          "latitude": 51.5287718 ,
+          "longitude": -0.2416814,
           "title": "Where's Banksy?",
           "month": "November 2016",
           "footprints": [{
