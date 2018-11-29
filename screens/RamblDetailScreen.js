@@ -15,6 +15,7 @@ import FootprintDetailComponent from './FootprintDetailScreen.js'
 import marker from '../assets/images/marker.png'
 
 export default class RamblDetailComponent extends React.Component {
+
   constructor(props){
     super(props);
   }

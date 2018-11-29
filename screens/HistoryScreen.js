@@ -20,7 +20,13 @@ import LoadingScreenComponent from "./LoadingScreen.js";
 
 export default class HistoryScreen extends React.Component {
   static navigationOptions = {
-    title: "Past Rambls"
+    title: "Past Rambls",
+    headerRight: (
+    <Button
+    onPress={() => this.handleBackPress()}
+    title="<"
+    color="#fff"
+  />),
   };
 
   constructor(props) {
@@ -42,6 +48,13 @@ export default class HistoryScreen extends React.Component {
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
   }
 
+  handleBackPress(){
+    if(this.state.currentView === "selected"){
+      this.setState({
+        currentView: "unselected",
+      })
+    }
+  }
   getMyRambls() {
     return this.props.screenProps.past_rambls;
   }
@@ -144,6 +157,15 @@ export default class HistoryScreen extends React.Component {
   }
 }
 
+<<<<<<< HEAD
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 15,
+    backgroundColor: "#fff"
+  }
+});
+=======
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
@@ -241,3 +263,4 @@ export default class HistoryScreen extends React.Component {
 //     color: "#2e78b7"
 //   }
 // });
+>>>>>>> 10b154f08026024e4199ca6f277a3af2b5d4f236
