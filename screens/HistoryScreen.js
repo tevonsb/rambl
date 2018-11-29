@@ -75,7 +75,7 @@ export default class HistoryScreen extends React.Component {
   render() {
     var displayView = null;
     if (this.state.currentView === "selected") {
-      return <RamblDetailComponent rambl={this.state.currentRambl} />;
+      return <RamblDetailComponent rambl={this.state.currentRambl} {...this.props} />;
     }
     if (this.state.currentView === "unselected") {
       if (this.state.value === "My Rambls") {

@@ -30,12 +30,12 @@ export default class RamblDetailComponent extends React.Component {
      // Friends who have gone on this rambl
      // Current Stake on this rambl
      // map of this rambl
-
+     console.log(this.props.screenProps);
     return (
       <View style={{flex:1}}>
-      <Text>{this.props.rambl.title}</Text>
-      <Text>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
-      <Text>Footprints (Locations) in this Rambl</Text>
+      <Text style={this.props.screenProps.globalStyle.text}>{this.props.rambl.title}</Text>
+      <Text style={this.props.screenProps.globalStyle.text}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
+      <Text style={this.props.screenProps.globalStyle.text}>Footprints (Locations) in this Rambl</Text>
       {this.getFootprints()}
       </View>
     );
