@@ -103,7 +103,7 @@ export default class App extends React.Component {
                 paddingBottom: 20,
                 fontSize: 25,
                 }}
-              >{this.activeScreen}</Text>
+              >{this.state.activeScreen}</Text>
           </View>
           {this.state.screens[this.state.activeScreen]}
           <TabNavigator
