@@ -38,14 +38,14 @@ export default class RamblDetailComponent extends React.Component {
         }}
       >
       <MapView.Marker
-          coordinate = {{latitude: 51.5124224,
-          longitude: -.1270143}}
+          coordinate = {{latitude: 51.5387718,
+          longitude: -0.2416814}}
           title = {"Dishoom"}
           image = {marker}
           />
           <MapView.Marker
-              coordinate = {{latitude: 51.5312705,
-              longitude: -.1591581}}
+              coordinate = {{latitude: 51.5087200,
+              longitude: -0.2116604}}
               title = {"Regent's Park"}
               image = {marker}
               />
