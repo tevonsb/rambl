@@ -2,11 +2,13 @@ import React from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
+import globalStyle from "./styles/appStyle.js";
 
 var rambls = require("./data/rambls");
 var users = require("./data/users");
 var friends_rambls = require("./data/friends_rambls");
 var past_rambls = require("./data/past_rambls");
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,6 +28,21 @@ export default class App extends React.Component {
     this.setState(newState);
   }
 
+  getStyleSheet(globalStyle, localStyle){
+    var newStyle = {};
+    const globalKeys = Object.keys(globalStyle);
+    const localKeys = Object.keys(localStyle);
+    const allKeys = new Set([...globalKeys, ...localKeys]);
+    allKeys.forEach((key) => {
+      if(localStyle[key] == undefined){
+        newStyle[key] = globalStyle[key];
+      } else {
+        newStyle[key] = localStyle[key];
+      }
+    });
+    return newStyle;
+  }
+
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
@@ -42,7 +59,9 @@ export default class App extends React.Component {
         rambls: rambls,
         users: users,
         friends_rambls: friends_rambls,
-        past_rambls: past_rambls
+        past_rambls: past_rambls,
+        getStyleSheet: this.getStyleSheet,
+        globalStyle: globalStyle,
       };
       return (
         <View style={styles.container}>
