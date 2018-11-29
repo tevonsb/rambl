@@ -16,7 +16,7 @@ export default class App extends React.Component {
       testText: "",
       //Add additional state variables here
       username: "Amanda",
-      location: "San Francisco"
+      location: "London"
     };
     this.setGlobalState = this.setGlobalState.bind(this);
   }
