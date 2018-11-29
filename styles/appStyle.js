@@ -12,34 +12,32 @@ export default globalStyles = StyleSheet.create({
   header: {
     color: '#FFFFFF',
     fontWeight: 'bold',
-    fontSize: 30,
-    textAlign: 'center',
+    fontSize: 25,
+    // textAlign: 'center',
     // text-align: center;
-  },
-  text: {
-    color: '#FFFFFF',
-    fontSize: 20,
-  },
-  body: {
-    fontSize: 20,
   },
   view:{
     backgroundColor: "#212121",
     flex:1,
     padding: 10,
   },
-  test: {
-    backgroundColor: '#FFFFFF',
-  },
   footprintlist:{
     flex:1,
     flexDirection: 'row',
-    backgroundColor: "#686666",
+    // backgroundColor: "#686666",
+    height: 10,
   },
   footprintitem:{
-    color: '#FFFFFF',
-    padding: 5,
-    fontSize: 20,
+     color: '#FFFFFF',
+     width: 100,
+     height: 20,
+     backgroundColor: 'powderblue',
+     fontSize: 20,
+  },
+  map: {
+     flex: 1,
+     height: 200,
+     width: 395,
   },
   picker:{
     color: '#FFFFFF',
@@ -53,16 +51,22 @@ export default globalStyles = StyleSheet.create({
   message: {
     color: '#FFFFFF',
     fontSize: 20,
-    margin: 10,
+    // marginTop: 10,
+  },
+  detail: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    marginTop: 10,
   },
   rambl:{
     backgroundColor: "#686666",
     flex:1,
     justifyContent: 'center',
-    width: 370,
-    height: 45,
-    margin: 10,
-    padding: 10,
+    width: 392,
+    height: 130,
+    marginTop: 10,
+    marginBottom: 5,
+    padding: 8,
     color: "white",
     fontSize: 20,
     borderRadius: 3,

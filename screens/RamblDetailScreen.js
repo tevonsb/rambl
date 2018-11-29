@@ -29,7 +29,8 @@ export default class RamblDetailComponent extends React.Component {
 
   displayFootprints(){
     return this.props.rambl.footprints.map((footprint, index) => {
-      return ( <MapView.Marker key = {index.toString()}
+      return ( <MapView.Marker
+        key = {index.toString()}
           coordinate = {{latitude: (this.props.rambl.latitude)+Math.random()*(.00799901),
           longitude: (this.props.rambl.longitude)+Math.random()*(.00899901)}}
           title = {footprint.title}
@@ -41,19 +42,16 @@ export default class RamblDetailComponent extends React.Component {
   displayFollow(){
     if(this.props.rambl.city ==="London"){
       return(
-        
-        <Button
-          title = "Follow Rambl"
-        />
+        <Button title = "Follow Rambl"/>
       );
     }
   }
 
   render() {
     return (
-      <View style={{flex:1}}>
+      <View style={this.props.screenProps.globalStyle.view}>
       <MapView
-      style={{ flex: 1 }}
+        style={this.props.screenProps.globalStyle.map}
         initialRegion={{
           latitude: this.props.rambl.latitude,
           longitude: this.props.rambl.longitude,
@@ -61,14 +59,14 @@ export default class RamblDetailComponent extends React.Component {
           longitudeDelta: .015,
         }}
         showBuildings = {true}
-      >
-      {this.displayFootprints()}
+      >{this.displayFootprints()}
       </MapView>
-      <Text style={this.props.screenProps.globalStyle.text}>{this.props.rambl.title}</Text>
-      <Text style={this.props.screenProps.globalStyle.text}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
-      <Text style={this.props.screenProps.globalStyle.text}>Footprints (Locations) in this Rambl</Text>
-      {this.getFootprints()}
+      <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
+      <Text style={this.props.screenProps.globalStyle.message}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
+      <Text style={this.props.screenProps.globalStyle.message}>Footprints (Locations) in this Rambl</Text>
+      // {this.getFootprints()}
       {this.displayFollow()}
+
       </View>
     );
   }
