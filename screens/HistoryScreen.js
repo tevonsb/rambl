@@ -157,15 +157,6 @@ export default class HistoryScreen extends React.Component {
   }
 }
 
-<<<<<<< HEAD
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: "#fff"
-  }
-});
-=======
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
@@ -263,4 +254,3 @@ const styles = StyleSheet.create({
 //     color: "#2e78b7"
 //   }
 // });
->>>>>>> 10b154f08026024e4199ca6f277a3af2b5d4f236
