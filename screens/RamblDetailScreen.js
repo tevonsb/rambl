@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {MapView} from 'expo';
 import FootprintDetailComponent from './FootprintDetailScreen.js'
+import marker from '../assets/images/marker.png'
 
 export default class RamblDetailComponent extends React.Component {
   constructor(props){
@@ -40,11 +41,13 @@ export default class RamblDetailComponent extends React.Component {
           coordinate = {{latitude: 51.5124224,
           longitude: -.1270143}}
           title = {"Dishoom"}
+          image = {marker}
           />
           <MapView.Marker
               coordinate = {{latitude: 51.5312705,
               longitude: -.1591581}}
               title = {"Regent's Park"}
+              image = {marker}
               />
       </MapView>
       <Text style={this.props.screenProps.globalStyle.text}>{this.props.rambl.title}</Text>
