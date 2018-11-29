@@ -42,6 +42,7 @@ export default class CurrentScreen extends React.Component {
         return rambl.duration < this.state.hour + this.state.minute / 60;
       }
       getRambls(){
+        console.log(this.props.screenProps.rambls.filter(this.checkDuration));
         return this.props.screenProps.rambls.filter(this.checkDuration);
       }
 
@@ -67,11 +68,17 @@ export default class CurrentScreen extends React.Component {
 
                 <Picker
                   selectedValue={this.state.hour}
-
                   hideUnderline
                   showSearch
                   searchPlaceholder={'Search a language'}
-                  itemTextStyle={{ color: 'white' }}
+                  style={{height: 100, width: 50, color: "white"}}
+                  itemTextStyle={{ fontSize: 18, color: 'white' }}
+                  itemStyle={{
+                    color: "white",
+                    textDecorationColor: "white",
+                    marginLeft: 0,
+                    paddingLeft: 15
+                  }}
                   style={{height: 100, width: 50, color: "white", marginLeft: 40,}}
                   onValueChange={(itemValue, itemIndex) => this.setState({hour: itemValue})}
                   >
@@ -81,6 +88,13 @@ export default class CurrentScreen extends React.Component {
 
                 <Picker
                   style={{height: 100, width: 50, color: "white"}}
+                  itemTextStyle={{ fontSize: 18, color: 'white' }}
+                  itemStyle={{
+                    color: "white",
+                    textDecorationColor: "white",
+                    marginLeft: 0,
+                    paddingLeft: 15
+                  }}
                   selectedValue={this.state.minute}
                   onValueChange={(itemValue, itemIndex) => this.setState({minute: itemValue})}
                   >
@@ -92,7 +106,14 @@ export default class CurrentScreen extends React.Component {
               <View style={{flex: 1}}>
                 <FlatList
                   data={this.getRambls()}
-                  renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}
+                  renderItem={({item}) =>
+                  <View style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+                    <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
+                    <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
+                    <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
+                    <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
+                  </View>}
+
                 />
               </View>
             </View>

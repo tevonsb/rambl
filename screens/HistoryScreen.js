@@ -108,9 +108,14 @@ export default class HistoryScreen extends React.Component {
       if (this.state.value === "My Rambls") {
         displayView = (
           <View style={this.props.screenProps.globalStyle.view}>
-            <FlatList
+            <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getMyRambls()}
-              renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}/>
+              renderItem={({item}) => <View style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+              <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
+              <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
+              <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
+              <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
+              </View>}/>
               </View>
             )
           }
@@ -118,15 +123,26 @@ export default class HistoryScreen extends React.Component {
             console.log(this.getMyLocation());
             displayView = (
               <View  style={this.props.screenProps.globalStyle.view}>
-                <Text style={this.props.screenProps.globalStyle.message}> Friends' Rambls in Your Location </Text>
-                <FlatList
+                <Text style={this.props.screenProps.globalStyle.message}> Friends Rambls in Your Location </Text>
+                <FlatList style={this.props.screenProps.globalStyle.flatlist}
                   data={this.getFriendsRamblsMyLocation()}
-                  renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}/>
-                <Text style={this.props.screenProps.globalStyle.message}> All Friends' Rambls </Text>
-                <FlatList
+                  renderItem={({item}) => <View style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+                  <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
+                  <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
+                  <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
+                  <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
+                </View>}/>
+                <Text style={this.props.screenProps.globalStyle.message}> All Friends Rambls </Text>
+                <FlatList style={this.props.screenProps.globalStyle.flatlist}
                   data={this.getFriendsRamblsNotMyLocation()}
-                  renderItem={({item}) => <Text style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}/>
-                  </View>
+                  renderItem={({item}) => <View style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+                    <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
+                    <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
+                    <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
+                    <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
+                  </View>}
+                  />
+              </View>
                 )
               }
         // if(this.state.value === "Friends\' Rambls"){

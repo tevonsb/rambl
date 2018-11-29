@@ -20,6 +20,7 @@
       }],
     "rating": 4.5,
     "duration": 1,
+    "cost": 90,
   },
   {
       "key": "2",
@@ -50,6 +51,7 @@
         }],
       "rating": 4.6,
       "duration": 1.8,
+      "cost": 90,
     },
     {
         "key": "3",
@@ -74,6 +76,7 @@
           }],
         "rating": 4.7,
         "duration": 1.5,
+        "cost": 90,
       },
     {
         "key": "4",
@@ -102,5 +105,6 @@
           }],
         "rating": 4.4,
         "duration": 3,
+        "cost": 90,
       }
 ]
