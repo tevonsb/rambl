@@ -27,7 +27,9 @@ export default class ProfileScreen extends React.Component {
       <Text>Username: {this.props.screenProps.globalState.username}</Text>
       <Text>Current Location: {this.props.screenProps.globalState.location}</Text>
       <Text>Points: {this.props.screenProps.globalState.points}</Text>
-
+      <Button
+        title="Learn More"
+        color="#841584"/>
       </View>
     );
   }

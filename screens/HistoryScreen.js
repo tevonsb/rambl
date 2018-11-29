@@ -85,16 +85,17 @@ export default class HistoryScreen extends React.Component {
           <View style={{flex: 1, padding: 22}}>
             <FlatList
               data={this.getMyRambls()}
-              renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}              />
+              renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}/>
               </View>
             )
           }
         if(this.state.value === "Friends\' Rambls"){
+          console.log(this.getMyLocation());
           displayView = (
             <View style={{flex: 1, padding: 22}}>
               <FlatList
                 data={this.getFriendsRambls()}
-                renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}                />
+                renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{this.getMyLocation()==item.city ? item.title: ""}</Text>}/>
                 </View>
               )
             }
