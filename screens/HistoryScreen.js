@@ -20,7 +20,7 @@ import LoadingScreenComponent from "./LoadingScreen.js";
 import RamblLoadedComponent from "./RamblLoaded.js";
 import RamblCompletedComponent from "./RamblComplete.js";
 import ContinueRamblComponent from "./ContinueRambling.js";
-import TabNavigator from "../nvaigation/TabNavigator.js";
+import TabNavigator from "../navigation/TabNavigator.js";
 
 export default class HistoryScreen extends React.Component {
   static navigationOptions = {
