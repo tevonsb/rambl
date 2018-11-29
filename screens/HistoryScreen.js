@@ -10,13 +10,13 @@ import {
   Button,
   SegmentedControlIOS,
   FlatList,
-  Picker,
-} from 'react-native';
-import { WebBrowser } from 'expo';
-import { MapView } from 'expo';
-import { MonoText } from '../components/StyledText';
-import RamblDetailComponent from './RamblDetailScreen.js'
-import LoadingScreenComponent from './LoadingScreen.js'
+  Picker
+} from "react-native";
+import { WebBrowser } from "expo";
+import { MapView } from "expo";
+import { MonoText } from "../components/StyledText";
+import RamblDetailComponent from "./RamblDetailScreen.js";
+import LoadingScreenComponent from "./LoadingScreen.js";
 
 export default class HistoryScreen extends React.Component {
   static navigationOptions = {
@@ -65,63 +65,71 @@ export default class HistoryScreen extends React.Component {
     this.setState({ selectedIndex: event.nativeEvent.selectedSegmentIndex });
   }
 
-  handleRamblPress(rambl){
+  handleRamblPress(rambl) {
     this.setState({
       currentRambl: rambl,
-      currentView: "selected",
+      currentView: "selected"
     });
   }
 
   render() {
     var displayView = null;
-    if(this.state.currentView === "selected"){
-      return (
-        <RamblDetailComponent rambl={this.state.currentRambl}/>
-      )
+    if (this.state.currentView === "selected") {
+      return <RamblDetailComponent rambl={this.state.currentRambl} />;
     }
-    if(this.state.currentView === "unselected"){
-      if(this.state.value === "My Rambls"){
+    if (this.state.currentView === "unselected") {
+      if (this.state.value === "My Rambls") {
         displayView = (
-          <View style={{flex: 1, padding: 22}}>
+          <View style={{ flex: 1, padding: 22 }}>
             <FlatList
               data={this.getMyRambls()}
-              renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}              />
-              </View>
-            )
-          }
-        if(this.state.value === "Friends\' Rambls"){
-          displayView = (
-            <View style={{flex: 1, padding: 22}}>
-              <FlatList
-                data={this.getFriendsRambls()}
-                renderItem={({item}) => <Text onPress={() => this.handleRamblPress(item)}>{item.title}</Text>}                />
-                </View>
-              )
-            }
-        return (
-          <View style={{ flex: 1 }}>
-            <View>
-              <SegmentedControlIOS
-                values={this.state.values}
-                selectedIndex={this.state.selectedIndex}
-                onChange={this._onChange}
-                onValueChange={this._onValueChange}
-                />
-              </View>
-              {displayView}
-              </View>
-            );
-          }
-        }
+              renderItem={({ item }) => (
+                <Text onPress={() => this.handleRamblPress(item)}>
+                  {item.title}
+                </Text>
+              )}
+            />
+          </View>
+        );
       }
+      if (this.state.value === "Friends' Rambls") {
+        displayView = (
+          <View style={{ flex: 1, padding: 22 }}>
+            <FlatList
+              data={this.getFriendsRambls()}
+              renderItem={({ item }) => (
+                <Text onPress={() => this.handleRamblPress(item)}>
+                  {this.getMyLocation() == item.city ? item.title : ""}
+                </Text>
+              )}
+            />
+          </View>
+        );
+      }
+      return (
+        <View style={{ flex: 1 }}>
+          <View>
+            <SegmentedControlIOS
+              values={this.state.values}
+              selectedIndex={this.state.selectedIndex}
+              onChange={this._onChange}
+              onValueChange={this._onValueChange}
+            />
+          </View>
+          {displayView}
+        </View>
+      );
+    }
+  }
+}
 
-      const styles = StyleSheet.create({
-        container: {
-          flex: 1,
-          paddingTop: 15,
-          backgroundColor: '#fff',
-        },
-      });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 15,
+    backgroundColor: "#fff"
+  }
+});
 
 // const styles = StyleSheet.create({
 //   container: {
