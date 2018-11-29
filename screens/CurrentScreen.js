@@ -54,7 +54,7 @@ export default class CurrentScreen extends React.Component {
       getComponentForState(){
         if(this.state.currentView === "selected"){
           return (
-            <RamblDetailComponent rambl={this.state.currentRambl}/>
+            <RamblDetailComponent rambl={this.state.currentRambl} {...this.props}/>
           )
         }
         if(this.state.currentView === "choose"){
