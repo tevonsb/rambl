@@ -20,7 +20,7 @@ export default class RamblDetailComponent extends React.Component {
   getFootprints(){
     console.log(this.props.rambl.footprints);
     return this.props.rambl.footprints.map((footprint, index) => {
-      return (<FootprintDetailComponent key={index.toString()} footprint={footprint}/>);
+      return (<FootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props}/>);
     });
   }
 
