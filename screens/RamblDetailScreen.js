@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Button,
   View,
+  Dimensions,
 } from 'react-native';
 import {MapView} from 'expo';
 import FootprintDetailComponent from './FootprintDetailScreen.js'
@@ -60,24 +61,25 @@ export default class RamblDetailComponent extends React.Component {
   render() {
     return (
       <View style={this.props.screenProps.globalStyle.view}>
-      <MapView
-        style={this.props.screenProps.globalStyle.map}
-        initialRegion={{
-          latitude: this.props.rambl.latitude,
-          longitude: this.props.rambl.longitude,
-          latitudeDelta: .015,
-          longitudeDelta: .015,
-        }}
-        showBuildings = {true}
-      >{this.displayFootprints()}
-      </MapView>
-      <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
-      <Text style={this.props.screenProps.globalStyle.message}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
-      <Text style={this.props.screenProps.globalStyle.message}>Footprints (Locations) in this Rambl</Text>
-      // {this.getFootprints()}
-      {this.displayFollow()}
-
-      </View>
+        <MapView
+          style={this.props.screenProps.globalStyle.map}
+          initialRegion={{
+            latitude: this.props.rambl.latitude,
+            longitude: this.props.rambl.longitude,
+            latitudeDelta: .015,
+            longitudeDelta: .015,
+          }}
+          showBuildings = {true}
+        >{this.displayFootprints()}
+        </MapView>
+        <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
+        <Text style={this.props.screenProps.globalStyle.message}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
+        <Text style={this.props.screenProps.globalStyle.message}>Footprints (Locations) in this Rambl</Text>
+        <View style={{width: Dimensions.get('window').width, height: 300}}>
+        {this.getFootprints()}
+        </View>
+        {this.displayFollow()}
+    </View>
     );
   }
 }

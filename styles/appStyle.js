@@ -1,5 +1,6 @@
 import {
-  StyleSheet
+  StyleSheet,
+  Dimensions,
 } from 'react-native';
 
 
@@ -23,21 +24,22 @@ export default globalStyles = StyleSheet.create({
   },
   footprintlist:{
     flex:1,
-    flexDirection: 'row',
+    flexDirection: "row",
+    justifyContent: 'space-evenly',
+    margin: 5,
     // backgroundColor: "#686666",
-    height: 10,
+    // height: 10,
+    height: 20,
+    width: Dimensions.get('window').width,
   },
   footprintitem:{
      color: '#FFFFFF',
-     width: 100,
-     height: 20,
      backgroundColor: 'powderblue',
      fontSize: 20,
   },
   map: {
-     flex: 1,
      height: 200,
-     width: 395,
+     width: Dimensions.get('window').width,
   },
   picker:{
     color: '#FFFFFF',
