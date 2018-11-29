@@ -8,7 +8,6 @@ export default globalStyles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: "#E5E5E5"
-
   },
   header: {
     color: '#FFFFFF',
@@ -31,6 +30,7 @@ export default globalStyles = StyleSheet.create({
   view:{
     backgroundColor: "#686666",
     flex:1,
+    padding: 10,
   },
   test: {
     backgroundColor: '#FFFFFF',
@@ -42,6 +42,7 @@ export default globalStyles = StyleSheet.create({
   },
   footprintitem:{
     color: '#FFFFFF',
+    padding: 5,
     fontSize: 20,
   }
 });

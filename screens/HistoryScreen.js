@@ -101,6 +101,8 @@ export default class HistoryScreen extends React.Component {
         <View style={{ flex: 1 }}>
           <View>
             <SegmentedControlIOS
+              style = {{opacity: 80,height: 50}}
+              tintColor="#00E7FF"
               values={this.state.values}
               selectedIndex={this.state.selectedIndex}
               onChange={this._onChange}
