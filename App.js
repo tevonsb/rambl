@@ -1,13 +1,23 @@
 import React from "react";
-import { Platform, StatusBar, StyleSheet, View } from "react-native";
+import { Platform,
+  StatusBar,
+  StyleSheet,
+  View ,
+  Text,
+  Dimensions} from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
 import globalStyle from "./styles/appStyle.js";
+import TabNavigator from "./navigation/TabNavigator";
 
 var rambls = require("./data/rambls");
 var users = require("./data/users");
 var friends_rambls = require("./data/friends_rambls");
 var past_rambls = require("./data/past_rambls");
+
+import HistoryScreen from './screens/HistoryScreen';
+import CurrentScreen from './screens/CurrentScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 
 export default class App extends React.Component {
@@ -19,9 +29,31 @@ export default class App extends React.Component {
       //Add additional state variables here
       points: "200",
       username: "Amanda",
-      location: "London"
+      location: "London",
+      activeScreen: "Profile"
     };
     this.setGlobalState = this.setGlobalState.bind(this);
+    this.handleTabPress = this.handleTabPress.bind(this);
+  }
+
+  componentWillMount(){
+    const screenProps = {
+      setGlobalState: this.setGlobalState,
+      globalState: this.state,
+      rambls: rambls,
+      users: users,
+      friends_rambls: friends_rambls,
+      past_rambls: past_rambls,
+      getStyleSheet: this.getStyleSheet,
+      globalStyle: globalStyle,
+    };
+
+    this.state.screens = {
+      "Profile": (<ProfileScreen screenProps={screenProps}/>),
+      "Current": (<CurrentScreen screenProps={screenProps} />),
+      "History": (<HistoryScreen screenProps={screenProps} />),
+    }
+    console.log(this.state.screens[this.state.activeScreen]);
   }
 
   setGlobalState(newState) {
@@ -42,6 +74,12 @@ export default class App extends React.Component {
     });
     return newStyle;
   }
+  handleTabPress(title){
+    console.log(title);
+    this.setState({
+      activeScreen: title,
+    });
+  }
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
@@ -53,20 +91,47 @@ export default class App extends React.Component {
         />
       );
     } else {
-      const screenProps = {
-        setGlobalState: this.setGlobalState,
-        globalState: this.state,
-        rambls: rambls,
-        users: users,
-        friends_rambls: friends_rambls,
-        past_rambls: past_rambls,
-        getStyleSheet: this.getStyleSheet,
-        globalStyle: globalStyle,
-      };
       return (
         <View style={styles.container}>
-          {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-          <AppNavigator screenProps={screenProps} />
+          <View styles={{
+              justifyContent: "center",
+              width: Dimensions.get('window').width}}>
+            <Text
+              style={{
+                backgroundColor: "#FFF",
+                paddingTop: 35,
+                paddingBottom: 20,
+                fontSize: 25,
+                }}
+              >{this.state.activeScreen}</Text>
+          </View>
+          {this.state.screens[this.state.activeScreen]}
+          <TabNavigator
+            screenProps={this.state.screenProps}
+            style={{
+              justifyContent: 'space-evenly',
+              height: 50,
+              width: Dimensions.get('window').width,
+              flexDirection: "row",
+              position: "absolute",
+              bottom: 0,
+              backgroundColor: "#FFF",
+            }}
+            activeStyle={{
+              padding: 10,
+              color: 'blue',
+            }}
+            tabStyle={{
+              padding: 10,
+            }}
+            tabs={[
+              {title: "History"},
+              {title: "Current"},
+              {title: "Profile"},
+            ]}
+            onPress={this.handleTabPress}
+            activeTab={this.state.activeScreen}
+            />
         </View>
       );
     }

@@ -10,6 +10,7 @@ import {
   View,
   Button,
 } from 'react-native';
+import TabNavigator from '../navigation/TabNavigator.js';
 
 export default class ProfileScreen extends React.Component {
   static navigationOptions = {
@@ -19,6 +20,9 @@ export default class ProfileScreen extends React.Component {
     super(props);
   }
 
+  handleTabSelect(tabTitle){
+    console.log(tabTitle);
+  }
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
@@ -26,10 +30,17 @@ export default class ProfileScreen extends React.Component {
       <View style={this.props.screenProps.globalStyle.view}>
       <Text style={this.props.screenProps.globalStyle.message}>Hello, {this.props.screenProps.globalState.username}</Text>
       <Text style={this.props.screenProps.globalStyle.message}>Current Location: {this.props.screenProps.globalState.location}</Text>
-      <Text style={this.props.screenProps.globalStyle.message}>Point Totals: {this.props.screenProps.globalState.points}</Text>
-      <Text style={this.props.screenProps.globalStyle.message}>Your Friends:</Text>
-      <Text style={this.props.screenProps.globalStyle.message}>Settings</Text>
-      </View>
+      <Text style={this.props.screenProps.globalStyle.message}>Points: {this.props.screenProps.globalState.points}</Text>
+      <TabNavigator
+        tabs={[
+          {title: "tab 1"},
+          {title: "tab 2"},
+          {title: "tab 3"},
+          {title: "tab 4"},
+        ]}
+        onPress={this.handleTabSelect}
+        />
+    </View>
     );
   }
 }
