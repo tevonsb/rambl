@@ -24,9 +24,10 @@ export default class ProfileScreen extends React.Component {
      * content, we just wanted to give you a quick view of your config */
     return (
       <View style={{flex:1}}>
-      <Text>Username: {this.props.screenProps.users.globalState.username}</Text>
-      <Text>Current Location: {this.props.screenProps.globalState.username}</Text>
+      <Text>Username: {this.props.screenProps.globalState.username}</Text>
+      <Text>Current Location: {this.props.screenProps.globalState.location}</Text>
       <Text>Points: {this.props.screenProps.globalState.points}</Text>
+
       </View>
     );
   }
