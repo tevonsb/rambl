@@ -8,12 +8,16 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 
 export default class ProfileScreen extends React.Component {
   static navigationOptions = {
     title: 'You',
   };
+  constructor(props){
+    super(props);
+  }
 
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
@@ -21,7 +25,11 @@ export default class ProfileScreen extends React.Component {
     return (
       <View style={{flex:1}}>
       <Text>{this.props.screenProps.globalState.testText}</Text>
-      <Text>{this.props.screenProps.globalState.username}</Text>
+      <Text>Username: {this.props.screenProps.globalState.username}</Text>
+
+
+      <Text>Points: {this.props.screenProps.globalState.points}</Text>
+      <Text>{this.props.screenProps.globalState.cities}</Text>
       </View>
     );
   }
