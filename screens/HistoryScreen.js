@@ -21,6 +21,7 @@ import RamblLoadedComponent from "./RamblLoaded.js";
 import RamblCompletedComponent from "./RamblComplete.js";
 import ContinueRamblComponent from "./ContinueRambling.js";
 import TabNavigator from "../navigation/TabNavigator.js";
+import RateandStompComponent from "./RateandStomp.js";
 
 export default class HistoryScreen extends React.Component {
   static navigationOptions = {
@@ -103,7 +104,7 @@ export default class HistoryScreen extends React.Component {
     var displayView = null;
     if (this.state.currentView === "selected") {
       return <RamblDetailComponent rambl={this.state.currentRambl} {...this.props} />;
-      //return <ContinueRamblComponent {...this.props} />;
+      //return <RateandStompComponent {...this.props} />;
     }
     if (this.state.currentView === "unselected") {
       if (this.state.value === "My Rambls") {
