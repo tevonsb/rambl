@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 
 export default class FootprintDetailComponent extends React.Component {
@@ -18,7 +19,7 @@ export default class FootprintDetailComponent extends React.Component {
   getAction(){
     if(this.props.action === "Visit"){
       return (
-        <Button onPress={this.handleVisitPress}>Visit</Button>
+        <Button onPress={this.props.handleVisitPress} title="Visit"></Button>
       )
     }
     if(this.props.action === "Visited"){
@@ -34,7 +35,7 @@ export default class FootprintDetailComponent extends React.Component {
       <View style={this.props.screenProps.globalStyle.footprintlist}>
       <Text style={this.props.screenProps.globalStyle.footprintitem}>{this.props.footprint.title}</Text>
       <Text style={this.props.screenProps.globalStyle.footprintitem}>{this.props.footprint.rating}</Text>
-      {this.getAction}
+      {this.getAction()}
       </View>
     );
   }

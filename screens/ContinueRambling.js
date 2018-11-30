@@ -11,7 +11,8 @@ import {
   View
 } from 'react-native';
 
-import FootprintDetailComponent from './FootprintDetailScreen.js'
+import FootprintDetailComponent from './FootprintDetailScreen.js';
+import RateandStompComponent from './RateandStomp.js';
 import {Icon} from 'react-native-elements'
 
 export default class ContinueRambleComponent extends React.Component {
@@ -50,7 +51,7 @@ export default class ContinueRambleComponent extends React.Component {
        );
      }
      if(this.state.currentFootprintState === "selected"){
-       return (<RateandStompComponent footprint={this.state.activeFootprint}/>)
+       return (<RateandStompComponent {...this.props} footprint={this.state.activeFootprint}/>)
      }
   }
 }
