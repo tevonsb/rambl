@@ -11,39 +11,46 @@ import {
   View
 } from 'react-native';
 
-import RamblDetailComponent from './RamblDetailScreen.js';
-import HistoryDetailComponent from './HistoryScreen.js';
+import FootprintDetailComponent from './FootprintDetailScreen.js'
 import {Icon} from 'react-native-elements'
 
 export default class ContinueRambleComponent extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //     component: <LoadingScreenComponent/>
-    //   };
+    this.state ={
+      footprints: this.props.rambl.footprints,
+      activeFootprint: null,
+      currentFootprintState: "unselected",
+    }
+    this.handleVisitPress = this.handleVisitPress.bind(this);
   }
-//
-//   componentDidMount(){
-//
-//      // Start counting when the page is loaded
-//      this.timeoutHandle = setTimeout(()=>{
-//           // Add your logic for the transition
-//           this.setState({ component: <HistoryDetailComponent/>})
-//      }, 3000);
-// }
-//
-// componentWillUnmount(){
-//      clearTimeout(this.timeoutHandle);
-// }
+
+  handleVisitPress(footprint){
+    this.setState({
+      activeFootprint: footprint,
+      currentFootprintState: "selected",
+    })
+  }
+
+  getFootprints(){
+    return this.props.rambl.footprints.map((footprint, index) => {
+      return (<FootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
+    });
+  }
 
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
-    return (
-      <View style={{flex:1}}>
-      <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
-      <Image source={require('../data/loading.gif')} />
-       </View>
-    );
+     if(this.state.currentFootprintState === "unselected"){
+       return (
+         <View style={{flex:1}}>
+         <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
+         {this.getFootprints()}
+         </View>
+       );
+     }
+     if(this.state.currentFootprintState === "selected"){
+       return (<RateandStompComponent footprint={this.state.activeFootprint}/>)
+     }
   }
 }

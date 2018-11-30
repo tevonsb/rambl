@@ -22,20 +22,6 @@ export default class RamblLoadedComponent extends React.Component {
     //     component: <LoadingScreenComponent/>
     //   };
   }
-//
-//   componentDidMount(){
-//
-//      // Start counting when the page is loaded
-//      this.timeoutHandle = setTimeout(()=>{
-//           // Add your logic for the transition
-//           this.setState({ component: <HistoryDetailComponent/>})
-//      }, 3000);
-// }
-//
-// componentWillUnmount(){
-//      clearTimeout(this.timeoutHandle);
-// }
-
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
@@ -51,10 +37,10 @@ export default class RamblLoadedComponent extends React.Component {
           alignItems: 'center',
           justifyContent: 'space-between'}}>
         <View style = {{flex: 1}}>
-          <Button title = "Cancel"/>
+          <Button title = "Cancel" onPress={() => this.props.setRamblState("Detail")}/>
           </View>
         <View style = {{flex: 1}}>
-          <Button title = "Start!"/>
+          <Button title = "Start!" onPress={()=>this.props.setRamblState("Rambling")}/>
           </View>
        </View>
 

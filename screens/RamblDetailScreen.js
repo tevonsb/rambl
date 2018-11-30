@@ -15,10 +15,22 @@ import {MapView} from 'expo';
 import FootprintDetailComponent from './FootprintDetailScreen.js'
 import marker from '../assets/images/marker.png'
 
+import LoadingScreenComponent from './LoadingScreen';
+import RamblLoadedComponent from './RamblLoaded.js';
+import RateandStompComponent from './RateandStomp.js';
+import ContinueRambleComponent from './ContinueRambling.js';
+
+
+//Rambl currentRamblState options: Details, Loading, Generated, Rambbling, Rate, Complete
+
 export default class RamblDetailComponent extends React.Component {
 
   constructor(props){
     super(props);
+    this.state ={
+      currentRamblState: "Detail",
+    }
+    this.setRamblState = this.setRamblState.bind(this);
   }
 
   getFootprints(){
@@ -51,35 +63,67 @@ export default class RamblDetailComponent extends React.Component {
           <Button title = "Cancel"/>
           </View>
         <View style = {{flex: 1}}>
-          <Button title = "Follow"/>
+          <Button title = "Follow" onPress={()=> this.setState({
+              currentRamblState: "Loading"
+            })}/>
           </View>
        </View>
       );
     }
   }
 
+  setRamblState(state){
+    this.setState({
+      currentRamblState: state,
+    });
+  }
+
   render() {
-    return (
-      <View style={this.props.screenProps.globalStyle.view}>
-        <MapView
-          style={this.props.screenProps.globalStyle.map}
-          initialRegion={{
-            latitude: this.props.rambl.latitude,
-            longitude: this.props.rambl.longitude,
-            latitudeDelta: .015,
-            longitudeDelta: .015,
-          }}
-          showBuildings = {true}
-        >{this.displayFootprints()}
-        </MapView>
-        <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
-        <Text style={this.props.screenProps.globalStyle.message}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
-        <Text style={this.props.screenProps.globalStyle.message}>Footprints (Locations) in this Rambl</Text>
-        <View style={{width: Dimensions.get('window').width, height: 300}}>
-        {this.getFootprints()}
-        </View>
-        {this.displayFollow()}
-    </View>
-    );
+    //Rambl Detail Screen
+    if(this.state.currentRamblState === "Detail"){
+      return (
+        <View style={this.props.screenProps.globalStyle.view}>
+          <MapView
+            style={this.props.screenProps.globalStyle.map}
+            initialRegion={{
+              latitude: this.props.rambl.latitude,
+              longitude: this.props.rambl.longitude,
+              latitudeDelta: .015,
+              longitudeDelta: .015,
+            }}
+            showBuildings = {true}
+          >{this.displayFootprints()}
+          </MapView>
+          <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
+          <Text style={this.props.screenProps.globalStyle.message}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
+          <Text style={this.props.screenProps.globalStyle.message}>Footprints (Locations) in this Rambl</Text>
+          <View style={{width: Dimensions.get('window').width, height: 300}}>
+          {this.getFootprints()}
+          </View>
+          {this.displayFollow()}
+      </View>
+      );
+    }
+
+    //Rambl Loading Screen
+    if(this.state.currentRamblState === "Loading"){
+      return (<LoadingScreenComponent {...this.props} setRamblState={this.setRamblState}/>);
+    }
+
+    if(this.state.currentRamblState === "Generated"){
+      return (<RamblLoadedComponent {...this.props} setRamblState={this.setRamblState}/>);
+    }
+
+    if(this.state.currentRamblState === "Rambling"){
+      return (<ContinueRambleComponent {...this.props} setRamblState={this.setRamblState} />);
+    }
+
+    if(this.state.currentRamblState === "Rate"){
+      return (<RateandStompComponent {...this.props} setRamblState={this.setRamblState}/>)
+    }
+
+    if(this.state.currentRamblState === "Complete"){
+
+    }
   }
 }

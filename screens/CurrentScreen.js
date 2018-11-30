@@ -11,7 +11,9 @@ import {
   FlatList,
 } from 'react-native';
 import { MapView } from 'expo';
-import RamblDetailComponent from './RamblDetailScreen.js'
+
+import RamblDetailComponent from './RamblDetailScreen.js';
+import LoadingScreenComponent from './LoadingScreen';
 
 export default class CurrentScreen extends React.Component {
   static navigationOptions = {
@@ -51,9 +53,11 @@ export default class CurrentScreen extends React.Component {
           currentRambl: rambl,
           currentView: "selected",
         });
+        console.log('HANDLING RAMBL');
       }
       getComponentForState(){
         if(this.state.currentView === "selected"){
+          console.log('SWITCHED');
           return (
             <RamblDetailComponent rambl={this.state.currentRambl} {...this.props}/>
           )
@@ -107,12 +111,12 @@ export default class CurrentScreen extends React.Component {
                 <FlatList
                   data={this.getRambls()}
                   renderItem={({item}) =>
-                  <View style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+                  <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
                     <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
-                  </View>}
+                  </TouchableOpacity>}
 
                 />
               </View>
