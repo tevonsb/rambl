@@ -40,7 +40,7 @@ export default class ProfileScreen extends React.Component {
         ]}
         onPress={this.handleTabSelect}
         />
-    </View>
+     </View>
     );
   }
 }

@@ -63,11 +63,26 @@ export default class RamblDetailComponent extends React.Component {
           alignItems: 'center',
           justifyContent: 'space-between'}}>
         <View style = {{flex: 1}}>
-          <Button title = "Cancel"/>
+          <Button title = "Cancel" onPress={()=> this.setState({
+              currentRamblState: "Create"
+            })}/>
           </View>
         <View style = {{flex: 1}}>
           <Button title = "Follow" onPress={()=> this.setState({
               currentRamblState: "Loading"
+            })}/>
+          </View>
+       </View>
+      );
+    }else{
+      return(
+        <View style = {{flex: 1,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between'}}>
+        <View style = {{flex: 1}}>
+          <Button title = "Cancel" onPress={()=> this.setState({
+              currentRamblState: "History"
             })}/>
           </View>
        </View>

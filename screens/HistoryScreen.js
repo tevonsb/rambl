@@ -128,21 +128,21 @@ export default class HistoryScreenComponent extends React.Component {
                 <Text style={this.props.screenProps.globalStyle.message}> Friends Rambls in Your Location </Text>
                 <FlatList style={this.props.screenProps.globalStyle.flatlist}
                   data={this.getFriendsRamblsMyLocation()}
-                  renderItem={({item}) => <View style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+                  renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
                   <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
                   <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
                   <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
                   <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
-                </View>}/>
+                </TouchableOpacity>}/>
                 <Text style={this.props.screenProps.globalStyle.message}> All Friends Rambls </Text>
                 <FlatList style={this.props.screenProps.globalStyle.flatlist}
                   data={this.getFriendsRamblsNotMyLocation()}
-                  renderItem={({item}) => <View style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+                  renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
                     <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
-                  </View>}
+                  </TouchableOpacity>}
                   />
               </View>
                 )
