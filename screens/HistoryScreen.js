@@ -23,7 +23,7 @@ import ContinueRamblComponent from "./ContinueRambling.js";
 import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
 
-export default class HistoryScreen extends React.Component {
+export default class HistoryScreenComponent extends React.Component {
   static navigationOptions = {
     title: "Previous Rambls",
     headerRight: (

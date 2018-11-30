@@ -15,7 +15,7 @@ import { MapView } from 'expo';
 import RamblDetailComponent from './RamblDetailScreen.js';
 import LoadingScreenComponent from './LoadingScreen';
 
-export default class CurrentScreen extends React.Component {
+export default class CurrentScreenComponent extends React.Component {
   static navigationOptions = {
     title: 'Rambl',
   };

@@ -51,10 +51,10 @@ export default class RamblCompletedComponent extends React.Component {
           alignItems: 'center',
           justifyContent: 'space-between'}}>
         <View style = {{flex: 1}}>
-          <Button title = "View Past Rambls"/>
+          <Button title = "View Past Rambls" onPress={() => this.props.setRamblState("History")}/>
           </View>
         <View style = {{flex: 1}}>
-          <Button title = "Make a New Rambl"/>
+          <Button title = "Make a New Rambl" onPress={() => this.props.setRamblState("Create")}/>
           </View>
        </View>
 
