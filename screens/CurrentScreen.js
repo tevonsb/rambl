@@ -115,7 +115,7 @@ export default class CurrentScreenComponent extends React.Component {
                     <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
-                    <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
+                    <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: $ {item.cost} </Text>
                   </TouchableOpacity>}
 
                 />
