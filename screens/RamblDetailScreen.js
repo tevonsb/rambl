@@ -19,6 +19,7 @@ import LoadingScreenComponent from './LoadingScreen';
 import RamblLoadedComponent from './RamblLoaded.js';
 import RateandStompComponent from './RateandStomp.js';
 import ContinueRambleComponent from './ContinueRambling.js';
+import RamblCompletedComponent from './RamblComplete.js';
 
 
 //Rambl currentRamblState options: Details, Loading, Generated, Rambbling, Rate, Complete
@@ -123,7 +124,7 @@ export default class RamblDetailComponent extends React.Component {
     }
 
     if(this.state.currentRamblState === "Complete"){
-
+      return (<RamblCompletedComponent {...this.props} setRamblState={this.setRamblState}/>)
     }
   }
 }
