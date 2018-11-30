@@ -45,7 +45,7 @@ export default class RamblCompletedComponent extends React.Component {
       <Icon
         name = "star"
         color = "#39a1f7"
-        size = "200"/>
+        size = {200}/>
         <View style = {{flex: 1,
           flexDirection: 'row',
           alignItems: 'center',
