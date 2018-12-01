@@ -5,6 +5,7 @@ import { Platform,
   View ,
   Text,
   Dimensions} from "react-native";
+import { LinearGradient } from 'expo';
 import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
 import globalStyle from "./styles/appStyle.js";
@@ -96,42 +97,65 @@ export default class App extends React.Component {
           <View styles={{
               justifyContent: "center",
               width: Dimensions.get('window').width}}>
-            <Text
-              style={{
-                backgroundColor: "#FFF",
-                paddingTop: 35,
-                paddingBottom: 20,
-                fontSize: 25,
-                }}
-              >{this.state.activeScreen}</Text>
+              <LinearGradient
+                colors={['#00E7FF', '#52B0FF','#9839F7',]}
+                style={{ padding: 15, alignItems: 'center',}}>
+                <Text
+                  style={{
+                    color : "white",
+                    paddingTop: 40,
+                    paddingLeft: 20,
+                    paddingBottom: 20,
+                    fontSize: 25,
+                    }}
+                  >{this.state.activeScreen}</Text>
+              </LinearGradient>
+
           </View>
           {this.state.screens[this.state.activeScreen]}
-          <TabNavigator
-            screenProps={this.state.screenProps}
+          <LinearGradient
+            colors={['#A875FF', '#9839F7']}
             style={{
-              justifyContent: 'space-evenly',
+              // justifyContent: 'space-evenly',
               height: 50,
-              width: Dimensions.get('window').width,
-              flexDirection: "row",
-              position: "absolute",
-              bottom: 0,
-              backgroundColor: "#FFF",
-            }}
-            activeStyle={{
-              padding: 10,
-              color: 'blue',
-            }}
-            tabStyle={{
-              padding: 10,
-            }}
-            tabs={[
-              {title: "History"},
-              {title: "Current"},
-              {title: "Profile"},
-            ]}
-            onPress={this.handleTabPress}
-            activeTab={this.state.activeScreen}
+              // width: Dimensions.get('window').width,
+              // flexDirection: "row",
+              // position: "absolute",
+              // bottom: 0,
+              // backgroundColor: '#A875FF'
+
+            }}>
+            <TabNavigator
+              screenProps={this.state.screenProps}
+              style={{
+                justifyContent: 'space-evenly',
+                height: 50,
+                width: Dimensions.get('window').width,
+                flexDirection: "row",
+                position: "absolute",
+                bottom: 0,
+                // backgroundColor: '#A875FF'
+
+              }}
+
+              activeStyle={{
+                padding: 10,
+                color: 'blue',
+              }}
+              tabStyle={{
+                padding: 10,
+                color: "white"
+              }}
+              tabs={[
+                {title: "History"},
+                {title: "Current"},
+                {title: "Profile"},
+              ]}
+              onPress={this.handleTabPress}
+              activeTab={this.state.activeScreen}
             />
+            </LinearGradient>
+
         </View>
       );
     }

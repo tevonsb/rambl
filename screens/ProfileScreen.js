@@ -43,7 +43,7 @@ export default class ProfileScreen extends React.Component {
         />
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <LinearGradient
-            colors={['#4c669f', '#3b5998', '#192f6a']}
+            colors={['#00E7FF', '#52B0FF', '#A875FF']}
             style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
             <Text
               style={{

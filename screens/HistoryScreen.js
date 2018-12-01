@@ -165,11 +165,23 @@ export default class HistoryScreenComponent extends React.Component {
                 height: 50,
                 width: Dimensions.get('window').width,
                 flexDirection: "row",
-                backgroundColor: "#FFF",}}
+                padding:10,
+
+                // backgroundColor: "#9839F7",
+                borderRadius: 5,
+              }}
               tabStyle = {{
+                fontSize: 20,
+                color: "grey"
+                // backgroundColor: "white",
+
               }}
               activeStyle = {{
-                color: 'blue',
+                // color: 'blue',
+                fontWeight: 'bold',
+                fontSize: 23,
+                color: "white"
+
               }}
               tabs={[
                 {title: "My Rambls"},
