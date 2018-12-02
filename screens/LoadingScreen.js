@@ -24,7 +24,7 @@ export default class LoadingScreenComponent extends React.Component {
      // Start counting when the page is loaded
      this.timeoutHandle = setTimeout(()=>{
        this.props.setRamblState("Generated");
-     }, 5000);
+     }, 3000);
 }
 
 componentWillUnmount(){
@@ -37,7 +37,6 @@ componentWillUnmount(){
     return (
       <View style={{flex:1,}}>
       <PulseIndicator color = "#39a1F7" size = {250}/>
-      <Text style={this.props.screenProps.globalStyle.message}>Generating your Rambl! Sit tight.</Text>
       </View>
     );
   }

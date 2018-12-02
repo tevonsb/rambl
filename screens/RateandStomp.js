@@ -52,7 +52,7 @@ export default class RateandStompComponent extends React.Component {
               alignItems: 'center',
               justifyContent: 'space-between'}}>
             <View style = {{flex: 1}}>
-              <Button title = "No" onPress={() => this.props.setRamblState("Complete")} />
+              <Button title = "No" onPress={() => this.props.setRamblState("Rambling")} />
               </View>
             <View style = {{flex: 1}}>
               <Button title = "Yes!" onPress={() => this.props.setRamblState("generateStomp")}/>
