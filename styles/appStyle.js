@@ -72,6 +72,14 @@ export default globalStyles = StyleSheet.create({
     fontSize: 15,
     marginTop: 10,
   },
+  confirmtationText:{
+    color: '#FFFFFF',
+    fontSize: 30,  
+  },
+  buttonText:{
+    color: '#FFFFFF',
+    fontSize: 20,
+  },
   purpleButton:{
     width : 150,
     height: 50,
