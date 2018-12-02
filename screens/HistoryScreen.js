@@ -13,6 +13,7 @@ import {
   Dimensions,
 } from "react-native";
 import { WebBrowser } from "expo";
+import { LinearGradient } from 'expo';
 import { MapView } from "expo";
 import { MonoText } from "../components/StyledText";
 import RamblDetailComponent from "./RamblDetailScreen.js";
@@ -126,7 +127,8 @@ export default class HistoryScreenComponent extends React.Component {
             displayView = (
               <View  style={this.props.screenProps.globalStyle.view}>
                 <Text style={this.props.screenProps.globalStyle.message}> Friends Rambls in Your Location </Text>
-                <FlatList style={this.props.screenProps.globalStyle.flatlist}
+
+              <FlatList style={this.props.screenProps.globalStyle.flatlist}
                   data={this.getFriendsRamblsMyLocation()}
                   renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
                   <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
@@ -135,15 +137,21 @@ export default class HistoryScreenComponent extends React.Component {
                   <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
                 </TouchableOpacity>}/>
                 <Text style={this.props.screenProps.globalStyle.message}> All Friends Rambls </Text>
-                <FlatList style={this.props.screenProps.globalStyle.flatlist}
+
+
+                  <FlatList style={this.props.screenProps.globalStyle.flatlist}
                   data={this.getFriendsRamblsNotMyLocation()}
-                  renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+                  renderItem={({item}) =>
+
+                        <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+
                     <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
                   </TouchableOpacity>}
                   />
+
               </View>
                 )
               }
@@ -165,14 +173,22 @@ export default class HistoryScreenComponent extends React.Component {
                 height: 50,
                 width: Dimensions.get('window').width,
                 flexDirection: "row",
-                padding:10,
+                // padding:10,
 
                 // backgroundColor: "#9839F7",
-                borderRadius: 5,
+                // borderRadius: 5,
               }}
               tabStyle = {{
                 fontSize: 20,
-                color: "grey"
+                color: "grey",
+                borderColor: "white",
+                borderWidth: 0.5,
+                borderRadius: 3,
+                padding: 3,
+                height: 35,
+                width: (Dimensions.get('window').width)/2,
+                textAlign: "center"
+
                 // backgroundColor: "white",
 
               }}
@@ -180,7 +196,14 @@ export default class HistoryScreenComponent extends React.Component {
                 // color: 'blue',
                 fontWeight: 'bold',
                 fontSize: 23,
-                color: "white"
+                color: "white",
+                borderColor: "white",
+                borderWidth: 0.5,
+                borderRadius: 3,
+                padding: 3,
+                height: 35,
+                width: (Dimensions.get('window').width)/2,
+                textAlign: "center"
 
               }}
               tabs={[

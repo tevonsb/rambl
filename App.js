@@ -98,15 +98,15 @@ export default class App extends React.Component {
               justifyContent: "center",
               width: Dimensions.get('window').width}}>
               <LinearGradient
-                colors={['#00E7FF', '#52B0FF','#9839F7',]}
-                style={{ padding: 15, alignItems: 'center',}}>
+                colors={['#9839F7','#327ba7', ]}
+                style={{ padding: 20, alignItems: 'center',}}>
                 <Text
                   style={{
                     color : "white",
-                    paddingTop: 40,
+                    paddingTop: 50,
                     paddingLeft: 20,
                     paddingBottom: 20,
-                    fontSize: 25,
+                    fontSize: 30,
                     }}
                   >{this.state.activeScreen}</Text>
               </LinearGradient>
@@ -114,10 +114,10 @@ export default class App extends React.Component {
           </View>
           {this.state.screens[this.state.activeScreen]}
           <LinearGradient
-            colors={['#A875FF', '#9839F7']}
+            colors={['#3683B3','#327ba7', '#245878']}
             style={{
               // justifyContent: 'space-evenly',
-              height: 50,
+              height: 60,
               // width: Dimensions.get('window').width,
               // flexDirection: "row",
               // position: "absolute",
@@ -129,7 +129,7 @@ export default class App extends React.Component {
               screenProps={this.state.screenProps}
               style={{
                 justifyContent: 'space-evenly',
-                height: 50,
+                height: 55,
                 width: Dimensions.get('window').width,
                 flexDirection: "row",
                 position: "absolute",
@@ -140,11 +140,16 @@ export default class App extends React.Component {
 
               activeStyle={{
                 padding: 10,
-                color: 'blue',
+                color: 'white',
+                fontWeight: "bold",
+                fontSize: 17,
+                borderColor:"white",
+                borderRadius: 5
               }}
               tabStyle={{
                 padding: 10,
-                color: "white"
+                color: "white",
+                fontSize: 17
               }}
               tabs={[
                 {title: "History"},

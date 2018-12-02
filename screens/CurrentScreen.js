@@ -67,7 +67,9 @@ export default class CurrentScreenComponent extends React.Component {
             <View
               style={this.props.screenProps.globalStyle.view}
               >
+              <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>How long do you have to spend?</Text>
+              </View>
               <View style={{flex: 1, flexDirection: 'row'}}>
 
                 <Picker
@@ -106,7 +108,9 @@ export default class CurrentScreenComponent extends React.Component {
                 </Picker>
                 <Text style={this.props.screenProps.globalStyle.picker} >Minutes</Text>
               </View>
+              <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>Your Rambl is currently for {this.state.hour} hour and {this.state.minute} minutes.</Text>
+              </View>
               <View style={{flex: 1}}>
                 <FlatList
                   data={this.getRambls()}
