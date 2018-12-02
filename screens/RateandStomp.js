@@ -14,6 +14,7 @@ import {
 import RamblDetailComponent from './RamblDetailScreen.js';
 import HistoryDetailComponent from './HistoryScreen.js';
 import StarRating from 'react-native-star-rating';
+import GenerateStompComponent from './GenerateStompScreen.js';
 
 export default class RateandStompComponent extends React.Component {
     constructor(props) {
@@ -22,7 +23,6 @@ export default class RateandStompComponent extends React.Component {
         starCount: 0
       };
     }
-
 
     onStarRatingPress(rating) {
       this.setState({
@@ -55,7 +55,7 @@ export default class RateandStompComponent extends React.Component {
               <Button title = "No" onPress={() => this.props.setRamblState("Complete")} />
               </View>
             <View style = {{flex: 1}}>
-              <Button title = "Yes!" onPress={() => this.props.setRamblState("Complete")}/>
+              <Button title = "Yes!" onPress={() => this.props.setRamblState("generateStomp")}/>
               </View>
            </View>
         </View>

@@ -9,17 +9,14 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import {PulseIndicator} from 'react-native-indicators';
 
 import RamblDetailComponent from './RamblDetailScreen.js';
 import HistoryDetailComponent from './HistoryScreen.js';
-const loadingImage = require('../data/loading.gif');
 
 export default class LoadingScreenComponent extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //     component: <LoadingScreenComponent/>
-    //   };
   }
 
   componentDidMount(){
@@ -27,7 +24,7 @@ export default class LoadingScreenComponent extends React.Component {
      // Start counting when the page is loaded
      this.timeoutHandle = setTimeout(()=>{
        this.props.setRamblState("Generated");
-     }, 1000);
+     }, 5000);
 }
 
 componentWillUnmount(){
@@ -39,7 +36,7 @@ componentWillUnmount(){
      * content, we just wanted to give you a quick view of your config */
     return (
       <View style={{flex:1,}}>
-      <Image source={loadingImage} />
+      <PulseIndicator color = "#39a1F7" size = {250}/>
       <Text style={this.props.screenProps.globalStyle.message}>Generating your Rambl! Sit tight.</Text>
       </View>
     );
