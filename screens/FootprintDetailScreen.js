@@ -32,11 +32,11 @@ export default class FootprintDetailComponent extends React.Component {
   render() {
 
     return (
-      <View >
-      <Text style={this.props.screenProps.globalStyle.footprintitemR}>{this.props.footprint.title}</Text>
-      <Text style={this.props.screenProps.globalStyle.footprintitemL}>{this.props.footprint.rating}</Text>
+      <View style={this.props.screenProps.globalStyle.footprintContainer}>
+      <Text style={this.props.screenProps.globalStyle.footprintItem}>{this.props.footprint.title}</Text>
+      <Text style={this.props.screenProps.globalStyle.footprintItem}>Rating: {this.props.footprint.rating}</Text>
       {this.getAction()}
-    </View>
+      </View>
     );
   }
 }
