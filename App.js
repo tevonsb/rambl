@@ -1,11 +1,13 @@
 import React from "react";
-import { Platform,
+import {
+  Platform,
   StatusBar,
   StyleSheet,
-  View ,
+  View,
   Text,
-  Dimensions} from "react-native";
-import { LinearGradient } from 'expo';
+  Dimensions
+} from "react-native";
+import { LinearGradient } from "expo";
 import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
 import globalStyle from "./styles/appStyle.js";
@@ -16,10 +18,9 @@ var users = require("./data/users");
 var friends_rambls = require("./data/friends_rambls");
 var past_rambls = require("./data/past_rambls");
 
-import HistoryScreen from './screens/HistoryScreen';
-import CurrentScreen from './screens/CurrentScreen';
-import ProfileScreen from './screens/ProfileScreen';
-
+import HistoryScreen from "./screens/HistoryScreen";
+import CurrentScreen from "./screens/CurrentScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ export default class App extends React.Component {
     this.handleTabPress = this.handleTabPress.bind(this);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     const screenProps = {
       setGlobalState: this.setGlobalState,
       globalState: this.state,
@@ -47,13 +48,14 @@ export default class App extends React.Component {
       past_rambls: past_rambls,
       getStyleSheet: this.getStyleSheet,
       globalStyle: globalStyle,
+      current_rambl: ""
     };
 
     this.state.screens = {
-      "Profile": (<ProfileScreen screenProps={screenProps}/>),
-      "Current": (<CurrentScreen screenProps={screenProps} />),
-      "History": (<HistoryScreen screenProps={screenProps} />),
-    }
+      Profile: <ProfileScreen screenProps={screenProps} />,
+      Current: <CurrentScreen screenProps={screenProps} />,
+      History: <HistoryScreen screenProps={screenProps} />
+    };
     console.log(this.state.screens[this.state.activeScreen]);
   }
 
@@ -61,13 +63,13 @@ export default class App extends React.Component {
     this.setState(newState);
   }
 
-  getStyleSheet(globalStyle, localStyle){
+  getStyleSheet(globalStyle, localStyle) {
     var newStyle = {};
     const globalKeys = Object.keys(globalStyle);
     const localKeys = Object.keys(localStyle);
     const allKeys = new Set([...globalKeys, ...localKeys]);
-    allKeys.forEach((key) => {
-      if(localStyle[key] == undefined){
+    allKeys.forEach(key => {
+      if (localStyle[key] == undefined) {
         newStyle[key] = globalStyle[key];
       } else {
         newStyle[key] = localStyle[key];
@@ -75,10 +77,10 @@ export default class App extends React.Component {
     });
     return newStyle;
   }
-  handleTabPress(title){
+  handleTabPress(title) {
     console.log(title);
     this.setState({
-      activeScreen: title,
+      activeScreen: title
     });
   }
 
@@ -94,73 +96,77 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          <View styles={{
+          <View
+            styles={{
               justifyContent: "center",
-              width: Dimensions.get('window').width}}>
-              <LinearGradient
-                colors={['#9839F7','#327ba7', ]}
-                style={{ padding: 20, alignItems: 'center',}}>
-                <Text
-                  style={{
-                    color : "white",
-                    paddingTop: 50,
-                    paddingLeft: 20,
-                    paddingBottom: 20,
-                    fontSize: 30,
-                    }}
-                  >{this.state.activeScreen}</Text>
-              </LinearGradient>
-
+              width: Dimensions.get("window").width
+            }}
+          >
+            <LinearGradient
+              colors={["#9839F7", "#327ba7"]}
+              style={{ padding: 20, alignItems: "center" }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  paddingTop: 50,
+                  paddingLeft: 20,
+                  paddingBottom: 20,
+                  fontSize: 30
+                }}
+              >
+                {this.state.activeScreen}
+              </Text>
+            </LinearGradient>
           </View>
           {this.state.screens[this.state.activeScreen]}
           <LinearGradient
-            colors={['#3683B3','#327ba7', '#245878']}
+            colors={["#3683B3", "#327ba7", "#245878"]}
             style={{
-              // justifyContent: 'space-evenly',
               height: 60,
-              // width: Dimensions.get('window').width,
-              // flexDirection: "row",
-              // position: "absolute",
-              // bottom: 0,
-              // backgroundColor: '#A875FF'
-
             }}>
             <TabNavigator
               screenProps={this.state.screenProps}
               style={{
                 justifyContent: 'space-evenly',
-                height: 55,
+                height: 60,
                 width: Dimensions.get('window').width,
                 flexDirection: "row",
                 position: "absolute",
                 bottom: 0,
-                // backgroundColor: '#A875FF'
-
               }}
-
-              activeStyle={{
-                padding: 10,
-                color: 'white',
-                fontWeight: "bold",
+              activeTextStyle={{
                 fontSize: 17,
-                borderColor:"white",
-                borderRadius: 5
+                color: 'white',
+                textAlign:"center",
+                paddingTop: 10
+              }}
+              tabTextStyle={{
+                fontSize: 17,
+                color: 'white',
+                textAlign:"center",
+                paddingTop: 10
+              }}
+              activeStyle={{
+                height: 60,
+                width: Dimensions.get('window').width/3,
+                borderTopColor: "white",
+                borderTopWidth: 4,
               }}
               tabStyle={{
-                padding: 10,
-                color: "white",
-                fontSize: 17
+                height: 60,
+                width: Dimensions.get('window').width/3,
+
               }}
               tabs={[
-                {title: "History"},
-                {title: "Current"},
-                {title: "Profile"},
+                { title: "History" },
+                { title: "Current" },
+                { title: "Profile" }
               ]}
               onPress={this.handleTabPress}
               activeTab={this.state.activeScreen}
             />
-            </LinearGradient>
-
+          </LinearGradient>
         </View>
       );
     }

@@ -24,7 +24,7 @@ export default class LoadingScreenComponent extends React.Component {
      // Start counting when the page is loaded
      this.timeoutHandle = setTimeout(()=>{
        this.props.setRamblState("Generated");
-     }, 3000);
+     }, 1500);
 }
 
 componentWillUnmount(){

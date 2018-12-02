@@ -32,29 +32,6 @@ export default class ProfileScreen extends React.Component {
       <Text style={this.props.screenProps.globalStyle.message}>Hello, {this.props.screenProps.globalState.username}</Text>
       <Text style={this.props.screenProps.globalStyle.message}>Current Location: {this.props.screenProps.globalState.location}</Text>
       <Text style={this.props.screenProps.globalStyle.message}>Points: {this.props.screenProps.globalState.points}</Text>
-      <TabNavigator
-        tabs={[
-          {title: "tab 1"},
-          {title: "tab 2"},
-          {title: "tab 3"},
-          {title: "tab 4"},
-        ]}
-        onPress={this.handleTabSelect}
-        />
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <LinearGradient
-            colors={['#00E7FF', '#52B0FF', '#A875FF']}
-            style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
-            <Text
-              style={{
-                backgroundColor: 'transparent',
-                fontSize: 15,
-                color: '#fff',
-              }}>
-              Sign in with Facebook
-            </Text>
-          </LinearGradient>
-        </View>
      </View>
     );
   }

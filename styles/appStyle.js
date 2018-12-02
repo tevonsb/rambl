@@ -72,6 +72,28 @@ export default globalStyles = StyleSheet.create({
     fontSize: 15,
     marginTop: 10,
   },
+  confirmtationText:{
+    color: '#FFFFFF',
+    fontSize: 30,  
+  },
+  buttonText:{
+    color: '#FFFFFF',
+    fontSize: 20,
+  },
+  purpleButton:{
+    width : 150,
+    height: 50,
+    color: 'white',
+    backgroundColor: '#9839F7',
+    alignItems: 'center',
+    margin: 25,
+    paddingTop: 10,
+    borderRadius: 3,
+    overflow: 'hidden',
+    shadowColor: "white",
+    shadowOffset: {width: 1, height: -1},
+    shadowRadius: 10
+  },
   rambl:{
     backgroundColor: "#686666",
     flex:1,

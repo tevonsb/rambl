@@ -26,7 +26,6 @@ export default class GenerateStompComponent extends React.Component {
     };
   }
 
-//how do i pass a value from one state to the next based on user input? i.e. stomp value on which footprint
     getPickerValues(){
       const values = [100, 200, 300, 400, 500];
       return values.map((number) =>
@@ -66,16 +65,16 @@ export default class GenerateStompComponent extends React.Component {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'space-between'}}>
-              <View style = {{flex: 1}}>
-                <Button title = "Cancel" onPress={()=> this.setState({
-                    currentRamblState: "Create"
-                  })}/>
-                </View>
-              <View style = {{flex: 1}}>
-                <Button title = "Stomp!" onPress={()=> this.setState({
-                    currentRamblState: "generateStomp"
-                  })}/>
-                </View>
+                <TouchableOpacity onPress={() => this.props.setRamblState("Rambling")}>
+                  <View style={this.props.screenProps.globalStyle.purpleButton} >
+                  <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.props.setRamblState("stompGenerated")}>
+                  <View style={this.props.screenProps.globalStyle.purpleButton} >
+                  <Text style={this.props.screenProps.globalStyle.buttonText}>Stomp!</Text>
+                  </View>
+                </TouchableOpacity>
              </View>
               </View>
             </View>

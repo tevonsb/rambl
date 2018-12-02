@@ -24,9 +24,9 @@ export default class TabNavigator extends React.Component {
   getTabs(){
     return this.props.tabs.map((tab) => {
       if(tab.title === this.props.activeTab){
-        return <Text key={tab.title} onPress={() => this.props.onPress(tab.title)} style={this.props.activeStyle}>{tab.title}</Text>
+        return <TouchableOpacity key={tab.title} onPress={() => this.props.onPress(tab.title)} style={this.props.activeStyle}><Text style={this.props.activeTextStyle} >{tab.title}</Text></TouchableOpacity>
       }
-      return <Text key={tab.title} onPress={() => this.props.onPress(tab.title)} style={this.props.tabStyle}>{tab.title}</Text>
+      return <TouchableOpacity onPress={() => this.props.onPress(tab.title)} key={tab.title} style={this.props.tabStyle}><Text style={this.props.tabTextStyle}>{tab.title}</Text></TouchableOpacity>
     });
   }
   render() {

@@ -51,12 +51,16 @@ export default class RateandStompComponent extends React.Component {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between'}}>
-            <View style = {{flex: 1}}>
-              <Button title = "No" onPress={() => this.props.setRamblState("Rambling")} />
-              </View>
-            <View style = {{flex: 1}}>
-              <Button title = "Yes!" onPress={() => this.props.setRamblState("generateStomp")}/>
-              </View>
+              <TouchableOpacity onPress={() => this.props.setRamblState("Rambling")}>
+                <View style={this.props.screenProps.globalStyle.purpleButton} >
+                <Text style={this.props.screenProps.globalStyle.buttonText}>No</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.props.setRamblState("generateStomp")}>
+                <View style={this.props.screenProps.globalStyle.purpleButton} >
+                <Text style={this.props.screenProps.globalStyle.buttonText}>Yes!</Text>
+                </View>
+              </TouchableOpacity>
            </View>
         </View>
       );
