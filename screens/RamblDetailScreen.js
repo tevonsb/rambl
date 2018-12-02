@@ -33,6 +33,7 @@ export default class RamblDetailComponent extends React.Component {
     super(props);
     this.state ={
       currentRamblState: "Detail",
+      currentFootprint: null,
     }
     this.setRamblState = this.setRamblState.bind(this);
   }
@@ -136,7 +137,7 @@ export default class RamblDetailComponent extends React.Component {
     }
 
     if(this.state.currentRamblState === "Rate"){
-      return (<RateandStompComponent {...this.props} setRamblState={this.setRamblState}/>)
+      return (<RateandStompComponent {...this.props} footprint={this.state.currentFootprint} setRamblState={this.setRamblState}/>)
     }
 
     if(this.state.currentRamblState === "Complete"){

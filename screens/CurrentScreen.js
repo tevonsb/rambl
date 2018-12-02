@@ -44,7 +44,6 @@ export default class CurrentScreenComponent extends React.Component {
         return rambl.duration < this.state.hour + this.state.minute / 60;
       }
       getRambls(){
-        console.log(this.props.screenProps.rambls.filter(this.checkDuration));
         return this.props.screenProps.rambls.filter(this.checkDuration);
       }
 
@@ -53,11 +52,10 @@ export default class CurrentScreenComponent extends React.Component {
           currentRambl: rambl,
           currentView: "selected",
         });
-        console.log('HANDLING RAMBL');
+        this.console.log(rambl.title);
       }
       getComponentForState(){
         if(this.state.currentView === "selected"){
-          console.log('SWITCHED');
           return (
             <RamblDetailComponent rambl={this.state.currentRambl} {...this.props}/>
           )
@@ -121,7 +119,6 @@ export default class CurrentScreenComponent extends React.Component {
                     <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: $ {item.cost} </Text>
                   </TouchableOpacity>}
-
                 />
               </View>
             </View>

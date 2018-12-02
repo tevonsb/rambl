@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import { MapView } from 'expo';
 
-import RamblDetailComponent from './RamblDetailScreen.js';
 import LoadingScreenComponent from './LoadingScreen';
 
 export default class GenerateStompComponent extends React.Component {
