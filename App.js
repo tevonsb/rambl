@@ -116,40 +116,40 @@ export default class App extends React.Component {
           <LinearGradient
             colors={['#3683B3','#327ba7', '#245878']}
             style={{
-              // justifyContent: 'space-evenly',
               height: 60,
-              // width: Dimensions.get('window').width,
-              // flexDirection: "row",
-              // position: "absolute",
-              // bottom: 0,
-              // backgroundColor: '#A875FF'
-
             }}>
             <TabNavigator
               screenProps={this.state.screenProps}
               style={{
                 justifyContent: 'space-evenly',
-                height: 55,
+                height: 60,
                 width: Dimensions.get('window').width,
                 flexDirection: "row",
                 position: "absolute",
                 bottom: 0,
-                // backgroundColor: '#A875FF'
-
               }}
-
-              activeStyle={{
-                padding: 10,
-                color: 'white',
-                fontWeight: "bold",
+              activeTextStyle={{
                 fontSize: 17,
-                borderColor:"white",
-                borderRadius: 5
+                color: 'white',
+                textAlign:"center",
+                paddingTop: 10
+              }}
+              tabTextStyle={{
+                fontSize: 17,
+                color: 'white',
+                textAlign:"center",
+                paddingTop: 10
+              }}
+              activeStyle={{
+                height: 60,
+                width: Dimensions.get('window').width/3,
+                borderTopColor: "white",
+                borderTopWidth: 4,
               }}
               tabStyle={{
-                padding: 10,
-                color: "white",
-                fontSize: 17
+                height: 60,
+                width: Dimensions.get('window').width/3,
+
               }}
               tabs={[
                 {title: "History"},

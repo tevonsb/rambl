@@ -170,41 +170,35 @@ export default class HistoryScreenComponent extends React.Component {
             <TabNavigator
               style = {{
                 justifyContent: 'space-evenly',
-                height: 50,
+                height: 30,
                 width: Dimensions.get('window').width,
                 flexDirection: "row",
-                // padding:10,
-
-                // backgroundColor: "#9839F7",
-                // borderRadius: 5,
+                backgroundColor: "#327ba7",
               }}
               tabStyle = {{
                 fontSize: 20,
-                color: "grey",
+                color: "white",
                 borderColor: "white",
-                borderWidth: 0.5,
-                borderRadius: 3,
-                padding: 3,
-                height: 35,
+                height: 30,
                 width: (Dimensions.get('window').width)/2,
-                textAlign: "center"
-
-                // backgroundColor: "white",
 
               }}
               activeStyle = {{
-                // color: 'blue',
-                fontWeight: 'bold',
-                fontSize: 23,
-                color: "white",
-                borderColor: "white",
-                borderWidth: 0.5,
-                borderRadius: 3,
-                padding: 3,
-                height: 35,
+                borderBottomColor: "white",
+                borderBottomWidth: 4,
+                paddingBottom: 5,
+                height: 30,
                 width: (Dimensions.get('window').width)/2,
+              }}
+              activeTextStyle={{
+                fontSize: 20,
+                color: "white",
                 textAlign: "center"
-
+              }}
+              tabTextStyle={{
+                fontSize: 20,
+                color: "white",
+                textAlign: "center"
               }}
               tabs={[
                 {title: "My Rambls"},
