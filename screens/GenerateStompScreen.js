@@ -56,7 +56,7 @@ export default class GenerateStompComponent extends React.Component {
                     paddingLeft: 15
                   }}
                   style={{height: 100, width: 50, color: "white", marginLeft: 40,}}
-                  onValueChange={(itemValue, itemIndex) => this.setState({stompValues: itemValue})}
+                  onValueChange={(itemValue, itemIndex) => this.setState({stompValue: itemValue})}
                   >
                   {this.getPickerValues()}
                 </Picker>
