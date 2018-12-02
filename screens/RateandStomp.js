@@ -55,7 +55,7 @@ export default class RateandStompComponent extends React.Component {
               <Button title = "No" onPress={() => this.props.setRamblState("Complete")} />
               </View>
             <View style = {{flex: 1}}>
-              <Button title = "Yes!" onPress={() => this.props.setRamblState("Complete")}/>
+              <Button title = "Yes!" onPress={() => this.props.setRamblState("generateStomp")}/>
               </View>
            </View>
         </View>
