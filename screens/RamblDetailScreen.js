@@ -22,6 +22,7 @@ import ContinueRambleComponent from './ContinueRambling.js';
 import RamblCompletedComponent from './RamblComplete.js';
 import HistoryScreenComponent from './HistoryScreen.js';
 import CurrentScreenComponent from './CurrentScreen.js';
+import GenerateStompComponent from './GenerateStompScreen.js';
 
 
 //Rambl currentRamblState options: Details, Loading, Generated, Rambbling, Rate, Complete
@@ -148,6 +149,10 @@ export default class RamblDetailComponent extends React.Component {
 
     if(this.state.currentRamblState === "Create"){
       return (<CurrentScreenComponent {...this.props} setRamblState={this.setRamblState}/>)
+    }
+
+    if(this.state.currentRamblState === "generateStomp"){
+      return (<GenerateStompComponent {...this.props} setRamblState={this.setRamblState}/>)
     }
   }
 }
