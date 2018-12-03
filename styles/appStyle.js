@@ -87,6 +87,9 @@ export default globalStyles = StyleSheet.create({
   buttonText:{
     color: '#FFFFFF',
     fontSize: 20,
+    textShadowColor: 'white',
+    textShadowOffset: {width: 0, height: 1},
+    textShadowRadius: 80,
   },
   purpleButton:{
     width : 150,
