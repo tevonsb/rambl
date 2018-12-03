@@ -33,10 +33,13 @@ export default class ContinueRambleComponent extends React.Component {
     })
   }
 
+  // getFootprints(){
+  //   return this.props.rambl.footprints.map((footprint, index) => {
+  //     return (<FootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
+  //   });
+  // }
   getFootprints(){
-    return this.props.rambl.footprints.map((footprint, index) => {
-      return (<FootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
-    });
+    return (<FootprintDetailComponent {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
   }
 
   render() {
