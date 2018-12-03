@@ -4,8 +4,8 @@
     "city": "London",
     "latitude": 51.5199 ,
     "longitude": -0.163,
-    "latitudeDelta":0.005,
-    "longitudeDelta":0.005,
+    "latitudeDelta":0.009,
+    "longitudeDelta":0.009,
     "footprints": [{
         "title": "Dishoom",
         "Address":"222 Moxon Street, London UK",

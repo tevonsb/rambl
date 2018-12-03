@@ -116,7 +116,7 @@ export default class RamblDetailComponent extends React.Component {
           </MapView>
           <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
           <Text style={this.props.screenProps.globalStyle.message}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
-          <Text style={this.props.screenProps.globalStyle.message}>Footprints (Locations) in this Rambl</Text>
+          <Text style={this.props.screenProps.globalStyle.message}>Footprints in this Rambl:</Text>
           {this.getFootprints()}
           {this.displayFollow()}
       </View>
