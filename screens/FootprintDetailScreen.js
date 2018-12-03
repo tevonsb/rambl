@@ -40,7 +40,7 @@ export default class FootprintDetailComponent extends React.Component {
           <View style={this.props.screenProps.globalStyle.view}>
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getFootprints()}
-              renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl}>
+              renderItem={({item}) => <TouchableOpacity disabled={true} style={this.props.screenProps.globalStyle.rambl}>
               <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
               <Text style={this.props.screenProps.globalStyle.detail}>Category: {item.category}</Text>
               <Text style={this.props.screenProps.globalStyle.detail}>Description: {item.description}</Text>

@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import {MapView} from 'expo';
 import FootprintDetailComponent from './FootprintDetailScreen.js';
-import ExpandedFootprintDetailComponent from './ExpandedFootprintDetailScreen.js';
 
 import LoadingScreenComponent from './LoadingScreen';
 import RamblLoadedComponent from './RamblLoaded.js';
