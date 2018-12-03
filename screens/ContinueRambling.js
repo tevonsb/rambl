@@ -46,7 +46,7 @@ export default class ContinueRambleComponent extends React.Component {
        return (
          <View style={this.props.screenProps.globalStyle.view}>
          <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
-         {this.getExpandedFootprints()}
+         {this.getFootprints()}
          </View>
        );
      }
