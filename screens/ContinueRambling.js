@@ -11,7 +11,8 @@ import {
   View
 } from 'react-native';
 
-import FootprintDetailComponent from './FootprintDetailScreen.js';
+//import FootprintDetailComponent from './FootprintDetailScreen.js';
+import ExpandedFootprintDetailComponent from './FootprintDetailScreen.js';
 import RateandStompComponent from './RateandStomp.js';
 import {Icon} from 'react-native-elements'
 
@@ -33,9 +34,9 @@ export default class ContinueRambleComponent extends React.Component {
     })
   }
 
-  getFootprints(){
+  getExpandedFootprints(){
     return this.props.rambl.footprints.map((footprint, index) => {
-      return (<FootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
+      return (<ExpandedFootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
     });
   }
 
@@ -46,7 +47,7 @@ export default class ContinueRambleComponent extends React.Component {
        return (
          <View style={{flex:1}}>
          <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
-         {this.getFootprints()}
+         {this.getExpandedFootprints()}
          </View>
        );
      }

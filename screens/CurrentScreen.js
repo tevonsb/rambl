@@ -22,6 +22,7 @@ export default class CurrentScreenComponent extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      currentRamblState: "Current",
       currentView: "choose",
       hour: 1,
       minute: 15,
@@ -51,6 +52,7 @@ export default class CurrentScreenComponent extends React.Component {
         this.setState({
           currentRambl: rambl,
           currentView: "selected",
+          currentRamblState: "Chosen",
         });
       }
       getComponentForState(){

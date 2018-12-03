@@ -11,7 +11,7 @@ import {
   Button,
 } from 'react-native';
 
-export default class FootprintDetailComponent extends React.Component {
+export default class ExpandedFootprintDetailComponent extends React.Component {
   constructor(props){
     super(props);
   }
@@ -31,11 +31,12 @@ export default class FootprintDetailComponent extends React.Component {
   }
   render() {
         return(
-          <View style={this.props.screenProps.globalStyle.footprintContainer}>
-          <Text style={this.props.screenProps.globalStyle.footprintItem}>{this.props.footprint.title}</Text>
-          <Text style={this.props.screenProps.globalStyle.detail}>Category: {this.props.footprint.category}</Text>
-          {this.getAction()}
-          </View>
-        )
-      }
+        <View style={this.props.screenProps.globalStyle.rambl}>
+        <Text style={this.props.screenProps.globalStyle.footprintItem}>{this.props.footprint.title}</Text>
+        <Text style={this.props.screenProps.globalStyle.detail}>Category: {this.props.footprint.category}</Text>
+        <Text style={this.props.screenProps.globalStyle.detail}>Description: {this.props.footprint.description}</Text>
+        {this.getAction()}
+        </View>
+      )
     }
+  }

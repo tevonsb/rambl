@@ -12,7 +12,8 @@ import {
   Dimensions,
 } from 'react-native';
 import {MapView} from 'expo';
-import FootprintDetailComponent from './FootprintDetailScreen.js'
+import FootprintDetailComponent from './FootprintDetailScreen.js';
+import ExpandedFootprintDetailComponent from './ExpandedFootprintDetailScreen.js';
 
 import LoadingScreenComponent from './LoadingScreen';
 import RamblLoadedComponent from './RamblLoaded.js';
@@ -39,7 +40,6 @@ export default class RamblDetailComponent extends React.Component {
   }
 
   getFootprints(){
-    console.log(this.props.rambl.footprints);
     return this.props.rambl.footprints.map((footprint, index) => {
       return (<FootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props}/>);
     });
@@ -53,6 +53,7 @@ export default class RamblDetailComponent extends React.Component {
           longitude: (this.props.rambl.footprints[index].longitude)}}
           title = {footprint.title}
           pinColor = {"#00E7FF"}
+          description = {footprint.Address}
           />);
     });
   }
