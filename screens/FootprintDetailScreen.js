@@ -36,6 +36,7 @@ export default class FootprintDetailComponent extends React.Component {
     }
 
   render() {
+<<<<<<< HEAD
         return(
           <View style={this.props.screenProps.globalStyle.view}>
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
@@ -59,3 +60,16 @@ export default class FootprintDetailComponent extends React.Component {
     // <Text style={this.props.screenProps.globalStyle.detail}>Description: {this.props.footprint.description}</Text>
     // {this.getAction()}
     // </View>
+=======
+    return(
+        <View style={this.props.screenProps.globalStyle.rambl}>
+        <Text style={this.props.screenProps.globalStyle.message}>{this.props.footprint.title}</Text>
+                <Text style={this.props.screenProps.globalStyle.footprintDetail}>Rating: {this.props.footprint.rating}/5</Text>
+        <Text style={this.props.screenProps.globalStyle.footprintDetail}>Category: {this.props.footprint.category}</Text>
+        <Text style={this.props.screenProps.globalStyle.footprintDetail}>Description: {this.props.footprint.description}</Text>
+        {this.getAction()}
+        </View>
+      );
+    }
+  }
+>>>>>>> 99e6f010f8c0e30d4825f16879ca8f55e22b42f6
