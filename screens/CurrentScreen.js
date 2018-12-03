@@ -52,7 +52,6 @@ export default class CurrentScreenComponent extends React.Component {
           currentRambl: rambl,
           currentView: "selected",
         });
-        this.console.log(rambl.title);
       }
       getComponentForState(){
         if(this.state.currentView === "selected"){

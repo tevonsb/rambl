@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import {MapView} from 'expo';
 import FootprintDetailComponent from './FootprintDetailScreen.js'
-import marker from '../assets/images/marker.png'
 
 import LoadingScreenComponent from './LoadingScreen';
 import RamblLoadedComponent from './RamblLoaded.js';
@@ -50,10 +49,10 @@ export default class RamblDetailComponent extends React.Component {
     return this.props.rambl.footprints.map((footprint, index) => {
       return ( <MapView.Marker
         key = {index.toString()}
-          coordinate = {{latitude: (this.props.rambl.latitude)+Math.random()*(.00799901),
-          longitude: (this.props.rambl.longitude)+Math.random()*(.00899901)}}
+          coordinate = {{latitude: (this.props.rambl.footprints[index].latitude),
+          longitude: (this.props.rambl.footprints[index].longitude)}}
           title = {footprint.title}
-          image = {marker}
+          pinColor = {"#00E7FF"}
           />);
     });
   }
@@ -109,8 +108,8 @@ export default class RamblDetailComponent extends React.Component {
             initialRegion={{
               latitude: this.props.rambl.latitude,
               longitude: this.props.rambl.longitude,
-              latitudeDelta: .015,
-              longitudeDelta: .015,
+              latitudeDelta: this.props.rambl.latitudeDelta,
+              longitudeDelta: this.props.rambl.longitudeDelta,
             }}
             showBuildings = {true}
           >{this.displayFootprints()}
