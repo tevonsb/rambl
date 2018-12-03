@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import FootprintDetailComponent from './FootprintDetailScreen.js';
+import ExpandedFootprintDetailComponent from './ExpandedFootprintDetailScreen.js';
 import RateandStompComponent from './RateandStomp.js';
 import {Icon} from 'react-native-elements'
 
@@ -33,13 +34,10 @@ export default class ContinueRambleComponent extends React.Component {
     })
   }
 
-  // getFootprints(){
-  //   return this.props.rambl.footprints.map((footprint, index) => {
-  //     return (<FootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
-  //   });
-  // }
   getFootprints(){
-    return (<FootprintDetailComponent {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
+    return this.props.rambl.footprints.map((footprint, index) => {
+    return (<ExpandedFootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
+    });
   }
 
   render() {

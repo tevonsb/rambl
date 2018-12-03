@@ -14,7 +14,7 @@ export default globalStyles = StyleSheet.create({
     color: '#FFFFFF',
     // fontWeight: 'bold',
     fontSize: 25,
-    paddingTop: 7,
+    paddingTop: 5,
     // textAlign: 'center',
     // text-align: center;
   },
@@ -43,6 +43,7 @@ export default globalStyles = StyleSheet.create({
   footprintDetail: {
     color: '#FFFFFF',
     fontSize: 15,
+    marginTop: 3,
 
   },
   footprintContainer: {
@@ -89,14 +90,14 @@ export default globalStyles = StyleSheet.create({
   },
   purpleButton:{
     width : 150,
-    height: 40,
+    height: 30,
     color: 'white',
     backgroundColor: '#9839F7',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 6,
     marginLeft:15 ,
     marginRight: 15,
-    paddingTop: 8,
+    paddingTop: 3,
     borderRadius: 3,
     overflow: 'hidden',
     shadowColor: "white",
@@ -109,7 +110,7 @@ export default globalStyles = StyleSheet.create({
     justifyContent: 'center',
     width: Dimensions.get('window').width-20,
     height: 130,
-    marginTop: 10,
+    marginBottom: 10,
     // marginBottom: 5,
     padding: 8,
     color: "white",

@@ -9,6 +9,7 @@ import {
   View,
   Picker,
   FlatList,
+  Dimensions,
 } from 'react-native';
 import { MapView } from 'expo';
 
@@ -109,7 +110,8 @@ export default class CurrentScreenComponent extends React.Component {
               <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>Your Rambl is currently for {this.state.hour} hour and {this.state.minute} minutes.</Text>
               </View>
-              <View style={{flex: 1}}>
+              <View style={{width: Dimensions.get('window').width-20, height:290, backgroundColor: '#353535', padding: 10, marginTop: 5, marginBottom:5}}>
+
                 <FlatList
                   data={this.getRambls()}
                   renderItem={({item}) =>
