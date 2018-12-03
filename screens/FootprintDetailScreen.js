@@ -30,26 +30,15 @@ export default class FootprintDetailComponent extends React.Component {
     return null;
   }
   render() {
-<<<<<<< HEAD
-        return(
-          <View style={this.props.screenProps.globalStyle.footprintContainer}>
-          <Text style={this.props.screenProps.globalStyle.footprintItem}>{this.props.footprint.title}</Text>
-          <Text style={this.props.screenProps.globalStyle.detail}>Category: {this.props.footprint.category}</Text>
-          {this.getAction()}
-          </View>
-        )
-      }
-    }
-=======
+    return(
 
-    return (
-      <View style={this.props.screenProps.globalStyle.rambl}>
-      <Text style={this.props.screenProps.globalStyle.footprintItem}>{this.props.footprint.title}</Text>
-      <Text style={this.props.screenProps.globalStyle.footprintDetail}>Category: {this.props.footprint.category}</Text>
-      <Text style={this.props.screenProps.globalStyle.footprintDetail}>Description: {this.props.footprint.description}</Text>
-      {this.getAction()}
-      </View>
-    );
+        <View style={this.props.screenProps.globalStyle.rambl}>
+        <Text style={this.props.screenProps.globalStyle.message}>{this.props.footprint.title}</Text>
+                <Text style={this.props.screenProps.globalStyle.footprintDetail}>Rating: {this.props.footprint.rating}/5</Text>
+        <Text style={this.props.screenProps.globalStyle.footprintDetail}>Category: {this.props.footprint.category}</Text>
+        <Text style={this.props.screenProps.globalStyle.footprintDetail}>Description: {this.props.footprint.description}</Text>
+        {this.getAction()}
+        </View>
+      );
+    }
   }
-}
->>>>>>> 231a78421d970da1e1f43ae92952a162c8fabf31
