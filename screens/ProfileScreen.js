@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
  },
  body:{
    marginTop:50,
-   marginBottom: 25,
+   marginBottom: 35,
    alignItems: 'center',
  },
  bodyContent: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
    // borderRadius:30,
    // backgroundColor: "#00BFFF",
    width : 220,
-   height: 40,
+   height: 35,
    color: 'white',
    backgroundColor: '#9839F7',
    // alignItems: 'center',
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
    marginBottom: 15,
    // marginLeft:5 ,
    // marginRight: 3,
-   paddingTop: 6,
+   paddingTop: 5,
    borderRadius: 3,
    overflow: 'hidden',
    shadowColor: "white",
