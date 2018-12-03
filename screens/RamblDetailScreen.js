@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
+import { LinearGradient } from "expo";
 import {
   Image,
   Platform,
@@ -48,6 +49,7 @@ export default class RamblDetailComponent extends React.Component {
   displayFootprints(){
     return this.props.rambl.footprints.map((footprint, index) => {
       return ( <MapView.Marker
+
         key = {index.toString()}
           coordinate = {{latitude: (this.props.rambl.footprints[index].latitude),
           longitude: (this.props.rambl.footprints[index].longitude)}}
@@ -60,34 +62,36 @@ export default class RamblDetailComponent extends React.Component {
   displayFollow(){
     if(this.props.rambl.city ==="London"){
       return(
-        <View style = {{flex: 1,
+        <View style = {{
+          flex: 1,
           flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'space-between'}}>
-        <View style = {{flex: 1}}>
-          <Button title = "Cancel" onPress={()=> this.setState({
-              currentRamblState: "Create"
-            })}/>
+          justifyContent: 'center'
+        }}>
+        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Create"})}>
+          <View style={this.props.screenProps.globalStyle.purpleButton}>
+          <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
           </View>
-        <View style = {{flex: 1}}>
-          <Button title = "Follow" onPress={()=> this.setState({
-              currentRamblState: "Loading"
-            })}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Loading"})}>
+          <View style={this.props.screenProps.globalStyle.purpleButton}>
+          <Text style={this.props.screenProps.globalStyle.buttonText}>Follow</Text>
           </View>
-       </View>
+        </TouchableOpacity>
+        </View>
       );
     }else{
       return(
-        <View style = {{flex: 1,
-          flexDirection: 'row',
+        <View style = {{
+          flex: 1,
           alignItems: 'center',
-          justifyContent: 'space-between'}}>
-        <View style = {{flex: 1}}>
-          <Button title = "Cancel" onPress={()=> this.setState({
-              currentRamblState: "History"
-            })}/>
-          </View>
-       </View>
+        }}>
+        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "History"})}>
+        <View style={this.props.screenProps.globalStyle.purpleButton}>
+        <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
+        </View>
+        </TouchableOpacity>
+        </View>
       );
     }
   }
@@ -103,6 +107,10 @@ export default class RamblDetailComponent extends React.Component {
     if(this.state.currentRamblState === "Detail"){
       return (
         <View style={this.props.screenProps.globalStyle.view}>
+          <LinearGradient
+            colors={["#9839F7", "transparent","#327ba7"]}
+            style={{  }}
+          >
           <MapView
             style={this.props.screenProps.globalStyle.map}
             initialRegion={{
@@ -112,11 +120,13 @@ export default class RamblDetailComponent extends React.Component {
               longitudeDelta: this.props.rambl.longitudeDelta,
             }}
             showBuildings = {true}
-          >{this.displayFootprints()}
+          >
+          {this.displayFootprints()}
           </MapView>
+          </LinearGradient>
           <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
-          <Text style={this.props.screenProps.globalStyle.message}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
-          <Text style={this.props.screenProps.globalStyle.message}>Footprints in this Rambl:</Text>
+          <Text style={this.props.screenProps.globalStyle.footprintDetail}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
+          <Text style={this.props.screenProps.globalStyle.footprintDetail}>Footprints in this Rambl:</Text>
           {this.getFootprints()}
           {this.displayFollow()}
       </View>

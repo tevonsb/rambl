@@ -35,8 +35,10 @@ componentWillUnmount(){
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
     return (
-      <View style={{flex:1,}}>
-      <PulseIndicator color = "#39a1F7" size = {250}/>
+      <View style={this.props.screenProps.globalStyle.view}>
+      <Text style={{color: "white", fontSize:30, marginTop: 70, marginBottom: 10}}>Your Rambl is Loading...</Text>
+        <PulseIndicator color = "#327ba7" size = {200}/>
+    
       </View>
     );
   }

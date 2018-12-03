@@ -32,8 +32,11 @@ export default class RamblLoadedComponent extends React.Component {
         style=
         {{flex:1,
           shadowColor: "white",
-          shadowOffset: {width: 1, height: -1},
-          shadowRadius: 10}}
+          shadowOffset: {width: 6, height: 6},
+          shadowRadius: 6,
+          marginTop: 300,
+          paddingTop: 300,
+          justifyContent: "center"}}
         name = "check"
         color = '#327ba7'
         size = {200}/>
