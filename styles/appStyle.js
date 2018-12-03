@@ -12,8 +12,9 @@ export default globalStyles = StyleSheet.create({
   },
   header: {
     color: '#FFFFFF',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     fontSize: 25,
+    paddingTop: 7,
     // textAlign: 'center',
     // text-align: center;
   },
@@ -39,6 +40,11 @@ export default globalStyles = StyleSheet.create({
      color: '#FFFFFF',
      fontSize: 20,
   },
+  footprintDetail: {
+    color: '#FFFFFF',
+    fontSize: 15,
+
+  },
   footprintContainer: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
@@ -50,8 +56,8 @@ export default globalStyles = StyleSheet.create({
     padding: 5,
   },
   map: {
-     height: 200,
-     width: Dimensions.get('window').width,
+     height: 300,
+     width: Dimensions.get('window').width -20,
   },
   picker:{
     color: '#FFFFFF',
@@ -74,7 +80,8 @@ export default globalStyles = StyleSheet.create({
   },
   confirmtationText:{
     color: '#FFFFFF',
-    fontSize: 30,  
+    fontSize: 30,
+    marginBottom:100,
   },
   buttonText:{
     color: '#FFFFFF',
@@ -82,12 +89,14 @@ export default globalStyles = StyleSheet.create({
   },
   purpleButton:{
     width : 150,
-    height: 50,
+    height: 40,
     color: 'white',
     backgroundColor: '#9839F7',
     alignItems: 'center',
-    margin: 25,
-    paddingTop: 10,
+    marginTop: 10,
+    marginLeft:15 ,
+    marginRight: 15,
+    paddingTop: 8,
     borderRadius: 3,
     overflow: 'hidden',
     shadowColor: "white",
@@ -98,10 +107,10 @@ export default globalStyles = StyleSheet.create({
     backgroundColor: "#686666",
     flex:1,
     justifyContent: 'center',
-    width: 392,
+    width: Dimensions.get('window').width-20,
     height: 130,
     marginTop: 10,
-    marginBottom: 5,
+    // marginBottom: 5,
     padding: 8,
     color: "white",
     fontSize: 20,

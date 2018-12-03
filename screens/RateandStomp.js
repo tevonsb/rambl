@@ -33,8 +33,8 @@ export default class RateandStompComponent extends React.Component {
     render() {
       return (
         <View style={this.props.screenProps.globalStyle.view}>
-            <Text style={this.props.screenProps.globalStyle.detail}> Looks like you just visited a footprint! </Text>
-            <Text style={this.props.screenProps.globalStyle.detail}> Rate it now! </Text>
+            <Text style={this.props.screenProps.globalStyle.message}> Looks like you just visited a footprint! </Text>
+            <Text style={this.props.screenProps.globalStyle.message}> Rate it now! </Text>
             <StarRating
                 disabled={false}
                 emptyStar={'ios-star-outline'}
@@ -46,7 +46,8 @@ export default class RateandStompComponent extends React.Component {
                 selectedStar={(rating) => this.onStarRatingPress(rating)}
                 fullStarColor={'yellow'}
             />
-            <Text style={this.props.screenProps.globalStyle.detail}>Would you like to stomp this footprint?</Text>
+
+          <Text style={this.props.screenProps.globalStyle.message}>Would you like to stomp this footprint?</Text>
             <View style = {{flex: 1,
               flexDirection: 'row',
               alignItems: 'center',
@@ -61,7 +62,8 @@ export default class RateandStompComponent extends React.Component {
                 <Text style={this.props.screenProps.globalStyle.buttonText}>Yes!</Text>
                 </View>
               </TouchableOpacity>
-           </View>
+          
+        </View>
         </View>
       );
     }

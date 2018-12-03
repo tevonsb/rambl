@@ -45,7 +45,7 @@ export default class ContinueRambleComponent extends React.Component {
      * content, we just wanted to give you a quick view of your config */
      if(this.state.currentFootprintState === "unselected"){
        return (
-         <View style={{flex:1}}>
+         <View style={this.props.screenProps.globalStyle.view}>
          <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
          {this.getExpandedFootprints()}
          </View>

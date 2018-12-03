@@ -29,9 +29,15 @@ export default class ProfileScreen extends React.Component {
      * content, we just wanted to give you a quick view of your config */
     return (
       <View style={this.props.screenProps.globalStyle.view}>
-      <Text style={this.props.screenProps.globalStyle.message}>Hello, {this.props.screenProps.globalState.username}</Text>
+        <View style = {{ alignItems: "center", marginTop: 20, marginBottom: 10}}>
+      <Text style={this.props.screenProps.globalStyle.header}>Hello, {this.props.screenProps.globalState.username}</Text></View>
       <Text style={this.props.screenProps.globalStyle.message}>Current Location: {this.props.screenProps.globalState.location}</Text>
       <Text style={this.props.screenProps.globalStyle.message}>Points: {this.props.screenProps.globalState.points}</Text>
+      <View style = {{ alignItems: "center"}}>
+        <View style={this.props.screenProps.globalStyle.purpleButton}>
+        <Text style={this.props.screenProps.globalStyle.buttonText}>Settings</Text>
+        </View>
+        </View>
      </View>
     );
   }
