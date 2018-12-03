@@ -52,7 +52,6 @@ export default class CurrentScreenComponent extends React.Component {
         this.setState({
           currentRambl: rambl,
           currentView: "selected",
-          currentRamblState: "Chosen",
         });
       }
       getComponentForState(){
