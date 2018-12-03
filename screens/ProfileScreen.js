@@ -28,7 +28,10 @@ export default class ProfileScreen extends React.Component {
   render() {
    return (
      <View style={styles.view}>
-         <View style={styles.header}></View>
+       <LinearGradient
+         colors={[ "#327ba7",'#00BFFF']}
+         style={{  alignItems: "center" }}
+       ><View style={styles.header}></View></LinearGradient>
          <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
          <View style={styles.body}>
            <View style={styles.bodyContent}>
@@ -38,14 +41,17 @@ export default class ProfileScreen extends React.Component {
              <Text style={styles.description}>The best trip I ever went on was with friend, who interviewed me before we left and did a ton of research on the lesser known things to do in Mexico City. I loved not having to worry that I wasn't spending my time right, or that I was missing out on something amazing.</Text>
              <Text style={styles.description}> Total points: {this.props.screenProps.globalState.points}</Text>
              <Text style={styles.description}> Ramblr Status: Influencer</Text>
-             <TouchableOpacity style={styles.buttonContainer}>
-               <Text>Submit New Footprint</Text>
+             </View>
+           <TouchableOpacity style={styles.buttonContainer}>
+               <Text style = {{ color: '#FFFFFF',
+                   fontSize: 20,}}> Submit New Footprint</Text>
              </TouchableOpacity>
              <TouchableOpacity style={styles.buttonContainer}>
-               <Text>View Friend List</Text>
+               <Text style = {{    color: '#FFFFFF',
+                   fontSize: 20,}}>View Friend List</Text>
              </TouchableOpacity>
-           </View>
-       </View>
+
+            </View>
      </View>
    );
  }
@@ -53,8 +59,9 @@ export default class ProfileScreen extends React.Component {
 
 const styles = StyleSheet.create({
  header:{
-   backgroundColor: "#00BFFF",
-   height:200,
+   // backgroundColor: "#00BFFF",
+   height:100,
+   backgroundColor: "#9839F7"
  },
  avatar: {
    width: 130,
@@ -65,48 +72,68 @@ const styles = StyleSheet.create({
    marginBottom:10,
    alignSelf:'center',
    position: 'absolute',
-   marginTop:130
- },
- name:{
-   fontSize:22,
-   color:"#FFFFFF",
-   fontWeight:'600',
+   marginTop:30
  },
  body:{
    marginTop:50,
+   marginBottom: 25,
+   alignItems: 'center',
  },
  bodyContent: {
    // flex: 1,
-   alignItems: 'center',
+
    // marginTop: 200,
    padding:30,
+  // marginBottom: 5,
  },
  name:{
+   alignSelf: 'center',
    fontSize:28,
-   color: "#696969",
+   // color: "#696969",
+   color: "white",
    fontWeight: "600"
  },
  info:{
-   fontSize:16,
+   alignSelf: 'center',
+   fontSize:18,
+   // color: "#9839F7",
    color: "#00BFFF",
-   marginTop:10
+   marginTop:15
  },
  description:{
-   fontSize:16,
-   color: "#696969",
-   marginTop:10,
-   textAlign: 'center'
+   fontSize:18,
+   color: "white",
+   // color: "#696969",
+   marginTop:15,
+   textAlign: 'center',
  },
  buttonContainer: {
-   marginTop:10,
-   height:45,
-   // flexDirection: 'row',
-   justifyContent: 'center',
+   // marginTop:10,
+   // height:45,
+   // // flexDirection: 'row',
+   // justifyContent: 'center',
+   // alignItems: 'center',
+   // // marginBottom:20,
+   // width:250,
+   // borderRadius:30,
+   // backgroundColor: "#00BFFF",
+   width : 220,
+   height: 40,
+   color: 'white',
+   backgroundColor: '#9839F7',
+   // alignItems: 'center',
+   // marginTop: 15,
+   marginBottom: 15,
+   // marginLeft:5 ,
+   // marginRight: 3,
+   paddingTop: 6,
+   borderRadius: 3,
+   overflow: 'hidden',
+   shadowColor: "white",
+   shadowOffset: {width: 1, height: -1},
+   shadowRadius: 10,
    alignItems: 'center',
-   // marginBottom:20,
-   width:250,
-   borderRadius:30,
-   backgroundColor: "#00BFFF",
+   // justifyContent: "center"
  },
 });
 
