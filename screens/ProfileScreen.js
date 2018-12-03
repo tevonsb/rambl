@@ -27,7 +27,7 @@ export default class ProfileScreen extends React.Component {
 
   render() {
    return (
-     <View style={styles.container}>
+     <View style={styles.view}>
          <View style={styles.header}></View>
          <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
          <View style={styles.body}>
@@ -73,11 +73,12 @@ const styles = StyleSheet.create({
    fontWeight:'600',
  },
  body:{
-   marginTop:40,
+   marginTop:50,
  },
  bodyContent: {
-   flex: 1,
+   // flex: 1,
    alignItems: 'center',
+   // marginTop: 200,
    padding:30,
  },
  name:{
@@ -99,10 +100,10 @@ const styles = StyleSheet.create({
  buttonContainer: {
    marginTop:10,
    height:45,
-   flexDirection: 'row',
+   // flexDirection: 'row',
    justifyContent: 'center',
    alignItems: 'center',
-   marginBottom:20,
+   // marginBottom:20,
    width:250,
    borderRadius:30,
    backgroundColor: "#00BFFF",
