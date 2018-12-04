@@ -25,15 +25,6 @@ import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
 
 export default class HistoryScreenComponent extends React.Component {
-  static navigationOptions = {
-    title: "Previous Rambls",
-    headerRight: (
-    <Button
-    onPress={() => this.handleBackPress()}
-    title="<"
-    color="#fff"
-  />),
-  };
 
   constructor(props) {
     super(props);

@@ -16,9 +16,6 @@ import { MapView } from 'expo';
 import LoadingScreenComponent from './LoadingScreen';
 
 export default class GenerateStompComponent extends React.Component {
-  static navigationOptions = {
-    title: 'Stomp',
-  };
   constructor(props){
     super(props);
     this.state = {

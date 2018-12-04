@@ -20,27 +20,33 @@ import FriendRamblComponent from './FriendRambl.js'
 var footprintSelection = require("../data/londonfootprints.json");
 
 export default class CurrentScreenComponent extends React.Component {
-  static navigationOptions = {
-    title: 'Rambl',
-  };
   constructor(props){
     super(props);
-    this.state = {
-      currentRamblState: "Current",
-      currentView: "map",
-      hour: 1,
-      minute: 15,
-      currentRambl: null,
-    };
+    if(this.props.currentState){
+      console.log('loading saved state');
+      this.state = this.props.currentState;
+    } else {
+      this.state = {
+        currentRamblState: "Current",
+        currentView: "map",
+        hour: 1,
+        minute: 15,
+        currentRambl: null,
+      };
+    }
     this.checkDuration = this.checkDuration.bind(this);
     this.createNewRambl = this.createNewRambl.bind(this);
   }
 
   componentWillMount(){
-    if(this.props.rambl){
-      this.setState({currentView: "selected", currentRambl: this.props.rambl});
-    }
+
   }
+
+  componentWillUnmount(){
+    this.props.setGlobalState({currentScreenState: this.state});
+    console.log('unmounting component and saving state');
+  }
+
   getPickerMinutes(){
     const minutes = [0, 15, 30, 45];
     return minutes.map((number) =>

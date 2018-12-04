@@ -14,15 +14,9 @@ import {
 import TabNavigator from '../navigation/TabNavigator.js';
 
 export default class ProfileScreen extends React.Component {
-  static navigationOptions = {
-    title: 'You',
-  };
+
   constructor(props){
     super(props);
-  }
-
-  handleTabSelect(tabTitle){
-    console.log(tabTitle);
   }
 
   render() {

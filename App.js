@@ -32,7 +32,8 @@ export default class App extends React.Component {
       points: "200",
       username: "Amanda",
       location: "London",
-      activeScreen: "Profile"
+      activeScreen: "Profile",
+      currentScreenState: null,
     };
     this.setGlobalState = this.setGlobalState.bind(this);
     this.handleTabPress = this.handleTabPress.bind(this);
@@ -50,11 +51,10 @@ export default class App extends React.Component {
     };
 
     this.state.screens = {
-      Profile: <ProfileScreen screenProps={screenProps} setGlobalState={this.setGlobalState}/>,
-      Current: <CurrentScreen screenProps={screenProps} setGlobalState={this.setGlobalState}/>,
+      Profile: <ProfileScreen screenProps={screenProps} setGlobalState={this.setGlobalState} />,
+      Current: <CurrentScreen screenProps={screenProps} setGlobalState={this.setGlobalState} currentState={this.state.currentScreenState}/>,
       FAQs: <FAQScreen screenProps = {screenProps} />
     };
-    console.log(this.state.screens[this.state.activeScreen]);
   }
 
   setGlobalState(newState) {
