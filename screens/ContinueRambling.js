@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 
 import FootprintDetailComponent from './FootprintDetailScreen.js';
-import ExpandedFootprintDetailComponent from './ExpandedFootprintDetailScreen.js';
 import RateandStompComponent from './RateandStomp.js';
 import {Icon} from 'react-native-elements'
 

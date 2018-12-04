@@ -26,15 +26,6 @@ import RateandStompComponent from "./RateandStomp.js";
 import FriendsViewComponent from "./Friends.js";
 
 export default class AdjustedProfScreenComponent extends React.Component {
-  static navigationOptions = {
-    title: "Profile",
-    headerRight: (
-    <Button
-    onPress={() => this.handleBackPress()}
-    title="<"
-    color="#fff"
-  />),
-  };
 
   constructor(props) {
     super(props);
