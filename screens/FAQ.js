@@ -38,7 +38,7 @@ export default class FAQScreenComponent extends React.Component {
       </View>
       <View style={this.props.screenProps.globalStyle.questionContainer}>
       <Text style={this.props.screenProps.globalStyle.question}>Does my status matter? What are the types of statuses?</Text>
-      <Text style={this.props.screenProps.globalStyle.detail}>Yes! There are five statuses: novice, ramblr, stomper, and influencer. You can view your
+      <Text style={this.props.screenProps.globalStyle.detail}>Yes! There are five levels: novice, ramblr, stomper, and influencer. You can view your
       status anytime on your profile page. When you reach influencer status, you can leave new footprints for other users, and earn
       1% of all future stomps on the footprint.</Text>
       </View>
