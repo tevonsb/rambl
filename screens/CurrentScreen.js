@@ -10,11 +10,14 @@ import {
   Picker,
   FlatList,
   Dimensions,
+  Button,
 } from 'react-native';
-import { MapView } from 'expo';
+import { MapView, Overlay } from 'expo';
 
 import RamblDetailComponent from './RamblDetailScreen.js';
 import LoadingScreenComponent from './LoadingScreen';
+import FriendRamblComponent from './FriendRambl.js'
+var footprintSelection = require("../data/londonfootprints.json");
 
 export default class CurrentScreenComponent extends React.Component {
   static navigationOptions = {
@@ -24,12 +27,13 @@ export default class CurrentScreenComponent extends React.Component {
     super(props);
     this.state = {
       currentRamblState: "Current",
-      currentView: "choose",
+      currentView: "map",
       hour: 1,
       minute: 15,
       currentRambl: null,
     };
     this.checkDuration = this.checkDuration.bind(this);
+    this.createNewRambl = this.createNewRambl.bind(this);
   }
 
   componentWillMount(){
@@ -41,6 +45,20 @@ export default class CurrentScreenComponent extends React.Component {
     const minutes = [0, 15, 30, 45];
     return minutes.map((number) =>
     <Picker.Item key={number.toString()} label={number.toString()} value={number}/>);
+    }
+
+    displayFootprints(){
+      return footprintSelection.map((footprint, index) => {
+        return ( <MapView.Marker
+
+          key = {index.toString()}
+            coordinate = {{latitude: (footprint.latitude),
+            longitude: (footprint.longitude)}}
+            title = {footprint.title}
+            pinColor = {"#00E7FF"}
+            description = {footprint.Address}
+            />);
+      });
     }
 
     getPickerHours(){
@@ -62,10 +80,65 @@ export default class CurrentScreenComponent extends React.Component {
           currentView: "selected",
         });
       }
+
+      createNewRambl(){
+        this.setState({
+          currentView: "choose",
+        });
+      }
+      followfriendRambl(){
+        this.setState({
+          currentView: "chooseFriend",
+        });
+      }
       getComponentForState(){
+        if(this.state.currentView === "map"){
+          return(
+            <View
+              style={this.props.screenProps.globalStyle.view}
+              >
+          <MapView
+            style={this.props.screenProps.globalStyle.largeMap}
+            initialRegion={{
+              latitude: 51.5177,
+              longitude: -0.13,
+              latitudeDelta: .05,
+              longitudeDelta: .13,
+            }}
+            showBuildings = {true}
+          >
+          {this.displayFootprints()}
+          </MapView>
+          <View style = {{
+            flex: 1,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between'
+          }}>
+          <TouchableOpacity onPress = {()=> this.createNewRambl()} style={styles.buttonContainer}>
+            <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
+textShadowOffset: {width: 0, height: 1},
+textShadowRadius: 80,
+                fontSize: 20,}}>Create New</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress = {()=> this.followFriendRambl()} style={styles.buttonContainer}>
+            <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
+textShadowOffset: {width: 0, height: 1},
+textShadowRadius: 80,
+                fontSize: 20,}}>Follow a Friend</Text>
+          </TouchableOpacity>
+          </View>
+          </View>
+        )
+        }
         if(this.state.currentView === "selected"){
           return (
             <RamblDetailComponent rambl={this.state.currentRambl} {...this.props}/>
+          )
+        }
+        if(this.state.currentView === "chooseFriend"){
+          return (
+            <FriendRamblComponent rambl={this.state.currentRambl} {...this.props}/>
           )
         }
         if(this.state.currentView === "choose"){
@@ -153,9 +226,33 @@ export default class CurrentScreenComponent extends React.Component {
     }
 
     const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        paddingTop: 15,
-        backgroundColor: '#fff',
+      buttonContainer: {
+        // marginTop:10,
+        // height:45,
+        // // flexDirection: 'row',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        // // marginBottom:20,
+        // width:250,
+        // borderRadius:30,
+        // backgroundColor: "#00BFFF",
+        width : 190,
+        height: 35,
+        color: 'white',
+        backgroundColor: '#9839F7',
+        // alignItems: 'center',
+        marginTop: 20,
+        marginBottom: 20,
+        // marginLeft:5 ,
+        // marginRight: 3,
+        // paddingTop: 5,
+        // paddingBottom: 5,
+        borderRadius: 3,
+        overflow: 'hidden',
+        shadowColor: "white",
+        shadowOffset: {width: 1, height: -1},
+        shadowRadius: 10,
+        alignItems: 'center',
+        justifyContent: "center"
       },
     });
