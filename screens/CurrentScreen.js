@@ -119,7 +119,7 @@ export default class CurrentScreenComponent extends React.Component {
             <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
 textShadowOffset: {width: 0, height: 1},
 textShadowRadius: 80,
-                fontSize: 20,}}>Create New</Text>
+                fontSize: 20,}}>Discover New</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress = {()=> this.followfriendRambl()} style={styles.buttonContainer}>
             <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
@@ -196,7 +196,7 @@ textShadowRadius: 80,
                   data={this.getRambls()}
                   renderItem={({item}) =>
                   <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
-                    <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
+                    <Text style={this.props.screenProps.globalStyle.message}>{item.title}, {item.city}</Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: $ {item.cost} </Text>

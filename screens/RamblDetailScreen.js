@@ -133,7 +133,7 @@ export default class RamblDetailComponent extends React.Component {
           {this.displayFootprints()}
           </MapView>
           </LinearGradient>
-          <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}</Text>
+          <Text style={this.props.screenProps.globalStyle.header}>{this.props.rambl.title}, {this.props.rambl.city}</Text>
           <Text style={this.props.screenProps.globalStyle.footprintDetail}>This Rambl lasts about {this.props.rambl.duration} hours.</Text>
           <Text style={this.props.screenProps.globalStyle.footprintDetail}>Footprints in this Rambl:</Text>
           {this.getFootprints()}

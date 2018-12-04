@@ -151,7 +151,7 @@ export default class AdjustedProfScreenComponent extends React.Component {
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getMyRambls()}
               renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
-              <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
+              <Text style={this.props.screenProps.globalStyle.message}>{item.title}, {item.city}</Text>
               <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
               <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
               <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
@@ -168,7 +168,7 @@ export default class AdjustedProfScreenComponent extends React.Component {
               <FlatList style={this.props.screenProps.globalStyle.flatlist}
                   data={this.getFriendsRamblsMyLocation()}
                   renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
-                  <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
+                  <Text style={this.props.screenProps.globalStyle.message}>{item.title}, {item.city}</Text>
                   <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
                   <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
                   <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
