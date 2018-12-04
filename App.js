@@ -21,6 +21,7 @@ var past_rambls = require("./data/past_rambls");
 import HistoryScreen from "./screens/HistoryScreen";
 import CurrentScreen from "./screens/CurrentScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import FAQScreen from "./screens/FAQ"
 
 export default class App extends React.Component {
   constructor(props) {
@@ -54,7 +55,8 @@ export default class App extends React.Component {
     this.state.screens = {
       Profile: <ProfileScreen screenProps={screenProps} />,
       Current: <CurrentScreen screenProps={screenProps} />,
-      History: <HistoryScreen screenProps={screenProps} />
+      History: <HistoryScreen screenProps={screenProps} />,
+      FAQs: <FAQScreen screenProps = {screenProps} />
     };
     console.log(this.state.screens[this.state.activeScreen]);
   }
@@ -78,7 +80,6 @@ export default class App extends React.Component {
     return newStyle;
   }
   handleTabPress(title) {
-    console.log(title);
     this.setState({
       activeScreen: title
     });
@@ -161,7 +162,8 @@ export default class App extends React.Component {
               tabs={[
                 { title: "History" },
                 { title: "Current" },
-                { title: "Profile" }
+                { title: "Profile" },
+                {title: "FAQs"}
               ]}
               onPress={this.handleTabPress}
               activeTab={this.state.activeScreen}

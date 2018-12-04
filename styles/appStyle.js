@@ -56,6 +56,22 @@ export default globalStyles = StyleSheet.create({
     borderRadius: 3,
     padding: 5,
   },
+  questionContainer: {
+    justifyContent: 'space-evenly',
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+    flex: 0,
+    backgroundColor: "#327ba7",
+    margin: 5,
+    borderRadius: 3,
+    padding: 5,
+  },
+  question: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight:"bold",
+    // marginTop: 10,
+  },
   map: {
      height: 300,
      width: Dimensions.get('window').width -20,
@@ -87,6 +103,9 @@ export default globalStyles = StyleSheet.create({
   buttonText:{
     color: '#FFFFFF',
     fontSize: 20,
+    textShadowColor: 'white',
+    textShadowOffset: {width: 0, height: 1},
+    textShadowRadius: 80,
   },
   purpleButton:{
     width : 150,

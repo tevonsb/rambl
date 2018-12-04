@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HistoryScreen from '../screens/HistoryScreen';
 import CurrentScreen from '../screens/CurrentScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import FAQScreen from '../screens/FAQ'
 
 const HistoryStack = createStackNavigator({
   History: HistoryScreen,
@@ -53,8 +54,24 @@ ProfileStack.navigationOptions = {
   ),
 };
 
+const FAQStack = createStackNavigator({
+  FAQ: FAQScreen,
+});
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: '?',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+    />
+  ),
+};
+
+
 export default createBottomTabNavigator({
   HistoryStack,
   CurrentStack,
   ProfileStack,
+  FAQStack
 });

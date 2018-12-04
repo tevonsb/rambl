@@ -43,11 +43,15 @@ export default class ProfileScreen extends React.Component {
              <Text style={styles.description}> Ramblr Status: Influencer</Text>
              </View>
            <TouchableOpacity style={styles.buttonContainer}>
-               <Text style = {{ color: '#FFFFFF',
+               <Text style = {{ color: '#FFFFFF', textShadowColor: 'white',
+  textShadowOffset: {width: 0, height: 1},
+  textShadowRadius: 80,
                    fontSize: 20,}}> Submit New Footprint</Text>
              </TouchableOpacity>
              <TouchableOpacity style={styles.buttonContainer}>
-               <Text style = {{    color: '#FFFFFF',
+               <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
+  textShadowOffset: {width: 0, height: 1},
+  textShadowRadius: 80,
                    fontSize: 20,}}>View Friend List</Text>
              </TouchableOpacity>
 
