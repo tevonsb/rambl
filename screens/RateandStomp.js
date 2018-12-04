@@ -12,8 +12,6 @@ import {
   View
 } from 'react-native';
 
-import RamblDetailComponent from './RamblDetailScreen.js';
-import HistoryDetailComponent from './HistoryScreen.js';
 import StarRating from 'react-native-star-rating';
 
 export default class RateandStompComponent extends React.Component {
