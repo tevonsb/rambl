@@ -96,7 +96,6 @@ export default class FriendScreenComponent extends React.Component {
     var displayView = null;
     if(this.state.currentView === "selected"){
       const thisRambl = this.state.currentRambl;
-      console.log(thisRambl)
       return (
         <RamblDetailComponent {...this.props} rambl={thisRambl}/>
       )

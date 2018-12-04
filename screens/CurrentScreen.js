@@ -22,7 +22,6 @@ var footprintSelection = require("../data/londonfootprints.json");
 export default class CurrentScreenComponent extends React.Component {
   constructor(props){
     super(props);
-    console.log(this.props.currentState);
     if(this.props.currentState !== null){
       console.log('loading saved state');
       this.state = this.props.currentState;
@@ -45,7 +44,6 @@ export default class CurrentScreenComponent extends React.Component {
 
   componentWillUnmount(){
     this.props.setGlobalState({currentScreenState: this.state});
-    console.log('unmounting component and saving state');
   }
 
   getPickerMinutes(){

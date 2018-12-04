@@ -18,13 +18,21 @@ import {Icon} from 'react-native-elements'
 export default class ContinueRambleComponent extends React.Component {
   constructor(props){
     super(props);
-    this.state ={
-      footprints: this.props.rambl.footprints,
-      activeFootprint: null,
-      currentFootprintState: "unselected",
+    if(this.props.continueRamblingState){
+      this.state = this.props.continueRamblingState;
+    } else {
+      this.state ={
+        footprints: this.props.rambl.footprints,
+        activeFootprint: null,
+        currentFootprintState: "unselected",
+      }
     }
     this.handleVisitPress = this.handleVisitPress.bind(this);
     this.setFootprintVisited = this.setFootprintVisited.bind(this);
+  }
+
+  componentWillUnmount(){
+    this.props.setGlobalState({continueRamblingState: this.state});
   }
 
   handleVisitPress(footprint){
@@ -47,17 +55,17 @@ export default class ContinueRambleComponent extends React.Component {
 
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-     if(this.state.currentFootprintState === "unselected"){
-       return (
-         <View style={this.props.screenProps.globalStyle.view}>
-         <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
-         <FootprintDetailComponent action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
-         </View>
-       );
-     }
-     if(this.state.currentFootprintState === "selected"){
-       return (<RateandStompComponent {...this.props} setFootprintVisited={this.setFootprintVisited} footprint={this.state.activeFootprint}/>);
-     }
+    * content, we just wanted to give you a quick view of your config */
+    if(this.state.currentFootprintState === "unselected"){
+      return (
+        <View style={this.props.screenProps.globalStyle.view}>
+          <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
+          <FootprintDetailComponent action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
+        </View>
+      );
+    }
+    if(this.state.currentFootprintState === "selected"){
+      return (<RateandStompComponent {...this.props} setFootprintVisited={this.setFootprintVisited} footprint={this.state.activeFootprint}/>);
+    }
   }
 }

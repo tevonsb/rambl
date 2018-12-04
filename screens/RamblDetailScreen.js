@@ -29,12 +29,22 @@ export default class RamblDetailComponent extends React.Component {
 
   constructor(props){
     super(props);
-    this.state ={
-      currentRamblState: "Detail",
-      currentFootprint: null,
+    console.log('CURRENT STATE');
+    console.log(this.props.ramblingState);
+    if(this.props.ramblingState !== null){
+      this.state = this.props.ramblingState;
+    } else {
+      this.state = {
+        currentRamblState: "Detail",
+        currentFootprint: null,
+      }
     }
     this.setRamblState = this.setRamblState.bind(this);
     this.handleFollowPress = this.handleFollowPress.bind(this);
+  }
+
+  componentWillUnmount(){
+    this.props.setGlobalState({ramblingState: this.state});
   }
   getFootprints(){
     return (<FootprintDetailComponent {...this.props}/>);
@@ -97,15 +107,13 @@ export default class RamblDetailComponent extends React.Component {
   }
 
   setRamblState(state){
+    this.props.setGlobalState({continueRamblingState: null});
     this.setState({
       currentRamblState: state,
     });
   }
 
   render() {
-    //Rambl Detail Screen
-    console.log('The recieved rambl prop is');
-    console.log(this.props.rambl);
     if(this.state.currentRamblState === "Detail"){
       return (
         <View style={this.props.screenProps.globalStyle.view}>

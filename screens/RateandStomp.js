@@ -41,7 +41,6 @@ export default class RateandStompComponent extends React.Component {
     });
     this.props.setFootprintVisited();
     if(stompAmount === 0){
-      console.log("Setting rambl state");
     } else {
       this.props.setRamblState("GeneratedStomp");
     }

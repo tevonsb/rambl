@@ -27,13 +27,12 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isLoadingComplete: false,
-      // testText: "",
-      //Add additional state variables here
       points: "200",
       username: "Amanda",
       location: "London",
       activeScreen: "Rambl!",
       currentScreenState: null,
+      ramblingState: null,
     };
     this.setGlobalState = this.setGlobalState.bind(this);
     this.handleTabPress = this.handleTabPress.bind(this);
@@ -78,13 +77,13 @@ export default class App extends React.Component {
 
   getActiveScreen(){
     if(this.state.activeScreen === "Profile"){
-      return (<ProfileScreen screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} />);
+      return (<ProfileScreen {...this.state} screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} />);
     }
     if(this.state.activeScreen === "Rambl!"){
-      return (<CurrentScreen screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} currentState={this.state.currentScreenState}/>);
+      return (<CurrentScreen {...this.state} screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} currentState={this.state.currentScreenState}/>);
     }
     if(this.state.activeScreen === "FAQs"){
-      return (<FAQScreen screenProps = {this.state.screenProps} />);
+      return (<FAQScreen {...this.state} screenProps = {this.state.screenProps} />);
     }
     return null;
   }
