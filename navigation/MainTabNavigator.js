@@ -3,28 +3,9 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HistoryScreen from '../screens/HistoryScreen';
 import CurrentScreen from '../screens/CurrentScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from '../screens/AdjustedProfile';
 import FAQScreen from '../screens/FAQ'
-
-const HistoryStack = createStackNavigator({
-  History: HistoryScreen,
-});
-
-HistoryStack.navigationOptions = {
-  tabBarLabel: 'History',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-};
 
 const CurrentStack = createStackNavigator({
   Current: CurrentScreen,
@@ -70,7 +51,6 @@ ProfileStack.navigationOptions = {
 
 
 export default createBottomTabNavigator({
-  HistoryStack,
   CurrentStack,
   ProfileStack,
   FAQStack

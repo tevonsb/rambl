@@ -18,9 +18,8 @@ var users = require("./data/users");
 var friends_rambls = require("./data/friends_rambls");
 var past_rambls = require("./data/past_rambls");
 
-import HistoryScreen from "./screens/HistoryScreen";
 import CurrentScreen from "./screens/CurrentScreen";
-import ProfileScreen from "./screens/ProfileScreen";
+import ProfileScreen from "./screens/AdjustedProfile";
 import FAQScreen from "./screens/FAQ"
 
 export default class App extends React.Component {
@@ -51,9 +50,8 @@ export default class App extends React.Component {
     };
 
     this.state.screens = {
-      Profile: <ProfileScreen screenProps={screenProps} rambl={this.state.currentRambl}setGlobalState={this.setGlobalState}/>,
+      Profile: <ProfileScreen screenProps={screenProps} setGlobalState={this.setGlobalState}/>,
       Current: <CurrentScreen screenProps={screenProps} setGlobalState={this.setGlobalState}/>,
-      History: <HistoryScreen screenProps={screenProps} setGlobalState={this.setGlobalState}/>,
       FAQs: <FAQScreen screenProps = {screenProps} />
     };
     console.log(this.state.screens[this.state.activeScreen]);
@@ -158,7 +156,6 @@ export default class App extends React.Component {
 
               }}
               tabs={[
-                { title: "History" },
                 { title: "Current" },
                 { title: "Profile" },
                 {title: "FAQs"}

@@ -46,9 +46,9 @@ export default class ProfileScreen extends React.Component {
                <Text style = {{ color: '#FFFFFF', textShadowColor: 'white',
   textShadowOffset: {width: 0, height: 1},
   textShadowRadius: 80,
-                   fontSize: 20,}}> Submit New Footprint</Text>
+                   fontSize: 20,}}>Submit New Footprint!</Text>
              </TouchableOpacity>
-             <TouchableOpacity style={styles.buttonContainer}>
+             <TouchableOpacity onPress = style={styles.buttonContainer}>
                <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
   textShadowOffset: {width: 0, height: 1},
   textShadowRadius: 80,
@@ -62,83 +62,83 @@ export default class ProfileScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
- header:{
-   // backgroundColor: "#00BFFF",
-   height:100,
-   backgroundColor: "#9839F7"
- },
- avatar: {
-   width: 130,
-   height: 130,
-   borderRadius: 63,
-   borderWidth: 4,
-   borderColor: "white",
-   marginBottom:10,
-   alignSelf:'center',
-   position: 'absolute',
-   marginTop:30
- },
- body:{
-   marginTop:50,
-   marginBottom: 35,
-   alignItems: 'center',
- },
- bodyContent: {
-   // flex: 1,
+  header:{
+    // backgroundColor: "#00BFFF",
+    height:100,
+    backgroundColor: "#9839F7"
+  },
+  avatar: {
+    width: 130,
+    height: 130,
+    borderRadius: 63,
+    borderWidth: 4,
+    borderColor: "white",
+    marginBottom:10,
+    alignSelf:'center',
+    position: 'absolute',
+    marginTop:30
+  },
+  body:{
+    marginTop:50,
+    marginBottom: 35,
+    alignItems: 'center',
+  },
+  bodyContent: {
+    // flex: 1,
 
-   // marginTop: 200,
-   padding:30,
-  // marginBottom: 5,
- },
- name:{
-   alignSelf: 'center',
-   fontSize:28,
-   // color: "#696969",
-   color: "white",
-   fontWeight: "600"
- },
- info:{
-   alignSelf: 'center',
-   fontSize:18,
-   // color: "#9839F7",
-   color: "#00BFFF",
-   marginTop:15
- },
- description:{
-   fontSize:18,
-   color: "white",
-   // color: "#696969",
-   marginTop:15,
-   textAlign: 'center',
- },
- buttonContainer: {
-   // marginTop:10,
-   // height:45,
-   // // flexDirection: 'row',
-   // justifyContent: 'center',
-   // alignItems: 'center',
-   // // marginBottom:20,
-   // width:250,
-   // borderRadius:30,
-   // backgroundColor: "#00BFFF",
-   width : 220,
-   height: 35,
-   color: 'white',
-   backgroundColor: '#9839F7',
-   // alignItems: 'center',
-   // marginTop: 15,
-   marginBottom: 15,
-   // marginLeft:5 ,
-   // marginRight: 3,
-   paddingTop: 5,
-   borderRadius: 3,
-   overflow: 'hidden',
-   shadowColor: "white",
-   shadowOffset: {width: 1, height: -1},
-   shadowRadius: 10,
-   alignItems: 'center',
-   // justifyContent: "center"
- },
+    // marginTop: 200,
+    padding:30,
+   // marginBottom: 5,
+  },
+  name:{
+    alignSelf: 'center',
+    fontSize:28,
+    // color: "#696969",
+    color: "white",
+    fontWeight: "600"
+  },
+  info:{
+    alignSelf: 'center',
+    fontSize:18,
+    // color: "#9839F7",
+    color: "#00BFFF",
+    marginTop:15
+  },
+  description:{
+    fontSize:18,
+    color: "white",
+    // color: "#696969",
+    marginTop:15,
+    textAlign: 'center',
+  },
+  buttonContainer: {
+    // marginTop:10,
+    // height:45,
+    // // flexDirection: 'row',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // // marginBottom:20,
+    // width:250,
+    // borderRadius:30,
+    // backgroundColor: "#00BFFF",
+    width : 220,
+    height: 35,
+    color: 'white',
+    backgroundColor: '#9839F7',
+    // alignItems: 'center',
+    // marginTop: 15,
+    marginBottom: 15,
+    // marginLeft:5 ,
+    // marginRight: 3,
+    paddingTop: 5,
+    borderRadius: 3,
+    overflow: 'hidden',
+    shadowColor: "white",
+    shadowOffset: {width: 1, height: -1},
+    shadowRadius: 10,
+    alignItems: 'center',
+    // justifyContent: "center"
+  },
 });
 
 //   render() {

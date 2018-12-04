@@ -125,8 +125,8 @@ export default class RamblDetailComponent extends React.Component {
             initialRegion={{
               latitude: this.props.rambl.latitude,
               longitude: this.props.rambl.longitude,
-              latitudeDelta: this.props.rambl.latitudeDelta,
-              longitudeDelta: this.props.rambl.longitudeDelta,
+              latitudeDelta: this.props.rambl.latitudeDelta + .01,
+              longitudeDelta: this.props.rambl.longitudeDelta +.01,
             }}
             showBuildings = {true}
           >

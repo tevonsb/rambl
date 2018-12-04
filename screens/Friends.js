@@ -16,12 +16,12 @@ export default class FriendsView extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows([
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"johndoe1"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar2.png", username:"johndoe2"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar3.png", username:"johndoe3"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar4.png", username:"johndoe4"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar1.png", username:"johndoe5"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"johndoe6"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Rohan"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar2.png", username:"Katherine"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar3.png", username:"Randy"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar4.png", username:"Eric"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar1.png", username:"Jessica"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Brett"},
       ]),
     };
   }
@@ -57,7 +57,7 @@ export default class FriendsView extends Component {
 
 const styles = StyleSheet.create({
   header:{
-    backgroundColor: "#20B2AA",
+    backgroundColor: "#00BFFF",
   },
   headerContent:{
     padding:30,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     elevation:2
   },
   username:{
-    color: "#20B2AA",
+    color: "#00BFFF",
     fontSize:22,
     alignSelf:'center',
     marginLeft:10
