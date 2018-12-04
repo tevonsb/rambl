@@ -49,12 +49,7 @@ export default class App extends React.Component {
       getStyleSheet: this.getStyleSheet,
       globalStyle: globalStyle,
     };
-
-    this.state.screens = {
-      Profile: <ProfileScreen screenProps={screenProps} setGlobalState={this.setGlobalState} />,
-      Current: <CurrentScreen screenProps={screenProps} setGlobalState={this.setGlobalState} currentState={this.state.currentScreenState}/>,
-      FAQs: <FAQScreen screenProps = {screenProps} />
-    };
+    this.setState({screenProps: screenProps});
   }
 
   setGlobalState(newState) {
@@ -81,7 +76,21 @@ export default class App extends React.Component {
     });
   }
 
+  getActiveScreen(){
+    if(this.state.activeScreen === "Profile"){
+      return (<ProfileScreen screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} />);
+    }
+    if(this.state.activeScreen === "Current"){
+      return (<CurrentScreen screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} currentState={this.state.currentScreenState}/>);
+    }
+    if(this.state.activeScreen === "FAQs"){
+      return (<FAQScreen screenProps = {this.state.screenProps} />);
+    }
+    return null;
+  }
   render() {
+    console.log('Current Screen State')
+    console.log(this.state.currentScreenState);
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
@@ -116,7 +125,7 @@ export default class App extends React.Component {
               </Text>
             </LinearGradient>
           </View>
-          {this.state.screens[this.state.activeScreen]}
+          {this.getActiveScreen()}
           <LinearGradient
             colors={["#3683B3", "#327ba7", "#245878"]}
             style={{

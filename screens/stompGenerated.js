@@ -11,8 +11,6 @@ import {
   View
 } from 'react-native';
 
-import RamblDetailComponent from './RamblDetailScreen.js';
-import HistoryDetailComponent from './HistoryScreen.js';
 import {Icon} from 'react-native-elements'
 
 export default class StompGeneratedComponent extends React.Component {

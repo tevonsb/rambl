@@ -22,7 +22,8 @@ var footprintSelection = require("../data/londonfootprints.json");
 export default class CurrentScreenComponent extends React.Component {
   constructor(props){
     super(props);
-    if(this.props.currentState){
+    console.log(this.props.currentState);
+    if(this.props.currentState !== null){
       console.log('loading saved state');
       this.state = this.props.currentState;
     } else {
