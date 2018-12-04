@@ -32,7 +32,7 @@ export default class App extends React.Component {
       points: "200",
       username: "Amanda",
       location: "London",
-      activeScreen: "Profile",
+      activeScreen: "Rambl!",
       currentScreenState: null,
     };
     this.setGlobalState = this.setGlobalState.bind(this);
@@ -80,7 +80,7 @@ export default class App extends React.Component {
     if(this.state.activeScreen === "Profile"){
       return (<ProfileScreen screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} />);
     }
-    if(this.state.activeScreen === "Current"){
+    if(this.state.activeScreen === "Rambl!"){
       return (<CurrentScreen screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} currentState={this.state.currentScreenState}/>);
     }
     if(this.state.activeScreen === "FAQs"){
@@ -89,8 +89,6 @@ export default class App extends React.Component {
     return null;
   }
   render() {
-    console.log('Current Screen State')
-    console.log(this.state.currentScreenState);
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
@@ -165,7 +163,7 @@ export default class App extends React.Component {
 
               }}
               tabs={[
-                { title: "Current" },
+                { title: "Rambl!" },
                 { title: "Profile" },
                 {title: "FAQs"}
               ]}
