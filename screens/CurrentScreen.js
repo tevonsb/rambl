@@ -121,7 +121,7 @@ textShadowOffset: {width: 0, height: 1},
 textShadowRadius: 80,
                 fontSize: 20,}}>Create New</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {()=> this.followFriendRambl()} style={styles.buttonContainer}>
+          <TouchableOpacity onPress = {()=> this.followfriendRambl()} style={styles.buttonContainer}>
             <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
 textShadowOffset: {width: 0, height: 1},
 textShadowRadius: 80,
