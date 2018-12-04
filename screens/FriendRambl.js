@@ -24,7 +24,7 @@ import ContinueRamblComponent from "./ContinueRambling.js";
 import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
 
-export default class FriendRamblComponent extends React.Component {
+export default class FriendScreenComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -111,7 +111,7 @@ export default class FriendRamblComponent extends React.Component {
                   data={this.getFriendsRamblsMyLocation()}
                   renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
                   <Text style={this.props.screenProps.globalStyle.message}>{item.title}, {item.city}</Text>
-                  <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
+                  <Text style={this.props.screenProps.globalStyle.detail}>Rambl'd by {item.who} in {item.month} </Text>
                   <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
                   <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
                 </TouchableOpacity>}/>

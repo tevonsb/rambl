@@ -16,8 +16,8 @@ export default class TabNavigator extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      activeTab: 'Rambl',
-      currentTitle: 'Rambl',
+      activeTab: 'Rambl!',
+      currentTitle: 'Rambl!',
     };
   }
 
