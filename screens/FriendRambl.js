@@ -28,12 +28,16 @@ export default class FriendScreenComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      selectedIndex: 0,
-      values: ["My Rambls", "Friends' Rambls"],
-      value: "Friends' Rambls",
-      currentView: "unselected"
-    };
+    if(this.props.friendsRamblState){
+      this.state = this.props.friendsRamblState;
+    } else {
+      this.state = {
+        selectedIndex: 0,
+        values: ["My Rambls", "Friends' Rambls"],
+        value: "Friends' Rambls",
+        currentView: "unselected"
+      };
+    }
     this._onChange = this._onChange.bind(this);
     this._onValueChange = this._onValueChange.bind(this);
     this.getMyRambls = this.getMyRambls.bind(this);
@@ -43,6 +47,10 @@ export default class FriendScreenComponent extends React.Component {
     this.handleRamblPress = this.handleRamblPress.bind(this);
     this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
+  }
+
+  componentWillUnmount(){
+    this.props.setGlobalState({friendsRamblState: this.state});
   }
 
   handleBackPress(){
