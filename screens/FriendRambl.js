@@ -24,7 +24,7 @@ import ContinueRamblComponent from "./ContinueRambling.js";
 import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
 
-export default class HistoryScreenComponent extends React.Component {
+export default class FriendRamblComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -94,9 +94,12 @@ export default class HistoryScreenComponent extends React.Component {
 
   render() {
     var displayView = null;
-    if (this.state.currentView === "selected") {
-      return <RamblDetailComponent rambl={this.state.currentRambl} {...this.props} />;
-      //return <RateandStompComponent {...this.props} />;
+    if(this.state.currentView === "selected"){
+      const thisRambl = this.state.currentRambl;
+      console.log(thisRambl)
+      return (
+        <RamblDetailComponent {...this.props} rambl={thisRambl}/>
+      )
     }
     if (this.state.currentView === "unselected") {
           if(this.state.value === "Friends\' Rambls"){
