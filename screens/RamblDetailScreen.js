@@ -37,6 +37,7 @@ export default class RamblDetailComponent extends React.Component {
       currentFootprint: null,
     }
     this.setRamblState = this.setRamblState.bind(this);
+    this.handleFollowPress = this.handleFollowPress.bind(this);
   }
 
   // getFootprints(){
@@ -62,6 +63,11 @@ export default class RamblDetailComponent extends React.Component {
     });
   }
 
+  handleFollowPress(){
+    this.props.setGlobalState({currentRambl: this.props.rambl});
+    this.setState({currentRamblState: "Loading"});
+  }
+
   displayFollow(){
     if(this.props.rambl.city ==="London"){
       return(
@@ -76,7 +82,7 @@ export default class RamblDetailComponent extends React.Component {
           <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Loading"})}>
+        <TouchableOpacity onPress={()=> this.handleFollowPress()}>
           <View style={this.props.screenProps.globalStyle.purpleButton}>
           <Text style={this.props.screenProps.globalStyle.buttonText}>Follow</Text>
           </View>
@@ -150,29 +156,24 @@ export default class RamblDetailComponent extends React.Component {
     }
 
     if(this.state.currentRamblState === "Rate"){
-      return (<RateandStompComponent {...this.props} footprint={this.state.currentFootprint} setRamblState={this.setRamblState}/>)
+      return (<RateandStompComponent {...this.props} footprint={this.state.currentFootprint} setRamblState={this.setRamblState}/>);
     }
 
     if(this.state.currentRamblState === "Complete"){
-      return (<RamblCompletedComponent {...this.props} setRamblState={this.setRamblState}/>)
+      return (<RamblCompletedComponent {...this.props} setRamblState={this.setRamblState}/>);
     }
 
     if(this.state.currentRamblState === "History"){
-      return (<HistoryScreenComponent {...this.props} setRamblState={this.setRamblState}/>)
+      return (<HistoryScreenComponent {...this.props} setRamblState={this.setRamblState}/>);
     }
 
     if(this.state.currentRamblState === "Create"){
-      return (<CurrentScreenComponent {...this.props} setRamblState={this.setRamblState}/>)
+      return (<CurrentScreenComponent {...this.props} setRamblState={this.setRamblState}/>);
     }
 
-    if(this.state.currentRamblState === "generateStomp"){
-      return (<GenerateStompComponent {...this.props} setRamblState={this.setRamblState}/>)
+    if(this.state.currentRamblState === "GeneratedStomp"){
+      return(<StompGeneratedComponent {...this.props} setRamblState={this.setRamblState} />);
     }
-
-    if(this.state.currentRamblState === "stompGenerated"){
-      return (<StompGeneratedComponent {...this.props} setRamblState={this.setRamblState}/>)
-    }
-
 
   }
 }

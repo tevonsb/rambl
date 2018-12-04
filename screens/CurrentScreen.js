@@ -27,8 +27,15 @@ export default class CurrentScreenComponent extends React.Component {
       currentView: "choose",
       hour: 1,
       minute: 15,
+      currentRambl: null,
     };
     this.checkDuration = this.checkDuration.bind(this);
+  }
+
+  componentWillMount(){
+    if(this.props.rambl){
+      this.setState({currentView: "selected", currentRambl: this.props.rambl});
+    }
   }
   getPickerMinutes(){
     const minutes = [0, 15, 30, 45];

@@ -41,7 +41,6 @@ export default class App extends React.Component {
 
   componentWillMount() {
     const screenProps = {
-      setGlobalState: this.setGlobalState,
       globalState: this.state,
       rambls: rambls,
       users: users,
@@ -49,13 +48,12 @@ export default class App extends React.Component {
       past_rambls: past_rambls,
       getStyleSheet: this.getStyleSheet,
       globalStyle: globalStyle,
-      current_rambl: ""
     };
 
     this.state.screens = {
-      Profile: <ProfileScreen screenProps={screenProps} />,
-      Current: <CurrentScreen screenProps={screenProps} />,
-      History: <HistoryScreen screenProps={screenProps} />,
+      Profile: <ProfileScreen screenProps={screenProps} rambl={this.state.currentRambl}setGlobalState={this.setGlobalState}/>,
+      Current: <CurrentScreen screenProps={screenProps} setGlobalState={this.setGlobalState}/>,
+      History: <HistoryScreen screenProps={screenProps} setGlobalState={this.setGlobalState}/>,
       FAQs: <FAQScreen screenProps = {screenProps} />
     };
     console.log(this.state.screens[this.state.activeScreen]);

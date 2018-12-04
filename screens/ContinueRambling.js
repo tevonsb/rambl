@@ -25,6 +25,7 @@ export default class ContinueRambleComponent extends React.Component {
       currentFootprintState: "unselected",
     }
     this.handleVisitPress = this.handleVisitPress.bind(this);
+    this.setFootprintVisited = this.setFootprintVisited.bind(this);
   }
 
   handleVisitPress(footprint){
@@ -34,10 +35,15 @@ export default class ContinueRambleComponent extends React.Component {
     });
   }
 
-  getFootprints(){
-    return this.props.rambl.footprints.map((footprint, index) => {
-    return (<ExpandedFootprintDetailComponent key={index.toString()} footprint={footprint} {...this.props} action="Visit" handleVisitPress={()=>this.handleVisitPress(footprint)}/>);
+  setFootprintVisited(){
+    var currentRambl = this.props.rambl;
+    currentRambl.footprints.forEach((footprint) => {
+      if(footprint.title === this.state.activeFootprint.title){
+        footprint.visited = true;
+      }
     });
+    this.props.setGlobalState({currentRambl: currentRambl});
+    this.setState({currentFootprintState: "unselected", currentFootprint: null});
   }
 
   render() {
@@ -47,12 +53,12 @@ export default class ContinueRambleComponent extends React.Component {
        return (
          <View style={this.props.screenProps.globalStyle.view}>
          <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
-         <FootprintDetailComponent action="Visit" {...this.props} />
+         <FootprintDetailComponent action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
          </View>
        );
      }
      if(this.state.currentFootprintState === "selected"){
-       return (<RateandStompComponent {...this.props} footprint={this.state.activeFootprint}/>)
+       return (<RateandStompComponent {...this.props} setFootprintVisited={this.setFootprintVisited} footprint={this.state.activeFootprint}/>);
      }
   }
 }
