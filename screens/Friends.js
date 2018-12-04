@@ -18,10 +18,13 @@ export default class FriendsView extends Component {
       dataSource: ds.cloneWithRows([
          {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Rohan"},
          {image: "https://bootdey.com/img/Content/avatar/avatar2.png", username:"Katherine"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar3.png", username:"Randy"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar4.png", username:"Eric"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar1.png", username:"Jessica"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Brett"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar3.png", username:"Eric"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar4.png", username:"Jessica"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar1.png", username:"Brett"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Kally"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Tevon"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Clare"},
+         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Amanda"},
       ]),
     };
   }
