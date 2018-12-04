@@ -1,110 +1,191 @@
-import React, { Component } from 'react';
+import React from "react";
 import {
+  Image,
+  Platform,
+  ScrollView,
   StyleSheet,
   Text,
-  View,
-  Image,
-  ScrollView,
   TouchableOpacity,
-  ListView
-} from 'react-native';
+  View,
+  Button,
+  FlatList,
+  ListView,
+  Picker,
+  Dimensions,
+} from "react-native";
+import { WebBrowser } from "expo";
+import { LinearGradient } from 'expo';
+import { MapView } from "expo";
+import { MonoText } from "../components/StyledText";
+import RamblDetailComponent from "./RamblDetailScreen.js";
+import LoadingScreenComponent from "./LoadingScreen.js";
+import RamblLoadedComponent from "./RamblLoaded.js";
+import RamblCompletedComponent from "./RamblComplete.js";
+import ContinueRamblComponent from "./ContinueRambling.js";
+import TabNavigator from "../navigation/TabNavigator.js";
+import RateandStompComponent from "./RateandStomp.js";
+import FriendsViewComponent from "./Friends.js";
 
-export default class FriendsView extends Component {
+import ProfileScreenComponent from './AdjustedProfile.js';
+
+export default class FriendsView extends React.Component {
 
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
+      currentView: "friends",
       dataSource: ds.cloneWithRows([
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Rohan"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar2.png", username:"Katherine"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar3.png", username:"Eric"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar4.png", username:"Jessica"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar1.png", username:"Brett"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Kally"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Tevon"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Clare"},
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"Amanda"},
+         {image: "https://i.imgur.com/In7VbEK.png", username:"Rohan"},
+         {image: "https://lh6.googleusercontent.com/-R42O5YkyqZ8/AAAAAAAAAAI/AAAAAAAAASg/Q-BZcKsj7JU/il/photo.jpg", username:"Katherine"},
+         {image: "https://www.cioreview.com/newsimages/special/PEa0M1Ks.jpeg", username:"Eric"},
+         {image: "https://pbs.twimg.com/profile_images/2413419924/image_400x400.jpg", username:"Jessica"},
+         {image: "https://pbs.twimg.com/profile_images/981882124402913281/IbZSZea6_400x400.jpg", username:"Brett"},
+         {image: "https://d1qb2nb5cznatu.cloudfront.net/users/7663832-large?1521991954", username:"Kally"},
+         {image: "https://static1.squarespace.com/static/57c1fc61f7e0ab69ed1c7033/57cbcc16cd0f686bb5dae709/57f9682c6a496306c8345a46/1475963010501/IMG_0117.jpg?format=2500w", username:"Tevon"},
+         {image: "https://i1.rgstatic.net/ii/profile.image/277889019858965-1443265313130_Q512/Clare_Chen4.jpg", username:"Clare"},
+         {image: "https://lh3.googleusercontent.com/-eCZdiJi-wDk/AAAAAAAAAAI/AAAAAAABaZA/WAewjrp5lvg/s640-il/photo.jpg", username:"Amanda"},
       ]),
     };
+    this.handlePress = this.handlePress.bind(this);
+  }
+
+  handlePress(){
+    this.setState({
+      currentView: "back",
+    });
   }
 
   render() {
+    if(this.state.currentView === "back"){
+      return (<ProfileScreenComponent {...this}/>);
+    }if(this.state.currentView === "friends"){
     return (
-      <View style={styles.container}>
-          <View style={styles.header}>
-            <View style={styles.headerContent}>
-                <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar1.png'}}/>
-                <Text style={styles.name}>John Doe</Text>
-            </View>
-          </View>
-
-          <View style={styles.body}>
-            <ListView style={styles.container} enableEmptySections={true}
-              dataSource={this.state.dataSource}
-              renderRow={(user) => {
-                return (
-                  <TouchableOpacity>
-                    <View style={styles.box}>
-                      <Image style={styles.image} source={{uri: user.image}}/>
-                       <Text style={styles.username}>{user.username}</Text>
-                    </View>
-                  </TouchableOpacity>
-                )
-            }}/>
-          </View>
+      <View style={{flex:1}}>
+      <View style={styles.view}>
+      <TouchableOpacity onPress={()=> this.handlePress()}>
+        <LinearGradient
+          colors={[ "#327ba7",'#00BFFF']}
+          style={{  alignItems: "center" }}
+        ><View style={styles.header}></View></LinearGradient>
+          <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.bodyList}>
+          <ListView style={styles.container} enableEmptySections={true}
+            dataSource={this.state.dataSource}
+            renderRow={(user) => {
+              return (
+                  <View style={styles.box}>
+                    <Image style={styles.image} source={{uri: user.image}}/>
+                     <Text style={styles.username}>{user.username}</Text>
+                  </View>
+              )
+          }}/>
+        </View>
       </View>
     );
   }
 }
+}
 
 const styles = StyleSheet.create({
-  header:{
-    backgroundColor: "#00BFFF",
-  },
-  headerContent:{
-    padding:30,
+  disabled:{
+    width : 220,
+    height: 35,
+    color: 'white',
+    backgroundColor: '#9839F7',
+    marginBottom: 15,
+    paddingTop: 5,
+    borderRadius: 3,
+    overflow: 'hidden',
+    shadowColor: "white",
+    shadowOffset: {width: 1, height: -1},
+    shadowRadius: 10,
     alignItems: 'center',
+      opacity: .4
+  },
+  header:{
+    height:150,
+    backgroundColor: "#9839F7"
   },
   avatar: {
-    width: 130,
-    height: 130,
-    borderRadius: 63,
+    width: 110,
+    height: 110,
+    borderRadius: 55,
     borderWidth: 4,
-    borderColor: "#FFFFFF",
+    borderColor: "white",
     marginBottom:10,
+    alignSelf:'center',
+    position: 'absolute',
+    marginTop:30
   },
-  image:{
-    width: 60,
-    height: 60,
+  body:{
+    marginTop:50,
+    marginBottom: 35,
+    alignItems: 'center',
+  },
+  bodyList: {
+   padding:30,
+   backgroundColor :"#212121",
+ },
+ box: {
+   padding:5,
+   marginTop:5,
+   marginBottom:5,
+   backgroundColor: '#9839F7',
+   flexDirection: 'row',
+   shadowColor: 'black',
+   shadowOpacity: .2,
+   shadowOffset: {
+     height:1,
+     width:-2
+   },
+   elevation:2
+ },
+  bodyContent: {
+    padding:30,
   },
   name:{
-    fontSize:22,
-    color:"#FFFFFF",
-    fontWeight:'600',
+    alignSelf: 'center',
+    fontSize:28,
+    color: "white",
+    fontWeight: "600"
   },
-  body: {
-    padding:30,
-    backgroundColor :"#E6E6FA",
+  info:{
+    alignSelf: 'center',
+    fontSize:18,
+    color: "#00BFFF",
+    marginTop:15
   },
-  box: {
-    padding:5,
-    marginTop:5,
-    marginBottom:5,
-    backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    shadowColor: 'black',
-    shadowOpacity: .2,
-    shadowOffset: {
-      height:1,
-      width:-2
-    },
-    elevation:2
+  description:{
+    fontSize:18,
+    color: "white",
+    marginTop:15,
+    textAlign: 'center',
+  },
+  buttonContainer: {
+    width : 220,
+    height: 35,
+    color: 'white',
+    backgroundColor: '#9839F7',
+    marginBottom: 15,
+    paddingTop: 5,
+    borderRadius: 3,
+    overflow: 'hidden',
+    shadowColor: "white",
+    shadowOffset: {width: 1, height: -1},
+    shadowRadius: 10,
+    alignItems: 'center',
   },
   username:{
-    color: "#00BFFF",
+    color: "#FFFFFF",
     fontSize:22,
     alignSelf:'center',
     marginLeft:10
-  }
+  },
+  image:{
+   width: 60,
+   height: 60,
+ },
 });
