@@ -31,7 +31,7 @@ export default class ContinueRambleComponent extends React.Component {
     this.setState({
       activeFootprint: footprint,
       currentFootprintState: "selected",
-    })
+    });
   }
 
   getFootprints(){
@@ -47,7 +47,7 @@ export default class ContinueRambleComponent extends React.Component {
        return (
          <View style={this.props.screenProps.globalStyle.view}>
          <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
-         {this.getFootprints()}
+         <FootprintDetailComponent action="Visit" {...this.props} />
          </View>
        );
      }
