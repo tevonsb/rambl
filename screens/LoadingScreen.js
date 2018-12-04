@@ -11,9 +11,6 @@ import {
 } from 'react-native';
 import {PulseIndicator} from 'react-native-indicators';
 
-import RamblDetailComponent from './RamblDetailScreen.js';
-import HistoryDetailComponent from './HistoryScreen.js';
-
 export default class LoadingScreenComponent extends React.Component {
   constructor(props){
     super(props);
@@ -38,7 +35,7 @@ componentWillUnmount(){
       <View style={this.props.screenProps.globalStyle.view}>
       <Text style={{color: "white", fontSize:30, marginTop: 70, marginBottom: 10}}>Your Rambl is Loading...</Text>
         <PulseIndicator color = "#327ba7" size = {200}/>
-    
+
       </View>
     );
   }

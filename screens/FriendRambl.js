@@ -25,15 +25,6 @@ import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
 
 export default class FriendScreenComponent extends React.Component {
-  static navigationOptions = {
-    title: "Previous Rambls",
-    headerRight: (
-    <Button
-    onPress={() => this.handleBackPress()}
-    title="<"
-    color="#fff"
-  />),
-  };
 
   constructor(props) {
     super(props);
@@ -109,7 +100,6 @@ export default class FriendScreenComponent extends React.Component {
     }
     if (this.state.currentView === "unselected") {
           if(this.state.value === "Friends\' Rambls"){
-            console.log(this.getMyLocation());
             displayView = (
               <View  style={this.props.screenProps.globalStyle.view}>
                 <Text style={this.props.screenProps.globalStyle.message}> Friends Rambls in Your Location </Text>
