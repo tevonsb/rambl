@@ -22,7 +22,6 @@ import ContinueRambleComponent from './ContinueRambling.js';
 import RamblCompletedComponent from './RamblComplete.js';
 import HistoryScreenComponent from './HistoryScreen.js';
 import CurrentScreenComponent from './CurrentScreen.js';
-import GenerateStompComponent from './GenerateStompScreen.js';
 import StompGeneratedComponent from './stompGenerated.js';
 
 
