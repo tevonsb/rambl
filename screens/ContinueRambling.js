@@ -62,7 +62,7 @@ export default class ContinueRambleComponent extends React.Component {
         <View style={this.props.screenProps.globalStyle.questionContainer}>
           <Text style={this.props.screenProps.globalStyle.announcementText}>Let's get going!</Text>
           </View>
-          <FootprintDetailComponent action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
+          <FootprintDetailComponent height={500} action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
         </View>
       );
     }

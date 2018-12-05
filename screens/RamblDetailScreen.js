@@ -48,7 +48,7 @@ export default class RamblDetailComponent extends React.Component {
     this.props.setGlobalState({ramblingState: this.state});
   }
   getFootprints(){
-    return (<FootprintDetailComponent {...this.props}/>);
+    return (<FootprintDetailComponent height={250 } {...this.props}/>);
   }
 
   displayFootprints(){
@@ -173,6 +173,5 @@ export default class RamblDetailComponent extends React.Component {
     if(this.state.currentRamblState === "GeneratedStomp"){
       return(<StompGeneratedComponent {...this.props} setRamblState={this.setRamblState} />);
     }
-
   }
 }

@@ -73,7 +73,7 @@ export default class RateandStompComponent extends React.Component {
             maxStars={5}
             rating={this.state.starCount}
             selectedStar={(rating) => this.onStarRatingPress(rating)}
-            fullStarColor={'yellow'}
+            fullStarColor={'#00BFFF'}
             />
           </View>
           <View style={this.props.screenProps.globalStyle.view}>

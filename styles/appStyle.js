@@ -236,7 +236,6 @@ export default globalStyles = StyleSheet.create({
     flex:1,
     justifyContent: 'center',
     width: Dimensions.get('window').width-40,
-    height: 130,
     marginBottom: 10,
     padding: 8,
     color: "white",
