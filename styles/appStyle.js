@@ -44,6 +44,7 @@ export default globalStyles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 15,
     marginTop: 3,
+    paddingRight: 10,
     flex:1,
     flexWrap: 'wrap',
   },
@@ -166,7 +167,7 @@ export default globalStyles = StyleSheet.create({
   },
   largeMap: {
      height: 600,
-     width: Dimensions.get('window').width,
+     width: Dimensions.get('window').width-20,
   },
   picker:{
     color: '#FFFFFF',
@@ -242,7 +243,7 @@ export default globalStyles = StyleSheet.create({
     backgroundColor: "#686666",
     flex:1,
     justifyContent: 'center',
-    width: Dimensions.get('window').width-20,
+    width: Dimensions.get('window').width-40,
     height: 130,
     marginBottom: 10,
     padding: 8,

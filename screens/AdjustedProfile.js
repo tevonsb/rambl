@@ -194,8 +194,12 @@ export default class ProfileScreen extends React.Component {
               style={{  alignItems: "center" }}
             ><View style={styles.header}></View></LinearGradient>
               <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
+<<<<<<< HEAD
             <View style={{width: Dimensions.get('window').width, height: 230,backgroundColor: '#353535', padding: 5, marginTop: 5}}>
             <Text style={this.props.screenProps.globalStyle.message}> Active Stomps </Text>
+=======
+            <View style={{width: Dimensions.get('window').width-20, height: 440,backgroundColor: '#353535', padding: 10, marginTop: 10, marginLeft:10}}>
+>>>>>>> 729da47b3efff65e4ed79189e7d63fd63e170d67
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getActiveStomps()}
               renderItem={({item}) => <TouchableOpacity disabled = {true} style={this.props.screenProps.globalStyle.stompContainer}>
@@ -257,7 +261,7 @@ export default class ProfileScreen extends React.Component {
               style={{  alignItems: "center" }}
             ><View style={styles.header}></View></LinearGradient>
               <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
-            <View style={{width: Dimensions.get('window').width, height: 630,backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+            <View style={{width: Dimensions.get('window').width-20, height: 440,backgroundColor: '#353535', padding: 10, marginTop: 10, marginLeft:10}}>
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getMyRambls()}
               renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
