@@ -89,7 +89,7 @@ export default class RateandStompComponent extends React.Component {
                     selectedValue={this.state.stompValue}
                     hideUnderline
                     showSearch
-                    style={{height: 350, width: 100, color: "white"}}
+                    style={{height: 350, width: 100, color: "white", marginLeft: 70}}
                     itemTextStyle={{ fontSize: 15, color: 'white' }}
                     itemStyle={{
                       color: "white",

@@ -70,9 +70,9 @@ export default globalStyles = StyleSheet.create({
     flexDirection: 'column',
     flex: 0,
     backgroundColor: 'grey',
-    margin: 5,
+    margin: 10,
     borderRadius: 3,
-    padding: 5,
+    padding: 10,
   },
   questionContainer: {
     justifyContent: 'space-evenly',
@@ -91,7 +91,7 @@ export default globalStyles = StyleSheet.create({
   },
   announcementContainer: {
     justifyContent: 'center',
-    width: Dimensions.get('window').width-20,
+    width: Dimensions.get('window').width-30,
     height: 130,
     backgroundColor: "#327ba7",
     margin: 5,
