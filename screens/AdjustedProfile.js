@@ -34,7 +34,7 @@ export default class ProfileScreen extends React.Component {
     }else {
       this.state = {
         selectedIndex: 0,
-        values: ["Past Rambls", "About"],
+        values: ["History", "About", "Stomps"],
         value: "About",
         currentView: "unselected"
       };
@@ -152,7 +152,7 @@ export default class ProfileScreen extends React.Component {
           </View>
         )
       }
-      if (this.state.value === "Past Rambls") {
+      if (this.state.value === "History") {
         displayView = (
           <View  style={this.props.screenProps.globalStyle.view}>
             <View style={{width: Dimensions.get('window').width-20, height: 630,backgroundColor: '#353535', padding: 10, marginTop: 5}}>
@@ -226,7 +226,7 @@ export default class ProfileScreen extends React.Component {
                 color: "white",
                 borderColor: "white",
                 height: 30,
-                width: (Dimensions.get('window').width)/2,
+                width: (Dimensions.get('window').width)/3,
 
               }}
               activeStyle = {{
@@ -234,7 +234,7 @@ export default class ProfileScreen extends React.Component {
                 borderBottomWidth: 4,
                 paddingBottom: 5,
                 height: 30,
-                width: (Dimensions.get('window').width)/2,
+                width: (Dimensions.get('window').width)/3,
               }}
               activeTextStyle={{
                 fontSize: 20,
@@ -248,7 +248,8 @@ export default class ProfileScreen extends React.Component {
               }}
               tabs={[
                 {title: "About"},
-                {title: "Past Rambls"},
+                {title: "Stomps"},
+                {title: "History"}
               ]}
               onPress={this._onValueChange}
               activeTab={this.state.value}
