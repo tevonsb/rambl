@@ -131,14 +131,12 @@ export default class HistoryScreenComponent extends React.Component {
                 </TouchableOpacity>}/>
                 </View>
                 <Text style={this.props.screenProps.globalStyle.message}> All Friends Rambls </Text>
-                <View style={{width: Dimensions.get('window').width-20, height: 290, backgroundColor: '#353535', padding: 10, marginTop: 5}}>
-
+                <View style={{width: Dimensions.get('window').width-20, height: 290, backgroundColor: '#353535', padding: 10, marginTop: 5, marginLeft: 10}}>
                   <FlatList style={this.props.screenProps.globalStyle.flatlist}
                   data={this.getFriendsRamblsNotMyLocation()}
                   renderItem={({item}) =>
 
-                        <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
-
+                    <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
                     <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
                     <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>

@@ -183,7 +183,7 @@ export default class ProfileScreen extends React.Component {
               style={{  alignItems: "center" }}
             ><View style={styles.header}></View></LinearGradient>
               <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
-            <View style={{width: Dimensions.get('window').width, height: 630,backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+            <View style={{width: Dimensions.get('window').width-20, height: 440,backgroundColor: '#353535', padding: 10, marginTop: 10, marginLeft:10}}>
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={stomps}
               renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl}>
@@ -204,7 +204,7 @@ export default class ProfileScreen extends React.Component {
               style={{  alignItems: "center" }}
             ><View style={styles.header}></View></LinearGradient>
               <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
-            <View style={{width: Dimensions.get('window').width, height: 630,backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+            <View style={{width: Dimensions.get('window').width-20, height: 440,backgroundColor: '#353535', padding: 10, marginTop: 10, marginLeft:10}}>
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getMyRambls()}
               renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
