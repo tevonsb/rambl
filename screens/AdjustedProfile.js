@@ -25,6 +25,8 @@ import ContinueRamblComponent from "./ContinueRambling.js";
 import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
 
+var stomps = require("../data/stomps.json");
+
 export default class ProfileScreen extends React.Component {
 
   constructor(props) {
@@ -146,8 +148,6 @@ export default class ProfileScreen extends React.Component {
               }}/>
             </View>
           </View>
-
-
         )
       }
       if(this.state.value === "About"){
@@ -168,19 +168,43 @@ export default class ProfileScreen extends React.Component {
                   <Text style={styles.description}> Ramblr Status: Stomper</Text>
                   </View>
                 <TouchableOpacity disabled = {true} style={styles.disabled}>
-                    <Text style = {{ color: '#FFFFFF', textShadowColor: 'white',
-       textShadowOffset: {width: 0, height: 1},
-       textShadowRadius: 80,
-                        fontSize: 20,}}>Submit New Footprint!</Text>
+                    <Text style = {{ color: '#FFFFFF', textShadowColor: 'white', textShadowOffset: {width: 0, height: 1},
+                    textShadowRadius: 80, fontSize: 20,}}>Submit New Footprint!</Text>
                   </TouchableOpacity>
                  </View>
           </View>
         )
       }
+      if (this.state.value === "Stomps") {
+        displayView = (
+          <View style={styles.view}>
+            <LinearGradient
+              colors={[ "#327ba7",'#00BFFF']}
+              style={{  alignItems: "center" }}
+            ><View style={styles.header}></View></LinearGradient>
+              <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
+            <View style={{width: Dimensions.get('window').width, height: 630,backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+            <FlatList style={this.props.screenProps.globalStyle.flatlist}
+              data={stomps}
+              renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl}>
+              <Text style={this.props.screenProps.globalStyle.message}>{item.title}, {item.city}</Text>
+              <Text style={this.props.screenProps.globalStyle.detail}>{item.month} </Text>
+              <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
+              <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
+              </TouchableOpacity>}/>
+            </View>
+          </View>
+          )
+        }
       if (this.state.value === "History") {
         displayView = (
-          <View style={this.props.screenProps.globalStyle.view}>
-            <View style={{width: Dimensions.get('window').width-20, height: 630,backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+          <View style={styles.view}>
+            <LinearGradient
+              colors={[ "#327ba7",'#00BFFF']}
+              style={{  alignItems: "center" }}
+            ><View style={styles.header}></View></LinearGradient>
+              <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
+            <View style={{width: Dimensions.get('window').width, height: 630,backgroundColor: '#353535', padding: 10, marginTop: 5}}>
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getMyRambls()}
               renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
@@ -193,10 +217,8 @@ export default class ProfileScreen extends React.Component {
               </View>
             )
           }
-
       return (
         <View style={{flex:1}}>
-
             <TabNavigator
               style = {{
                 justifyContent: 'space-evenly',
@@ -211,7 +233,6 @@ export default class ProfileScreen extends React.Component {
                 borderColor: "white",
                 height: 30,
                 width: (Dimensions.get('window').width)/4,
-
               }}
               activeStyle = {{
                 borderBottomColor: "white",
@@ -239,13 +260,13 @@ export default class ProfileScreen extends React.Component {
               onPress={this._onValueChange}
               activeTab={this.state.value}
             />
-
           {displayView}
         </View>
       );
     }
   }
 }
+
 const styles = StyleSheet.create({
   disabled:{
     width : 220,

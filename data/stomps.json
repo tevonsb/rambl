@@ -1,0 +1,69 @@
+[
+  {
+    "key": "1",
+    "title": "Top of Park Hyatt",
+    "Address":"3-7-1-2, Nishishinjuku, Tokyo JP",
+    "rating": 4.9,
+    "stake":300,
+    "stake_time": "11/04/2018",
+    "status": "complete"
+  },
+  {
+    "key": "2",
+    "title": "Meiji Shrine",
+    "Address":"1-1 Yoyogikamizonocho, Shibuya, Tokyo JP",
+    "rating": 4.8,
+    "stake":200,
+    "stake_time": "11/04/2018",
+    "status": "complete"
+  },
+  {
+    "key": "3",
+    "title": "La Alcoba Azul",
+    "Address":"Carrer de Salomó Ben Adret, 14, Barcelona SP",
+    "rating": 4.8,
+    "stake":200,
+    "stake_time": "06/18/2018",
+    "status": "complete"
+  },
+  {
+    "key": "4",
+    "title": "Desnivel",
+    "Address":"Defensa 855, C1065 AAO, Buenos Aires, AG",
+    "rating": 4.9,
+    "stake":100,
+    "stake_time": "10/09/2017",
+    "status": "complete"
+  },
+  {
+    "key": "5",
+    "title": "James Town Lighthouse",
+    "Address":"Cleland Road, Accra, Ghana",
+    "rating": 4.9,
+    "stake":100,
+    "stake_time": "2/21/2017",
+    "status": "complete"
+  },
+  {
+    "key": "6",
+    "title": "Diagon Alley (Leadenhall Market)",
+    "Address":"Gracechurch Street, London UK",
+    "rating": 4.8,
+    "stake": 100,
+    "stake_time": "Yesterday",
+    "stake_began": "One hour ago",
+    "status": "1 of 3 Ramblrs needed to visit & rate",
+    "timeLeft": "Two Hours"
+  },
+  {
+    "key": "7",
+    "title": "Old Spitalfields Market",
+    "Address":"16 Horner Square, San Francisco CA",
+    "rating": 4.7,
+    "stake":200,
+    "stake_time": "Yesterday",
+    "stake_began": "Two hours ago",
+    "status": "3 of 7 Ramblrs needed to visit & rate",
+    "timeLeft": "Three Hours"
+  },
+]
