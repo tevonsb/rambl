@@ -25,16 +25,20 @@ import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
 import FriendsViewComponent from "./Friends.js";
 
-export default class AdjustedProfScreenComponent extends React.Component {
+export default class ProfileScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      selectedIndex: 0,
-      values: ["Past Rambls", "About"],
-      value: "About",
-      currentView: "unselected"
-    };
+    if(this.props.profileScreenState){
+      this.state = this.props.profileScreenState;
+    }else {
+      this.state = {
+        selectedIndex: 0,
+        values: ["Past Rambls", "About"],
+        value: "About",
+        currentView: "unselected"
+      };
+    }
     this._onChange = this._onChange.bind(this);
     this._onValueChange = this._onValueChange.bind(this);
     this.getMyRambls = this.getMyRambls.bind(this);
@@ -45,6 +49,10 @@ export default class AdjustedProfScreenComponent extends React.Component {
     this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
     this.handleVisitPress = this.handleVisitPress.bind(this);
+  }
+
+  componentWillUnmount(){
+    this.props.setGlobalState({profileScreenState: this.state});
   }
 
   handleBackPress(){
