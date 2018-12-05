@@ -21,6 +21,7 @@ import RateandStompComponent from './RateandStomp.js';
 import ContinueRambleComponent from './ContinueRambling.js';
 import RamblCompletedComponent from './RamblComplete.js';
 import StompGeneratedComponent from './stompGenerated.js';
+import CurrentScreenComponent from "./CurrentScreen.js";
 
 
 //Rambl currentRamblState options: Details, Loading, Generated, Rambbling, Rate, Complete
@@ -96,7 +97,7 @@ export default class RamblDetailComponent extends React.Component {
           flex: 1,
           alignItems: 'center',
         }}>
-        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "History"})}>
+        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Create"})}>
         <View style={this.props.screenProps.globalStyle.purpleButton}>
         <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
         </View>
@@ -162,10 +163,6 @@ export default class RamblDetailComponent extends React.Component {
 
     if(this.state.currentRamblState === "Complete"){
       return (<RamblCompletedComponent {...this.props} setRamblState={this.setRamblState}/>);
-    }
-
-    if(this.state.currentRamblState === "History"){
-      return (<HistoryScreenComponent {...this.props} setRamblState={this.setRamblState}/>);
     }
 
     if(this.state.currentRamblState === "Create"){
