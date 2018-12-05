@@ -151,7 +151,7 @@ export default class ProfileScreen extends React.Component {
                 dataSource={this.state.dataSource}
                 renderRow={(user) => {
                   return (
-                      <View style={styles.box}>
+                      <View style={styles.friendContainer}>
                         <Image style={styles.image} source={{uri: user.image}}/>
                          <Text style={styles.username}>{user.username}</Text>
                       </View>
@@ -380,6 +380,21 @@ const styles = StyleSheet.create({
    },
    elevation:2
  },
+ friendContainer: {
+   padding:5,
+   marginTop:5,
+   marginBottom:5,
+   backgroundColor: '#686666',
+   borderRadius: 3,
+   flexDirection: 'row',
+   shadowColor: 'black',
+   shadowOpacity: .2,
+   shadowOffset: {
+     height:1,
+     width:-2
+   },
+   elevation:2
+ },
   bodyContent: {
     padding:20,
     marginBottom: 10,
@@ -425,12 +440,18 @@ const styles = StyleSheet.create({
   },
   username:{
     color: "#FFFFFF",
-    fontSize:22,
+    fontSize:18,
     alignSelf:'center',
-    marginLeft:10
+    marginLeft:10,
+    textShadowColor: 'white',
+    textShadowOffset: {width: 0, height: 1},
+    textShadowRadius: 80,
   },
   image:{
-   width: 60,
-   height: 60,
+    width: 65,
+    height: 65,
+    borderRadius: 33,
+   borderColor: '#FFFFFF',
+   borderWidth: 1,
  },
 });

@@ -12,11 +12,8 @@ export default globalStyles = StyleSheet.create({
   },
   header: {
     color: '#FFFFFF',
-    // fontWeight: 'bold',
     fontSize: 25,
     paddingTop: 5,
-    // textAlign: 'center',
-    // text-align: center;
   },
   view:{
     backgroundColor: "#212121",
@@ -30,11 +27,6 @@ export default globalStyles = StyleSheet.create({
     borderRadius: 7,
     overflow: 'hidden',
     height: 20,
-    // justifyContent: 'space-evenly',
-    // margin: 5,
-    // alignContent: "space-between",
-    // backgroundColor: "#686666",
-    // width: Dimensions.get('window').width,
   },
   footprintItem:{
      color: '#FFFFFF',
