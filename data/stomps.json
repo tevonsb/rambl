@@ -6,7 +6,11 @@
     "rating": 4.9,
     "stake":300,
     "stake_time": "11/04/2018",
-    "status": "complete"
+    "status": "Complete",
+    "outcome": "Success!",
+    "needed": 7,
+    "got": 7,
+    "percent": 100,
   },
   {
     "key": "2",
@@ -15,7 +19,11 @@
     "rating": 4.8,
     "stake":200,
     "stake_time": "11/04/2018",
-    "status": "complete"
+    "status": "Complete",
+    "outcome": "Better luck next time.",
+    "needed": 4,
+    "got": 1,
+    "percent":25
   },
   {
     "key": "3",
@@ -24,7 +32,11 @@
     "rating": 4.8,
     "stake":200,
     "stake_time": "06/18/2018",
-    "status": "complete"
+    "status": "Complete",
+    "outcome": "Better luck next time.",
+    "needed": 3,
+    "got": 2,
+    "percent": 67
   },
   {
     "key": "4",
@@ -33,7 +45,11 @@
     "rating": 4.9,
     "stake":100,
     "stake_time": "10/09/2017",
-    "status": "complete"
+    "status": "Complete",
+    "outcome": "Success!",
+    "needed": 3,
+    "got": 3,
+    "percent": 100
   },
   {
     "key": "5",
@@ -42,7 +58,11 @@
     "rating": 4.9,
     "stake":100,
     "stake_time": "2/21/2017",
-    "status": "complete"
+    "status": "Complete",
+    "outcome": "Success!",
+    "needed": 2,
+    "got": 2,
+    "percent": 100,
   },
   {
     "key": "6",
@@ -51,9 +71,11 @@
     "rating": 4.8,
     "stake": 100,
     "stake_time": "Yesterday",
-    "stake_began": "One hour ago",
-    "status": "1 of 3 Ramblrs needed to visit & rate",
-    "timeLeft": "Two Hours"
+    "stake_total": "3 total hours",
+    "needed": 3,
+    "got": 1,
+    "timeLeft": "2",
+    "percent": 33
   },
   {
     "key": "7",
@@ -62,8 +84,10 @@
     "rating": 4.7,
     "stake":200,
     "stake_time": "Yesterday",
-    "stake_began": "Two hours ago",
-    "status": "3 of 7 Ramblrs needed to visit & rate",
-    "timeLeft": "Three Hours"
+    "stake_total": "5 total hours",
+    "needed": 7,
+    "got": 3,
+    "timeLeft": "3",
+    "percent": 43,
   },
 ]

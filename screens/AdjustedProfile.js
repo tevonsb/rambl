@@ -24,6 +24,7 @@ import RamblCompletedComponent from "./RamblComplete.js";
 import ContinueRamblComponent from "./ContinueRambling.js";
 import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
+import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
 var stomps = require("../data/stomps.json");
 
@@ -59,6 +60,8 @@ export default class ProfileScreen extends React.Component {
     this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
     this.setProfileState = this.setProfileState.bind(this);
+    this.getActiveStomps=this.getActiveStomps.bind(this);
+    this.getInactiveStomps = this.getInactiveStomps.bind(this);
   }
 
   componentWillUnmount(){
@@ -91,6 +94,14 @@ export default class ProfileScreen extends React.Component {
 
   getFriendsRamblsMyLocation(){
       return this.props.screenProps.friends_rambls.filter(friend_rambl => friend_rambl.city == this.props.screenProps.globalState.location);
+  }
+
+  getActiveStomps(){
+    return stomps.filter(stomp => stomp.status!=="Complete");
+  }
+
+  getInactiveStomps(){
+    return stomps.filter(stomp => stomp.status==="Complete");
   }
 
   getFriendsRamblsNotMyLocation(){
@@ -163,7 +174,7 @@ export default class ProfileScreen extends React.Component {
                   <Text style={styles.name}>Katy Lerch</Text>
                   <Text style={styles.info}>Current Location: London</Text>
                   <Text style={styles.info}>Next Stop: Morocco</Text>
-                  <Text style={styles.description}>The best trip I ever went on was with friend, who interviewed me before we left and did a ton of research on the lesser known things to do in Mexico City. I loved not having to worry that I wasn't spending my time right, or that I was missing out on something amazing.</Text>
+                  <Text style={styles.description}>The best trip I ever went on was with my friend who interviewed me before we left and did research on the lesser known things to do in Mexico City. I loved not having to worry that I wasn't spending my time right, or that I was missing out on something amazing.</Text>
                   <Text style={styles.description}> Total points: {this.props.screenProps.globalState.points}</Text>
                   <Text style={styles.description}> Ramblr Status: Stomper</Text>
                   </View>
@@ -183,15 +194,57 @@ export default class ProfileScreen extends React.Component {
               style={{  alignItems: "center" }}
             ><View style={styles.header}></View></LinearGradient>
               <Image style={styles.avatar} source={{uri: 'https://i.imgur.com/WWl3qN9.jpg'}}/>
-            <View style={{width: Dimensions.get('window').width, height: 630,backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+            <View style={{width: Dimensions.get('window').width, height: 230,backgroundColor: '#353535', padding: 5, marginTop: 5}}>
+            <Text style={this.props.screenProps.globalStyle.message}> Active Stomps </Text>
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
-              data={stomps}
-              renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl}>
-              <Text style={this.props.screenProps.globalStyle.message}>{item.title}, {item.city}</Text>
-              <Text style={this.props.screenProps.globalStyle.detail}>{item.month} </Text>
-              <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
-              <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
+              data={this.getActiveStomps()}
+              renderItem={({item}) => <TouchableOpacity disabled = {true} style={this.props.screenProps.globalStyle.stompContainer}>
+              <Text style={this.props.screenProps.globalStyle.stompHeader}>Stomp on {item.title} for {item.stake} ({item.stake_time})</Text>
+              <View style ={styles.progressContainer}>
+              <AnimatedCircularProgress
+                      size={80}
+                      width={10}
+                      fill={item.percent}
+                      tintColor="#00BFFF"
+                      backgroundColor="#686666">
+                      {
+                        (fill) => (
+                             <Text style = {styles.points}>
+                               {item.stake}
+                             </Text>
+                           )
+                      }
+                      </AnimatedCircularProgress>
+                      </View>
+                      <Text style = {styles.points}> Points </Text>
+              <Text style={this.props.screenProps.globalStyle.stompDetail}>You have {item.got} out of {item.needed} Ramblrs needed to rate this footprint, and {item.timeLeft} out of {item.stake_total} remaining. </Text>
               </TouchableOpacity>}/>
+              </View>
+              <View style={{width: Dimensions.get('window').width, height: 230,backgroundColor: '#353535', padding: 5, marginTop: 5}}>
+              <Text style={this.props.screenProps.globalStyle.message}> Inactive Stomps </Text>
+              <FlatList style={this.props.screenProps.globalStyle.flatlist}
+                data={this.getInactiveStomps()}
+                renderItem={({item}) => <TouchableOpacity disabled = {true} style={this.props.screenProps.globalStyle.stompContainer}>
+                <Text style={this.props.screenProps.globalStyle.stompHeader}>Stomp on {item.title} for {item.stake} ({item.stake_time})</Text>
+                <View style ={styles.progressContainer}>
+                <AnimatedCircularProgress
+                        size={80}
+                        width={10}
+                        fill={item.percent}
+                        tintColor="#00BFFF"
+                        backgroundColor="#686666">
+                        {
+                          (fill) => (
+                               <Text style = {styles.points}>
+                                 {item.stake}
+                               </Text>
+                             )
+                        }
+                        </AnimatedCircularProgress>
+                        </View>
+                        <Text style = {styles.points}> Points </Text>
+                <Text style={this.props.screenProps.globalStyle.stompDetail}>You got {item.got} out of {item.needed} Ramblrs needed to rate this footprint. {item.outcome} </Text>
+                </TouchableOpacity>}/>
             </View>
           </View>
           )
@@ -268,6 +321,12 @@ export default class ProfileScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  progressContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    padding: 6
+  },
   disabled:{
     width : 220,
     height: 35,
@@ -337,6 +396,13 @@ const styles = StyleSheet.create({
     color: "#00BFFF",
     marginTop:15
   },
+  points:{
+    alignSelf: 'center',
+    alignItems: 'center',
+    fontSize:12,
+    color: "#FFFFFF",
+    padding: 4
+  },
   description:{
     fontSize:18,
     color: "white",
@@ -368,150 +434,3 @@ const styles = StyleSheet.create({
    height: 60,
  },
 });
-
-
-//
-// const styles = StyleSheet.create({
-//   username:{
-//     color: "#FFFFFF",
-//     fontSize:22,
-//     alignSelf:'center',
-//     marginLeft:10
-//   },
-//   image:{
-//    width: 60,
-//    height: 60,
-//  },
-//  bodyList: {
-//   padding:30,
-//   backgroundColor :"#212121",
-// },
-// box: {
-//   padding:5,
-//   marginTop:5,
-//   marginBottom:5,
-//   backgroundColor: '#9839F7',
-//   flexDirection: 'row',
-//   shadowColor: 'black',
-//   shadowOpacity: .2,
-//   shadowOffset: {
-//     height:1,
-//     width:-2
-//   },
-//   elevation:2
-// },
-//  bodyContent: {
-//    padding:30,
-//  },
-//  name:{
-//    alignSelf: 'center',
-//    fontSize:28,
-//    color: "white",
-//    fontWeight: "600"
-//  },
-//   disabled:{
-//     width : 220,
-//     height: 35,
-//     color: 'white',
-//     backgroundColor: '#9839F7',
-//     // alignItems: 'center',
-//     // marginTop: 15,
-//     marginBottom: 15,
-//     // marginLeft:5 ,
-//     // marginRight: 3,
-//     paddingTop: 5,
-//     borderRadius: 3,
-//     overflow: 'hidden',
-//     shadowColor: "white",
-//     shadowOffset: {width: 1, height: -1},
-//     shadowRadius: 10,
-//     alignItems: 'center',
-//       opacity: .4
-//   },
-//   container: {
-//     flex: 1,
-//     paddingTop: 15,
-//     backgroundColor: "#fff"
-//   },
-//   header:{
-//     // backgroundColor: "#00BFFF",
-//     height:150,
-//     backgroundColor: "#9839F7"
-//   },
-//   avatar: {
-//     width: 130,
-//     height: 130,
-//     borderRadius: 63,
-//     borderWidth: 4,
-//     borderColor: "white",
-//     marginBottom:10,
-//     alignSelf:'center',
-//     position: 'absolute',
-//     marginTop:30
-//   },
-//   bodyList: {
-//    padding:30,
-//    backgroundColor :"#212121",
-//  },
-//   body:{
-//     marginTop:50,
-//     marginBottom: 35,
-//     alignItems: 'center',
-//   },
-//   bodyContent: {
-//     // flex: 1,
-//
-//     // marginTop: 200,
-//     padding:30,
-//    // marginBottom: 5,
-//   },
-//   name:{
-//     alignSelf: 'center',
-//     fontSize:28,
-//     // color: "#696969",
-//     color: "white",
-//     fontWeight: "600"
-//   },
-//   info:{
-//     alignSelf: 'center',
-//     fontSize:18,
-//     // color: "#9839F7",
-//     color: "#00BFFF",
-//     marginTop:15
-//   },
-//   description:{
-//     fontSize:18,
-//     color: "white",
-//     // color: "#696969",
-//     marginTop:15,
-//     textAlign: 'center',
-//   },
-//   buttonContainer: {
-//     // marginTop:10,
-//     // height:45,
-//     // // flexDirection: 'row',
-//     // justifyContent: 'center',
-//     // alignItems: 'center',
-//     // // marginBottom:20,
-//     // width:250,
-//     // borderRadius:30,
-//     // backgroundColor: "#00BFFF",
-//     width : 220,
-//     height: 35,
-//     color: 'white',
-//     backgroundColor: '#9839F7',
-//     // alignItems: 'center',
-//     // marginTop: 15,
-//     marginBottom: 15,
-//     // marginLeft:5 ,
-//     // marginRight: 3,
-//     paddingTop: 5,
-//     borderRadius: 3,
-//     overflow: 'hidden',
-//     shadowColor: "white",
-//     shadowOffset: {width: 1, height: -1},
-//     shadowRadius: 10,
-//     alignItems: 'center',
-//     // justifyContent: "center"
-//   },
-// });

@@ -74,6 +74,16 @@ export default globalStyles = StyleSheet.create({
     borderRadius: 3,
     padding: 10,
   },
+  stompContainer: {
+    justifyContent: 'space-evenly',
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+    flex: 0,
+    backgroundColor: 'grey',
+    margin: 5,
+    borderRadius: 3,
+    padding: 5,
+  },
   questionContainer: {
     justifyContent: 'space-evenly',
     alignItems: 'flex-start',
@@ -170,7 +180,15 @@ export default globalStyles = StyleSheet.create({
   message: {
     color: '#FFFFFF',
     fontSize: 20,
-    // marginTop: 10,
+  },
+  stompHeader:{
+    color: '#FFFFFF',
+    fontSize: 16,
+  },
+  stompDetail:{
+    color: '#FFFFFF',
+    fontSize: 14,
+    padding: 4
   },
   detail: {
     color: '#FFFFFF',
@@ -206,26 +224,12 @@ export default globalStyles = StyleSheet.create({
     shadowRadius: 10
   },
   purpleButtonLarger: {
-    // marginTop:10,
-    // height:45,
-    // // flexDirection: 'row',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // // marginBottom:20,
-    // width:250,
-    // borderRadius:30,
-    // backgroundColor: "#00BFFF",
     width : 160,
     height: 35,
     color: 'white',
     backgroundColor: '#9839F7',
-    // alignItems: 'center',
     marginTop: 20,
     marginBottom: 20,
-    // marginLeft:5 ,
-    // marginRight: 3,
-    // paddingTop: 5,
-    // paddingBottom: 5,
     borderRadius: 3,
     overflow: 'hidden',
     shadowColor: "white",
@@ -241,7 +245,6 @@ export default globalStyles = StyleSheet.create({
     width: Dimensions.get('window').width-20,
     height: 130,
     marginBottom: 10,
-    // marginBottom: 5,
     padding: 8,
     color: "white",
     fontSize: 20,

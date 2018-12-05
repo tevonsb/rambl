@@ -191,7 +191,7 @@ export default class CurrentScreenComponent extends React.Component {
                 <Text style={this.props.screenProps.globalStyle.picker} >Minutes</Text>
               </View>
               <View style = {{padding: 10}}>
-              <Text style={this.props.screenProps.globalStyle.message}>Your Rambl is currently for {this.state.hour} hour and {this.state.minute} minutes.</Text>
+              <Text style={this.props.screenProps.globalStyle.message}>Option(s) that fit in your timeframe:</Text>
               </View>
               <View style={{width: Dimensions.get('window').width-20, height:290, backgroundColor: '#353535', padding: 10, marginTop: 5, marginBottom:5}}>
 
