@@ -59,7 +59,9 @@ export default class ContinueRambleComponent extends React.Component {
     if(this.state.currentFootprintState === "unselected"){
       return (
         <View style={this.props.screenProps.globalStyle.view}>
-          <Text style={this.props.screenProps.globalStyle.message}>You are Rambling!</Text>
+        <View style={this.props.screenProps.globalStyle.questionContainer}>
+          <Text style={this.props.screenProps.globalStyle.announcementText}>Let's get going!</Text>
+          </View>
           <FootprintDetailComponent action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
         </View>
       );

@@ -23,6 +23,7 @@ import RamblCompletedComponent from "./RamblComplete.js";
 import ContinueRamblComponent from "./ContinueRambling.js";
 import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
+import CurrentScreenComponent from "./CurrentScreen.js";
 
 export default class FriendScreenComponent extends React.Component {
 

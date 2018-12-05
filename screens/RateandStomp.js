@@ -11,6 +11,7 @@ import {
   Picker,
   View
 } from 'react-native';
+import { LinearGradient } from 'expo';
 
 import StarRating from 'react-native-star-rating';
 
@@ -55,8 +56,10 @@ export default class RateandStompComponent extends React.Component {
     render() {
       return (
         <View style={this.props.screenProps.globalStyle.view}>
-          <Text style={this.props.screenProps.globalStyle.message}> Looks like you just visited a footprint! </Text>
-          <Text style={this.props.screenProps.globalStyle.message}> Rate it now! </Text>
+        <View style = {this.props.screenProps.globalStyle.announcementContainer}>
+          <Text style={this.props.screenProps.globalStyle.announcementText}>How was the footprint? </Text>
+          </View>
+          <Text style={this.props.screenProps.globalStyle.message}> Rate it: </Text>
           <StarRating
             disabled={false}
             emptyStar={'ios-star-outline'}

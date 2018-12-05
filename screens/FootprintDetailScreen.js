@@ -23,8 +23,10 @@ export default class FootprintDetailComponent extends React.Component {
       if(footprint.visited !== true){
         return (
           <View style = {{
-              // flex: 1,
+              flex: 1,
               alignItems: 'center',
+              alignSelf:'center',
+              justifyContent: 'center'
             }}>
             <TouchableOpacity onPress={()=> this.props.handleVisitPress(footprint)}>
               <View style={this.props.screenProps.globalStyle.purpleButton}>
@@ -49,11 +51,12 @@ export default class FootprintDetailComponent extends React.Component {
 
   render() {
     return(
-      <View style={{width: Dimensions.get('window').width-20, height: 250, backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+      //<View style={{width: Dimensions.get('window').width-20, height: 250, backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+      <View style={{flex:2, backgroundColor: '#353535', padding: 10, marginTop: 5}}>
         <FlatList style={this.props.screenProps.globalStyle.flatlist}
           data={this.getFootprints()}
           renderItem={({item}) =>
-          <TouchableOpacity disabled={true} style={this.props.screenProps.globalStyle.rambl}>
+          <TouchableOpacity disabled={true} style={this.props.screenProps.globalStyle.footprintContainer}>
             <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
             <Text style={this.props.screenProps.globalStyle.footprintDetail}>Category: {item.category}</Text>
             <Text style={this.props.screenProps.globalStyle.footprintDetail}>Description: {item.description}</Text>

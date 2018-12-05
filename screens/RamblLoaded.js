@@ -42,7 +42,8 @@ export default class RamblLoadedComponent extends React.Component {
           flex: 1,
           flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'space-between'}}>
+          justifyContent: 'space-between'
+        }}>
           <TouchableOpacity onPress={() => this.props.setRamblState("Detail")}>
             <View style={this.props.screenProps.globalStyle.purpleButton} >
             <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
@@ -53,9 +54,7 @@ export default class RamblLoadedComponent extends React.Component {
             <Text style={this.props.screenProps.globalStyle.buttonText}>Start!</Text>
             </View>
           </TouchableOpacity>
-
        </View>
-
       </View>
     );
   }
