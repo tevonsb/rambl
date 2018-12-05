@@ -31,7 +31,7 @@ export default class FootprintDetailComponent extends React.Component {
             <View style = {{marginTop:5}}>
             <TouchableOpacity onPress={()=> this.props.handleVisitPress(footprint)}>
               <View style={this.props.screenProps.globalStyle.purpleButton}>
-                <Text style={this.props.screenProps.globalStyle.buttonText}>I visited!</Text>
+                <Text style={this.props.screenProps.globalStyle.buttonText}>I just visited!</Text>
               </View>
             </TouchableOpacity>
             </View>

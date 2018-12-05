@@ -75,7 +75,7 @@
         }],
       "rating": 4.6,
       "duration": 1.8,
-      "cost": 90,
+      "cost": 150,
     },
     {
         "key": "3",
@@ -110,7 +110,7 @@
           }],
         "rating": 4.7,
         "duration": 1.5,
-        "cost": 150,
+        "cost": 250,
       },
     {
         "key": "4",
