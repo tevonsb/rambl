@@ -39,15 +39,15 @@ export default class ProfileScreen extends React.Component {
         value: "About",
         currentView: "unselected",
         dataSource: ds.cloneWithRows([
-           {image: "https://i.imgur.com/In7VbEK.png", username:"Rohan"},
-           {image: "https://lh6.googleusercontent.com/-R42O5YkyqZ8/AAAAAAAAAAI/AAAAAAAAASg/Q-BZcKsj7JU/il/photo.jpg", username:"Katherine"},
-           {image: "https://www.cioreview.com/newsimages/special/PEa0M1Ks.jpeg", username:"Eric"},
-           {image: "https://pbs.twimg.com/profile_images/2413419924/image_400x400.jpg", username:"Jessica"},
-           {image: "https://pbs.twimg.com/profile_images/981882124402913281/IbZSZea6_400x400.jpg", username:"Brett"},
-           {image: "https://d1qb2nb5cznatu.cloudfront.net/users/7663832-large?1521991954", username:"Kally"},
-           {image: "https://static1.squarespace.com/static/57c1fc61f7e0ab69ed1c7033/57cbcc16cd0f686bb5dae709/57f9682c6a496306c8345a46/1475963010501/IMG_0117.jpg?format=2500w", username:"Tevon"},
-           {image: "https://i1.rgstatic.net/ii/profile.image/277889019858965-1443265313130_Q512/Clare_Chen4.jpg", username:"Clare"},
-           {image: "https://lh3.googleusercontent.com/-eCZdiJi-wDk/AAAAAAAAAAI/AAAAAAABaZA/WAewjrp5lvg/s640-il/photo.jpg", username:"Amanda"},
+           {image: "https://i.imgur.com/In7VbEK.png", username:"Rohan Srinivasan"},
+           {image: "https://lh6.googleusercontent.com/-R42O5YkyqZ8/AAAAAAAAAAI/AAAAAAAAASg/Q-BZcKsj7JU/il/photo.jpg", username:"Katherine Lynch"},
+           {image: "https://www.cioreview.com/newsimages/special/PEa0M1Ks.jpeg", username:"Eric Lamb"},
+           {image: "https://pbs.twimg.com/profile_images/2413419924/image_400x400.jpg", username:"Jessica Nussbaum"},
+           {image: "https://pbs.twimg.com/profile_images/981882124402913281/IbZSZea6_400x400.jpg", username:"Brett Perrotta"},
+           {image: "https://d1qb2nb5cznatu.cloudfront.net/users/7663832-large?1521991954", username:"Kally Zheng"},
+           {image: "https://static1.squarespace.com/static/57c1fc61f7e0ab69ed1c7033/57cbcc16cd0f686bb5dae709/57f9682c6a496306c8345a46/1475963010501/IMG_0117.jpg?format=2500w", username:"Tevon Strand-Brown"},
+           {image: "https://i1.rgstatic.net/ii/profile.image/277889019858965-1443265313130_Q512/Clare_Chen4.jpg", username:"Clare Chen"},
+           {image: "https://lh3.googleusercontent.com/-eCZdiJi-wDk/AAAAAAAAAAI/AAAAAAABaZA/WAewjrp5lvg/s640-il/photo.jpg", username:"Amanda Zwarenstein"},
         ]),
       };
     this._onChange = this._onChange.bind(this);
@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bodyList: {
-   padding:30,
+   padding:10,
    backgroundColor :"#212121",
  },
  box: {
@@ -384,7 +384,6 @@ const styles = StyleSheet.create({
    padding:5,
    marginTop:5,
    marginBottom:5,
-   backgroundColor: '#686666',
    borderRadius: 3,
    flexDirection: 'row',
    shadowColor: 'black',
@@ -442,7 +441,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize:18,
     alignSelf:'center',
-    marginLeft:10,
+    marginLeft:20,
     textShadowColor: 'white',
     textShadowOffset: {width: 0, height: 1},
     textShadowRadius: 80,
@@ -453,5 +452,6 @@ const styles = StyleSheet.create({
     borderRadius: 33,
    borderColor: '#FFFFFF',
    borderWidth: 1,
+   marginLeft: 20
  },
 });
