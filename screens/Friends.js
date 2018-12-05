@@ -17,18 +17,8 @@ import { WebBrowser } from "expo";
 import { LinearGradient } from 'expo';
 import { MapView } from "expo";
 import { MonoText } from "../components/StyledText";
-import RamblDetailComponent from "./RamblDetailScreen.js";
-import LoadingScreenComponent from "./LoadingScreen.js";
-import RamblLoadedComponent from "./RamblLoaded.js";
-import RamblCompletedComponent from "./RamblComplete.js";
-import ContinueRamblComponent from "./ContinueRambling.js";
-import TabNavigator from "../navigation/TabNavigator.js";
-import RateandStompComponent from "./RateandStomp.js";
-import FriendsViewComponent from "./Friends.js";
 
-import ProfileScreenComponent from './AdjustedProfile.js';
-
-export default class FriendsView extends React.Component {
+export default class FriendsViewComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -51,15 +41,10 @@ export default class FriendsView extends React.Component {
   }
 
   handlePress(){
-    this.setState({
-      currentView: "back",
-    });
+    this.props.setProfileState("unselected");
   }
 
   render() {
-    if(this.state.currentView === "back"){
-      return (<ProfileScreenComponent {...this}/>);
-    }if(this.state.currentView === "friends"){
     return (
       <View style={{flex:1}}>
       <View style={styles.view}>
@@ -86,7 +71,6 @@ export default class FriendsView extends React.Component {
       </View>
     );
   }
-}
 }
 
 const styles = StyleSheet.create({

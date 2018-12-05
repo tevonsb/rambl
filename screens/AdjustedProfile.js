@@ -48,7 +48,7 @@ export default class ProfileScreen extends React.Component {
     this.handleRamblPress = this.handleRamblPress.bind(this);
     this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
-    this.handleVisitPress = this.handleVisitPress.bind(this);
+    this.setProfileState = this.setProfileState.bind(this);
   }
 
   componentWillUnmount(){
@@ -102,10 +102,10 @@ export default class ProfileScreen extends React.Component {
     });
   }
 
-  handleVisitPress(){
+  setProfileState(viewState){
     this.setState({
-      currentView: "FriendList"
-    });
+      currentView: viewState
+    })
   }
 
   render() {
@@ -114,7 +114,7 @@ export default class ProfileScreen extends React.Component {
       return <RamblDetailComponent rambl={this.state.currentRambl} {...this.props} />;
     }
     if (this.state.currentView === "FriendList") {
-      return <FriendsViewComponent {...this.props} />;
+      return <FriendsViewComponent {...this.props} setProfileState={this.setProfileState}/>;
     }
     if (this.state.currentView === "unselected") {
       if(this.state.value === "About"){
@@ -141,7 +141,7 @@ export default class ProfileScreen extends React.Component {
                         fontSize: 20,}}>Submit New Footprint!</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={()=> this.handleVisitPress()} style={styles.buttonContainer}>
+                  <TouchableOpacity onPress={()=> this.setProfileState("FriendList")} style={styles.buttonContainer}>
                     <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
        textShadowOffset: {width: 0, height: 1},
        textShadowRadius: 80,
