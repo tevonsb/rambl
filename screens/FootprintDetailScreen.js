@@ -52,7 +52,7 @@ export default class FootprintDetailComponent extends React.Component {
   render() {
     return(
       //<View style={{width: Dimensions.get('window').width-20, height: 250, backgroundColor: '#353535', padding: 10, marginTop: 5}}>
-      <View style={{flex:2, backgroundColor: '#353535', padding: 10, marginTop: 5}}>
+      <View style={{flex:2, backgroundColor: '#353535', padding: 10, marginTop: 15}}>
         <FlatList style={this.props.screenProps.globalStyle.flatlist}
           data={this.getFootprints()}
           renderItem={({item}) =>
