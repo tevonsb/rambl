@@ -95,7 +95,9 @@ export default class RamblDetailComponent extends React.Component {
       return(
         <View style = {{
           flex: 1,
+          flexDirection: 'row',
           alignItems: 'center',
+          justifyContent: 'center'
         }}>
         <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Create"})}>
         <View style={this.props.screenProps.globalStyle.purpleButton}>

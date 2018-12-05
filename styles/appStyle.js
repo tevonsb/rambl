@@ -84,8 +84,12 @@ export default globalStyles = StyleSheet.create({
     borderRadius: 3,
     padding: 5,
   },
+  ratingContainer: {
+    margin: 10,
+    borderRadius: 3,
+    padding: 5,
+  },
   announcementContainer: {
-    flex:1,
     justifyContent: 'center',
     width: Dimensions.get('window').width-20,
     height: 130,

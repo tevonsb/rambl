@@ -19,7 +19,8 @@ export default class RateandStompComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      starCount: 0
+      starCount: 0,
+      stompValue: 300
     };
   }
 
@@ -59,7 +60,10 @@ export default class RateandStompComponent extends React.Component {
         <View style = {this.props.screenProps.globalStyle.announcementContainer}>
           <Text style={this.props.screenProps.globalStyle.announcementText}>How was the footprint? </Text>
           </View>
+          <View style = {this.props.screenProps.globalStyle.ratingContainer}>
+          <View style ={{marginBottom: 15, marginTop: 15}}>
           <Text style={this.props.screenProps.globalStyle.message}> Rate it: </Text>
+          </View>
           <StarRating
             disabled={false}
             emptyStar={'ios-star-outline'}
@@ -71,41 +75,42 @@ export default class RateandStompComponent extends React.Component {
             selectedStar={(rating) => this.onStarRatingPress(rating)}
             fullStarColor={'yellow'}
             />
-
-          <Text style={this.props.screenProps.globalStyle.message}>Would you like to stomp this footprint?</Text>
-            <View
-              style={this.props.screenProps.globalStyle.view}
-              >
-              <View style={{flex: 1, flexDirection: 'row'}}>
-
-                <Picker
-                  selectedValue={this.state.stompValue}
-                  hideUnderline
-                  showSearch
-                  searchPlaceholder={'Search a language'}
-                  style={{height: 100, width: 50, color: "white"}}
-                  itemTextStyle={{ fontSize: 18, color: 'white' }}
-                  itemStyle={{
-                    color: "white",
-                    textDecorationColor: "white",
-                    marginLeft: 0,
-                    paddingLeft: 15
-                  }}
-                  style={{height: 100, width: 50, color: "white", marginLeft: 40,}}
-                  onValueChange={(itemValue, itemIndex) => this.setState({stompValue: itemValue})}
-                  >
-                  {this.getPickerValues()}
-                </Picker>
+          </View>
+          <View style={this.props.screenProps.globalStyle.view}>
+            <View style = {{marginTop: 25}}>
+            <Text style={this.props.screenProps.globalStyle.message}>Would you like to stomp this footprint?</Text>
+            </View>
+                <View style={{
+                    flexDirection: 'row',
+                    alignSelf: 'center',
+                    alignItems: 'flex-start',
+                    justifyContent: 'center'}}>
+                  <Picker
+                    selectedValue={this.state.stompValue}
+                    hideUnderline
+                    showSearch
+                    style={{height: 350, width: 100, color: "white"}}
+                    itemTextStyle={{ fontSize: 15, color: 'white' }}
+                    itemStyle={{
+                      color: "white",
+                      textDecorationColor: "white",
+                      marginLeft: 0,
+                      paddingLeft: 15
+                    }}
+                    onValueChange={(itemValue, itemIndex) => this.setState({stompValue: itemValue})}
+                    >
+                    {this.getPickerValues()}
+                  </Picker>
+                    <Text style={this.props.screenProps.globalStyle.picker} >Points</Text>
+                </View>
               </View>
-              <Text style={this.props.screenProps.globalStyle.message}>Your Stomp is currently for {this.state.stompValue}.</Text>
-              </View>
-              <View style = {{flex: 1,
+              <View style = {{flex:1,
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between'}}>
                   <TouchableOpacity onPress={() => this.handleDonePress(0)}>
                     <View style={this.props.screenProps.globalStyle.purpleButton} >
-                      <Text style={this.props.screenProps.globalStyle.buttonText}>Done</Text>
+                      <Text style={this.props.screenProps.globalStyle.buttonText}>No thanks</Text>
                     </View>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={() => this.handleDonePress(this.state.stompValue)}>

@@ -121,16 +121,14 @@ export default class CurrentScreenComponent extends React.Component {
             justifyContent: 'space-between'
           }}>
           <TouchableOpacity onPress = {()=> this.createNewRambl()} style={styles.buttonContainer}>
-            <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
-textShadowOffset: {width: 0, height: 1},
-textShadowRadius: 80,
-                fontSize: 20,}}>Discover New</Text>
+            <Text style = {{color: '#FFFFFF',  textShadowColor: 'white', textShadowOffset: {width: 0, height: 1},
+                textShadowRadius: 80, fontSize: 20,}}>
+                Discover New</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress = {()=> this.followfriendRambl()} style={styles.buttonContainer}>
-            <Text style = {{color: '#FFFFFF',  textShadowColor: 'white',
-textShadowOffset: {width: 0, height: 1},
-textShadowRadius: 80,
-                fontSize: 20,}}>Follow a Friend</Text>
+            <Text style = {{color: '#FFFFFF',  textShadowColor: 'white', textShadowOffset: {width: 0, height: 1},
+                textShadowRadius: 80, fontSize: 20,}}>
+                  Follow a Friend</Text>
           </TouchableOpacity>
           </View>
           </View>
