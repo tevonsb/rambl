@@ -36,6 +36,7 @@ export default class StompScreen extends React.Component {
     this._onValueChange = this._onValueChange.bind(this);
     this.getActiveStomps=this.getActiveStomps.bind(this);
     this.getInactiveStomps = this.getInactiveStomps.bind(this);
+    this.getColor = this.getColor.bind(this);
   }
 
     getActiveStomps(){
@@ -50,6 +51,14 @@ export default class StompScreen extends React.Component {
     this.setState({ value: value });
   }
 
+  getColor(item){
+    if(item === 100){
+      return "#00ff40";
+    }else{
+      return 	"#585858";
+    }
+  }
+
   render() {
     var displayView = null;
     if(this.state.value === "Active"){
@@ -59,7 +68,8 @@ export default class StompScreen extends React.Component {
           <FlatList style={this.props.screenProps.globalStyle.flatlist}
             data={this.getActiveStomps()}
             renderItem={({item}) => <TouchableOpacity disabled = {true} style={this.props.screenProps.globalStyle.stompContainer}>
-            <Text style={this.props.screenProps.globalStyle.stompHeader}>Stomp on {item.title} for {item.stake} ({item.stake_time})</Text>
+            <Text style={this.props.screenProps.globalStyle.stompHeader}>Stomp on {item.title}</Text>
+            <Text style={this.props.screenProps.globalStyle.stompDetail}>Stomped {item.stake} points {item.stake_time}</Text>
             <View style ={styles.progressContainer}>
             <AnimatedCircularProgress
                     size={80}
@@ -89,13 +99,15 @@ export default class StompScreen extends React.Component {
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getInactiveStomps()}
               renderItem={({item}) => <TouchableOpacity disabled = {true} style={this.props.screenProps.globalStyle.stompContainer}>
-              <Text style={this.props.screenProps.globalStyle.stompHeader}>Stomp on {item.title} for {item.stake} ({item.stake_time})</Text>
+              <Text style={this.props.screenProps.globalStyle.stompHeader}>Stomp on {item.title}</Text>
+              <Text style={this.props.screenProps.globalStyle.stompDetail}>Stomped {item.stake} points on {item.stake_time}</Text>
               <View style ={styles.progressContainer}>
               <AnimatedCircularProgress
                       size={80}
                       width={10}
                       fill={item.percent}
-                      tintColor="#00BFFF"
+                    //  tintColor="#00BFFF"
+                      tintColor = {this.getColor(item.percent)}
                       backgroundColor="#686666">
                       {
                         (fill) => (

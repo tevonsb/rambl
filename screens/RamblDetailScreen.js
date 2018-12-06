@@ -59,7 +59,7 @@ export default class RamblDetailComponent extends React.Component {
           coordinate = {{latitude: (this.props.rambl.footprints[index].latitude),
           longitude: (this.props.rambl.footprints[index].longitude)}}
           title = {footprint.title}
-          pinColor = {"#00E7FF"}
+          pinColor = {"00BFFF"}
           description = {footprint.Address}
           />);
     });

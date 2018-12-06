@@ -166,7 +166,7 @@ export default globalStyles = StyleSheet.create({
   },
   stompDetail:{
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: 15,
     padding: 4
   },
   detail: {
