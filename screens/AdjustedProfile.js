@@ -57,6 +57,7 @@ export default class ProfileScreen extends React.Component {
     this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
     this.setProfileState = this.setProfileState.bind(this);
+    this.handleBackPress = this.handleBackPress.bind(this);
   }
 
   componentWillUnmount(){
@@ -119,7 +120,7 @@ export default class ProfileScreen extends React.Component {
   render() {
     var displayView = null;
     if (this.state.currentView === "selected") {
-      return <RamblDetailComponent rambl={this.state.currentRambl} {...this.props} />;
+      return <RamblDetailComponent {...this.props} cancelLocation="unselected" cancel={this.handleBackPress} rambl={this.state.currentRambl} history={true} />;
     }
     if (this.state.currentView === "unselected") {
       if (this.state.value === "Friends") {

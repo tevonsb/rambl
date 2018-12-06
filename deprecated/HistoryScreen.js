@@ -42,15 +42,9 @@ export default class HistoryScreenComponent extends React.Component {
     this.handleRamblPress = this.handleRamblPress.bind(this);
     this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
+    this.handleBackPress = this.handleBackPress.bind(this);
   }
 
-  handleBackPress(){
-    if(this.state.currentView === "selected"){
-      this.setState({
-        currentView: "unselected",
-      })
-    }
-  }
   getMyRambls() {
     return this.props.pastRambls;
   }
@@ -91,10 +85,15 @@ export default class HistoryScreenComponent extends React.Component {
     });
   }
 
+  handleBackPress(){
+    this.setState({currentView: "unselected"});
+  }
+
   render() {
     var displayView = null;
     if (this.state.currentView === "selected") {
-      return <RamblDetailComponent setCurrentState={(something)=>this.setState({currentView: "unselected"})} rambl={this.state.currentRambl} {...this.props} />;
+      console.log("ABOUT TO RENDER COMP");
+      return <RamblDetailComponent {...this.props} cancelLocation="unselected" cancel={this.handleBackPress} rambl={this.state.currentRambl} history={true}/>;
       //return <RateandStompComponent {...this.props} />;
     }
     if (this.state.currentView === "unselected") {
