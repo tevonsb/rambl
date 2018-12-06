@@ -48,6 +48,7 @@ export default class FriendScreenComponent extends React.Component {
     this.handleRamblPress = this.handleRamblPress.bind(this);
     this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentWillUnmount(){
@@ -101,20 +102,30 @@ export default class FriendScreenComponent extends React.Component {
     });
   }
 
+  handleCancel(){
+    this.setState({currentView: "unselected"});
+    this.forceUpdate()
+    this.props.setCurrentState("chooseFriend");
+  }
+
   render() {
     var displayView = null;
     if(this.state.currentView === "selected"){
       const thisRambl = this.state.currentRambl;
       return (
-        <RamblDetailComponent {...this.props} rambl={thisRambl}/>
+        <RamblDetailComponent cancel={this.handleCancel} cancelLocation={true} {...this.props} rambl={thisRambl}/>
       )
     }
     if (this.state.currentView === "unselected") {
           if(this.state.value === "Friends\' Rambls"){
             displayView = (
               <View  style={this.props.screenProps.globalStyle.view}>
-                <TouchableOpacity onPress={this.props.setCurrentState}>
-                  <Text style={this.props.screenProps.globalStyle.message}> {"< Back to List"}</Text>
+                <TouchableOpacity
+                  style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
+                  onPress={() => this.props.setCurrentState("map")}>
+                  <View style={this.props.screenProps.globalStyle.purpleButton}>
+                    <Text style={this.props.screenProps.globalStyle.buttonText}> {"< Back to List"}</Text>
+                  </View>
                 </TouchableOpacity>
                 <Text style={this.props.screenProps.globalStyle.message}> Friends Rambls in Your Location </Text>
                 <View style={{width: Dimensions.get('window').width-20, height:595, backgroundColor: '#353535', padding: 10, marginTop: 5, marginBottom:5}}>
@@ -127,13 +138,6 @@ export default class FriendScreenComponent extends React.Component {
                       <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate: ${item.cost} </Text>
                   </TouchableOpacity>}/>
                 </View>
-                <TouchableOpacity
-                  style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
-                  onPress={()=> this.props.handleVisitPress(footprint)}>
-                  <View style={this.props.screenProps.globalStyle.purpleButton}>
-                    <Text style={this.props.screenProps.globalStyle.buttonText}> Cancel</Text>
-                  </View>
-                </TouchableOpacity>
               </View>
                 )
               }

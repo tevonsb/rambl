@@ -37,11 +37,7 @@ export default class CurrentScreenComponent extends React.Component {
     }
     this.checkDuration = this.checkDuration.bind(this);
     this.createNewRambl = this.createNewRambl.bind(this);
-    this.handleBackPress = this.handleBackPress.bind(this);
-  }
-
-  componentWillMount(){
-
+    this.setCurrentState = this.setCurrentState.bind(this);
   }
 
   componentWillUnmount(){
@@ -100,9 +96,9 @@ export default class CurrentScreenComponent extends React.Component {
         });
       }
 
-      handleBackPress(){
+      setCurrentState(state){
         this.setState({
-          currentView: "map",
+          currentView: state,
         })
       }
       getComponentForState(){
@@ -145,12 +141,12 @@ export default class CurrentScreenComponent extends React.Component {
         }
         if(this.state.currentView === "selected"){
           return (
-            <RamblDetailComponent rambl={this.state.currentRambl} {...this.props}/>
+            <RamblDetailComponent setCurrentState={(state) => this.setCurrentState(state)} cancelLocation={false} rambl={this.state.currentRambl} {...this.props}/>
           )
         }
         if(this.state.currentView === "chooseFriend"){
           return (
-            <FriendRamblComponent setCurrentState={this.handleBackPress}rambl={this.state.currentRambl} {...this.props}/>
+            <FriendRamblComponent setCurrentState={(state) => this.setCurrentState(state)} rambl={this.state.currentRambl} {...this.props}/>
           )
         }
         if(this.state.currentView === "choose"){
@@ -158,8 +154,12 @@ export default class CurrentScreenComponent extends React.Component {
             <View
               style={this.props.screenProps.globalStyle.view}
               >
-              <TouchableOpacity onPress={this.handleBackPress}>
-                <Text style={this.props.screenProps.globalStyle.message}> {"< Back to List"}</Text>
+              <TouchableOpacity
+                style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
+                onPress={() => this.setCurrentState("map")}>
+                <View style={this.props.screenProps.globalStyle.purpleButton}>
+                  <Text style={this.props.screenProps.globalStyle.buttonText}> {"< Back to List"}</Text>
+                </View>
               </TouchableOpacity>
               <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>How long do you have to spend?</Text>
@@ -216,13 +216,6 @@ export default class CurrentScreenComponent extends React.Component {
                   </TouchableOpacity>}
                 />
               </View>
-              <TouchableOpacity
-                style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
-                onPress={()=> this.props.handleVisitPress(footprint)}>
-                <View style={this.props.screenProps.globalStyle.purpleButton}>
-                  <Text style={this.props.screenProps.globalStyle.buttonText}> Cancel</Text>
-                </View>
-              </TouchableOpacity>
             </View>
           )
         }

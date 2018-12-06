@@ -42,6 +42,7 @@ export default class RamblDetailComponent extends React.Component {
     }
     this.setRamblState = this.setRamblState.bind(this);
     this.handleFollowPress = this.handleFollowPress.bind(this);
+    this.handleCancelPress = this.handleCancelPress.bind(this);
   }
 
   componentWillUnmount(){
@@ -70,6 +71,16 @@ export default class RamblDetailComponent extends React.Component {
     this.setState({currentRamblState: "Loading"});
   }
 
+  handleCancelPress(){
+    console.log('clicking handle cancel press');
+    if(this.props.cancelLocation){
+      this.props.cancel();
+    }else {
+      this.props.setCurrentState("choose");
+      this.setState({currentRamblState: "Create"});
+    }
+  }
+
   displayFollow(){
     if(this.props.rambl.city ==="London"){
       return(
@@ -79,7 +90,7 @@ export default class RamblDetailComponent extends React.Component {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Create"})}>
+        <TouchableOpacity onPress={this.handleCancelPress}>
           <View style={this.props.screenProps.globalStyle.purpleButton}>
           <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
           </View>
@@ -99,7 +110,7 @@ export default class RamblDetailComponent extends React.Component {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Create"})}>
+        <TouchableOpacity onPress={this.handleCancelPress}>
         <View style={this.props.screenProps.globalStyle.purpleButton}>
         <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
         </View>
