@@ -25,6 +25,7 @@ export default class CurrentScreenComponent extends React.Component {
     if(this.props.currentState !== null){
       console.log('loading saved state');
       this.state = this.props.currentState;
+      console.log(this.state);
     } else {
       this.state = {
         currentRamblState: "Current",
@@ -84,6 +85,7 @@ export default class CurrentScreenComponent extends React.Component {
           currentRambl: rambl,
           currentView: "selected",
         });
+        this.forceUpdate();
       }
 
       createNewRambl(){
