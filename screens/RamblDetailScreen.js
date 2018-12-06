@@ -20,7 +20,6 @@ import RamblLoadedComponent from './RamblLoaded.js';
 import RateandStompComponent from './RateandStomp.js';
 import ContinueRambleComponent from './ContinueRambling.js';
 import RamblCompletedComponent from './RamblComplete.js';
-import StompGeneratedComponent from './stompGenerated.js';
 import CurrentScreenComponent from "./CurrentScreen.js";
 
 
