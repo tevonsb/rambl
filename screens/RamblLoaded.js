@@ -25,7 +25,7 @@ export default class RamblLoadedComponent extends React.Component {
      * content, we just wanted to give you a quick view of your config */
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: 80}}>
-      <Text style={this.props.screenProps.globalStyle.confirmtationText}>Your Rambl Has Been Loaded!</Text>
+      <Text style={this.props.screenProps.globalStyle.confirmationText}>Your Rambl Has Been Loaded!</Text>
       <Icon
         style=
         {{flex:1,

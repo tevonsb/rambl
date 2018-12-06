@@ -25,7 +25,7 @@ export default class StompGeneratedComponent extends React.Component {
      * content, we just wanted to give you a quick view of your config */
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: 80}}>
-      <Text style={this.props.screenProps.globalStyle.confirmtationText}>Footprint successfully stomped! You can check your progress on your profile page. </Text>
+      <Text style={this.props.screenProps.globalStyle.confirmationText}>Footprint successfully stomped! You can check your progress on your profile page. </Text>
       <Icon
         style=
         {{flex:1,

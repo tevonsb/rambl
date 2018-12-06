@@ -119,6 +119,7 @@ export default class RamblDetailComponent extends React.Component {
   }
 
   setRamblState(state){
+    console.log('Rambl state being set to '+state);
     this.props.setGlobalState({continueRamblingState: null});
     this.setState({
       currentRamblState: state,
@@ -177,10 +178,6 @@ export default class RamblDetailComponent extends React.Component {
 
     if(this.state.currentRamblState === "Complete"){
       return (<RamblCompletedComponent {...this.props} setRamblState={this.setRamblState}/>);
-    }
-
-    if(this.state.currentRamblState === "Create"){
-      return (<CurrentScreenComponent {...this.props} setRamblState={this.setRamblState}/>);
     }
   }
 }
