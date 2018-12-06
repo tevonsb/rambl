@@ -148,14 +148,12 @@ export default class CurrentScreenComponent extends React.Component {
         }
         if(this.state.currentView === "choose"){
           return (
-            <View
-              style={this.props.screenProps.globalStyle.view}
-              >
+            <View style={this.props.screenProps.globalStyle.view} >
               <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>How long do you have to spend?</Text>
               </View>
-              <View style={{flex: 1, flexDirection: 'row'}}>
 
+              <View style={{flex: 0, flexDirection: 'row', height: 210}}>
                 <Picker
                   selectedValue={this.state.hour}
                   hideUnderline
@@ -175,7 +173,6 @@ export default class CurrentScreenComponent extends React.Component {
                   {this.getPickerHours()}
                 </Picker>
                 <Text style={this.props.screenProps.globalStyle.picker} >Hours</Text>
-
                 <Picker
                   style={{height: 100, width: 50, color: "white"}}
                   itemTextStyle={{ fontSize: 18, color: 'white' }}
@@ -195,8 +192,7 @@ export default class CurrentScreenComponent extends React.Component {
               <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>Option(s) that fit in your timeframe:</Text>
               </View>
-              <View style={{width: Dimensions.get('window').width-20, height:290, backgroundColor: '#353535', padding: 10, marginTop: 5, marginBottom:5}}>
-
+              <View style={{width: Dimensions.get('window').width-20, height:320, backgroundColor: '#353535', padding: 10, marginTop: 5, marginBottom:5}}>
                 <FlatList
                   data={this.getRambls()}
                   renderItem={({item}) =>
@@ -208,6 +204,13 @@ export default class CurrentScreenComponent extends React.Component {
                   </TouchableOpacity>}
                 />
               </View>
+              <TouchableOpacity
+                style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
+                onPress={()=> this.props.handleVisitPress(footprint)}>
+                <View style={this.props.screenProps.globalStyle.purpleButton}>
+                  <Text style={this.props.screenProps.globalStyle.buttonText}> Cancel</Text>
+                </View>
+              </TouchableOpacity>
             </View>
           )
         }
