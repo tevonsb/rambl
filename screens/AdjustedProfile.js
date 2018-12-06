@@ -72,7 +72,7 @@ export default class ProfileScreen extends React.Component {
     }
   }
   getMyRambls() {
-    return this.props.screenProps.past_rambls;
+    return this.props.pastRambls;
   }
 
   // added this
