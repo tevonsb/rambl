@@ -143,10 +143,12 @@ export default globalStyles = StyleSheet.create({
   map: {
      height: 300,
      width: Dimensions.get('window').width -20,
+     borderRadius: 3,
   },
   largeMap: {
      height: 620,
      width: Dimensions.get('window').width-20,
+     borderRadius: 3,
   },
   picker:{
     color: '#FFFFFF',
