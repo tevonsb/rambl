@@ -17,10 +17,12 @@ var rambls = require("./data/rambls");
 var users = require("./data/users");
 var friends_rambls = require("./data/friends_rambls");
 var past_rambls = require("./data/past_rambls");
+var stomps = require("./data/stomps.json");
 
 import CurrentScreen from "./screens/CurrentScreen";
 import ProfileScreen from "./screens/AdjustedProfile";
-import FAQScreen from "./screens/FAQ"
+import FAQScreen from "./screens/FAQ";
+import StompScreen from "./screens/stompscreen";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -33,6 +35,9 @@ export default class App extends React.Component {
       activeScreen: "Rambl!",
       currentScreenState: null,
       ramblingState: null,
+      stomps: stomps,
+      pastRambls: past_rambls,
+      rambls: rambls,
     };
     this.setGlobalState = this.setGlobalState.bind(this);
     this.handleTabPress = this.handleTabPress.bind(this);
@@ -41,7 +46,6 @@ export default class App extends React.Component {
   componentWillMount() {
     const screenProps = {
       globalState: this.state,
-      rambls: rambls,
       users: users,
       friends_rambls: friends_rambls,
       past_rambls: past_rambls,
@@ -84,6 +88,9 @@ export default class App extends React.Component {
     }
     if(this.state.activeScreen === "FAQs"){
       return (<FAQScreen {...this.state} screenProps = {this.state.screenProps} />);
+    }
+    if(this.state.activeScreen === "Stomps"){
+      return (<StompScreen {...this.state} screenProps = {this.state.screenProps} />);
     }
     return null;
   }
@@ -152,17 +159,18 @@ export default class App extends React.Component {
               }}
               activeStyle={{
                 height: 60,
-                width: Dimensions.get('window').width/3,
+                width: Dimensions.get('window').width/4,
                 borderTopColor: "white",
                 borderTopWidth: 4,
               }}
               tabStyle={{
                 height: 60,
-                width: Dimensions.get('window').width/3,
+                width: Dimensions.get('window').width/4,
 
               }}
               tabs={[
                 { title: "Rambl!" },
+                {title: "Stomps"},
                 { title: "Profile" },
                 {title: "FAQs"}
               ]}
