@@ -58,8 +58,6 @@ export default class ProfileScreen extends React.Component {
     this.getFriendsRamblsMyLocation = this.getFriendsRamblsMyLocation.bind(this);
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
     this.setProfileState = this.setProfileState.bind(this);
-    this.getActiveStomps=this.getActiveStomps.bind(this);
-    this.getInactiveStomps = this.getInactiveStomps.bind(this);
   }
 
   componentWillUnmount(){
@@ -94,15 +92,6 @@ export default class ProfileScreen extends React.Component {
       return this.props.screenProps.friends_rambls.filter(friend_rambl => friend_rambl.city == this.props.screenProps.globalState.location);
   }
 
-  getActiveStomps(){
-    console.log(this.props.stomps);
-    return this.props.stomps.filter(stomp => stomp.status!=="Complete");
-  }
-
-  getInactiveStomps(){
-    return this.props.stomps.filter(stomp => stomp.status==="Complete");
-  }
-
   getFriendsRamblsNotMyLocation(){
       return this.props.screenProps.friends_rambls.filter(friend_rambl => friend_rambl.city != this.props.screenProps.globalState.location);
   }
@@ -135,7 +124,6 @@ export default class ProfileScreen extends React.Component {
     }
     if (this.state.currentView === "unselected") {
       if (this.state.value === "Friends") {
-        console.log(this.state.dataSource);
         displayView=(
           <View style={{flex:1}}>
           <View style={styles.view}>
