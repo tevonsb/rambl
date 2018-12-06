@@ -5,7 +5,8 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import CurrentScreen from '../screens/CurrentScreen';
 import ProfileScreen from '../screens/AdjustedProfile';
-import FAQScreen from '../screens/FAQ'
+import FAQScreen from '../screens/FAQ';
+import StompScreen from '../screens/stompscreen.js'
 
 const CurrentStack = createStackNavigator({
   Current: CurrentScreen,
@@ -16,7 +17,21 @@ CurrentStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-options'}
+    />
+  ),
+};
+
+const StompStack = createStackNavigator({
+  Stomp: StompScreen,
+});
+
+StompStack.navigationOptions = {
+  tabBarLabel: 'Stomps',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-options'}
     />
   ),
 };
@@ -26,7 +41,7 @@ const ProfileStack = createStackNavigator({
 });
 
 ProfileStack.navigationOptions = {
-  tabBarLabel: 'You',
+  tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -40,7 +55,7 @@ const FAQStack = createStackNavigator({
 });
 
 ProfileStack.navigationOptions = {
-  tabBarLabel: '?',
+  tabBarLabel: 'FAQs',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -52,6 +67,7 @@ ProfileStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   CurrentStack,
+  StompStack,
   ProfileStack,
   FAQStack
 });
