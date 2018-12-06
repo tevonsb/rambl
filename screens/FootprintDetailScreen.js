@@ -55,6 +55,7 @@ export default class FootprintDetailComponent extends React.Component {
             data={this.getFootprints()}
             renderItem={({item}) => <TouchableOpacity disabled={true} style={this.props.screenProps.globalStyle.rambl}>
             <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
+            <Text style={this.props.screenProps.globalStyle.footprintAddress}>{item.Address}</Text>
             <Text style={this.props.screenProps.globalStyle.footprintDetail}>Category: {item.category}</Text>
             <Text style={this.props.screenProps.globalStyle.footprintDetail}>Description: {item.description}</Text>
             <Text style={this.props.screenProps.globalStyle.footprintDetail}>Rating: {item.rating}/5.0</Text>

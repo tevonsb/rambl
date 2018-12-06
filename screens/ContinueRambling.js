@@ -100,13 +100,9 @@ export default class ContinueRambleComponent extends React.Component {
             backgroundColor: 'rgba(0,0,0,.5)',
           }}
         >
-          <View
-            style={{top: 250, height: 150, backgroundColor: '#686666', padding: 20, borderRadius: 3,}}
-            >
+          <View style={{top: 250, height: 150, backgroundColor: '#686666', padding: 20, borderRadius: 3,}} >
             <Text style={this.props.screenProps.globalStyle.message}>Are you sure you want to exit this Rambl? It isn't complete and won't be saved to your history.</Text>
-            <View
-              style={{flex:0, flexDirection: "row", justifyContent: "space-evenly", margin: 10}}
-              >
+            <View style={{flex:0, flexDirection: "row", justifyContent: "space-evenly", margin: 10}}>
               <TouchableOpacity style={this.props.screenProps.globalStyle.purpleButton} onPress={()=> this.props.setRamblState("Detail")}>
                 <Text style={this.props.screenProps.globalStyle.buttonText} >Finish</Text>
               </TouchableOpacity>
@@ -131,7 +127,7 @@ export default class ContinueRambleComponent extends React.Component {
           <View style={this.props.screenProps.globalStyle.questionContainer}>
             <Text style={this.props.screenProps.globalStyle.announcementText}>Let's get going!</Text>
           </View>
-          <FootprintDetailComponent height={563} action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
+          <FootprintDetailComponent height={560} action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
           {this.getFinishButton()}
           {this.getModal()}
         </View>

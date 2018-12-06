@@ -61,7 +61,7 @@ export default class RateandStompComponent extends React.Component {
   }
 
   getPickerValues(){
-    const values = [100, 200, 300, 400, 500];
+    const values = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500];
     return values.map((number) =>
     <Picker.Item key={number.toString()} label={number.toString()} value={number}/>);
     }
@@ -73,25 +73,28 @@ export default class RateandStompComponent extends React.Component {
             <Text style={this.props.screenProps.globalStyle.announcementText}>How was the footprint? </Text>
           </View>
           <View style = {this.props.screenProps.globalStyle.ratingContainer}>
-            <View style ={{marginBottom: 15, marginTop: 15}}>
+            <View style ={{marginBottom: 20, marginTop: 15}}>
+              <View style ={{marginBottom: 35}}>
               <Text style={this.props.screenProps.globalStyle.message}> Rate it: </Text>
+              </View>
+              <StarRating
+                disabled={false}
+                emptyStar={'ios-star-outline'}
+                fullStar={'ios-star'}
+                halfStar={'ios-star-half'}
+                iconSet={'Ionicons'}
+                maxStars={5}
+                rating={this.state.starCount}
+                selectedStar={(rating) => this.onStarRatingPress(rating)}
+                fullStarColor={'#00BFFF'}
+                />
             </View>
-            <StarRating
-              disabled={false}
-              emptyStar={'ios-star-outline'}
-              fullStar={'ios-star'}
-              halfStar={'ios-star-half'}
-              iconSet={'Ionicons'}
-              maxStars={5}
-              rating={this.state.starCount}
-              selectedStar={(rating) => this.onStarRatingPress(rating)}
-              fullStarColor={'#00BFFF'}
-              />
           </View>
           <View style={this.props.screenProps.globalStyle.view}>
-            <View style = {{marginTop: 25}}>
-              <Text style={this.props.screenProps.globalStyle.message}>Would you like to stomp this footprint?</Text>
+            <View style = {this.props.screenProps.globalStyle.announcementContainer}>
+              <Text style={this.props.screenProps.globalStyle.announcementText}>Would you like to stomp it?</Text>
             </View>
+            <View style = {{marginTop: 0, marginBottom:25}}>
             <View style={{
                 flexDirection: 'row',
                 alignSelf: 'center',
@@ -101,8 +104,8 @@ export default class RateandStompComponent extends React.Component {
                   selectedValue={this.state.stompValue}
                   hideUnderline
                   showSearch
-                  style={{height: 350, width: 100, color: "white", marginLeft: 70}}
-                  itemTextStyle={{ fontSize: 15, color: 'white' }}
+                  style={{height: 220, width: 100, color: "white", marginLeft: 70}}
+                  itemTextStyle={{ fontSize: 20, color: 'white' }}
                   itemStyle={{
                     color: "white",
                     textDecorationColor: "white",
@@ -115,24 +118,46 @@ export default class RateandStompComponent extends React.Component {
                 </Picker>
                 <Text style={this.props.screenProps.globalStyle.picker} >Points</Text>
               </View>
-            </View>
-            <View style = {{flex:1,
+              </View>
+              <View style = {{
+                flex: 1,
                 flexDirection: 'row',
                 alignItems: 'center',
-                justifyContent: 'space-between'}}>
-                <TouchableOpacity onPress={() => this.handleDonePress(0)}>
-                  <View style={this.props.screenProps.globalStyle.purpleButton} >
-                    <Text style={this.props.screenProps.globalStyle.buttonText}>No thanks</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.handleDonePress(this.state.stompValue)}>
-                  <View style={this.props.screenProps.globalStyle.purpleButton} >
-                    <Text style={this.props.screenProps.globalStyle.buttonText}>Stomp!</Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
+                justifyContent: 'center'
+              }}>
+                  <TouchableOpacity onPress={() => this.handleDonePress(0)}>
+                    <View style={styles.buttonContainer} >
+                      <Text style={this.props.screenProps.globalStyle.buttonText}>No thanks</Text>
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => this.handleDonePress(this.state.stompValue)}>
+                    <View style={styles.buttonContainer} >
+                      <Text style={this.props.screenProps.globalStyle.buttonText}>Stomp!</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+            </View>
             </View>
           );
         }
       }
-      ``
+
+      const styles = StyleSheet.create({
+        buttonContainer: {
+          width : 180,
+          height: 35,
+          color: 'white',
+          backgroundColor: '#9839F7',
+          marginTop: 10,
+          marginLeft: 5,
+          marginRight: 5,
+          marginBottom: 5,
+          borderRadius: 3,
+          overflow: 'hidden',
+          shadowColor: "white",
+          shadowOffset: {width: 1, height: -1},
+          shadowRadius: 10,
+          alignItems: 'center',
+          justifyContent: "center"
+        },
+      });
