@@ -30,7 +30,7 @@ export default class RamblDetailComponent extends React.Component {
 
   constructor(props){
     super(props);
-    if(this.props.ramblingState !== null){
+    if(this.props.ramblingState !== null && !this.props.history){
       this.state = this.props.ramblingState;
     } else {
       this.state = {
@@ -70,10 +70,10 @@ export default class RamblDetailComponent extends React.Component {
 
   handleCancelPress(){
     console.log('clicking handle cancel press');
+    console.log(this.props.cancelLocation);
     if(this.props.cancelLocation){
       this.props.cancel();
     }else {
-      console.log(this.props.setCurrentState);
       this.props.setCurrentState("choose");
       this.setState({currentRamblState: "Create"});
     }
