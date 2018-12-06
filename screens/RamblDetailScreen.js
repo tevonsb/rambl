@@ -76,6 +76,7 @@ export default class RamblDetailComponent extends React.Component {
     if(this.props.cancelLocation){
       this.props.cancel();
     }else {
+      console.log(this.props.setCurrentState);
       this.props.setCurrentState("choose");
       this.setState({currentRamblState: "Create"});
     }
@@ -179,10 +180,6 @@ export default class RamblDetailComponent extends React.Component {
 
     if(this.state.currentRamblState === "Create"){
       return (<CurrentScreenComponent {...this.props} setRamblState={this.setRamblState}/>);
-    }
-
-    if(this.state.currentRamblState === "GeneratedStomp"){
-      return(<StompGeneratedComponent {...this.props} setRamblState={this.setRamblState} />);
     }
   }
 }

@@ -14,6 +14,7 @@ import {
 
 import FootprintDetailComponent from './FootprintDetailScreen.js';
 import RateandStompComponent from './RateandStomp.js';
+import StompGeneratedComponent from './stompGenerated.js';
 import {Icon} from 'react-native-elements'
 
 export default class ContinueRambleComponent extends React.Component {
@@ -65,13 +66,16 @@ export default class ContinueRambleComponent extends React.Component {
   }
 
   getFinishButton(){
+    console.log(this.state.complete);
     if(this.state.complete){
       return(
+        <View style={{flex:0, flexDirection: "row", justifyContent: "space-evenly", margin: 10}} >
         <TouchableOpacity style={this.props.screenProps.globalStyle.purpleButton} onPress={()=>this.props.setRamblState("Complete")}>
           <Text style={this.props.screenProps.globalStyle.buttonText}>
             Complete!
           </Text>
         </TouchableOpacity>
+      </View>
       )
     } else {
       return(
@@ -134,7 +138,11 @@ export default class ContinueRambleComponent extends React.Component {
       );
     }
     if(this.state.currentFootprintState === "selected"){
-      return (<RateandStompComponent {...this.props} setFootprintVisited={this.setFootprintVisited} footprint={this.state.activeFootprint}/>);
+      return (<RateandStompComponent {...this.props} handleStomp={()=>{this.setState({currentFootprintState: "GeneratedStomp"})}} setFootprintVisited={this.setFootprintVisited} footprint={this.state.activeFootprint}/>);
     }
+    if(this.state.currentFootprintState === "GeneratedStomp"){
+      return(<StompGeneratedComponent {...this.props} setRamblState={() => this.setState({currentFootprintState: "unselected"})} />);
+    }
+
   }
 }
