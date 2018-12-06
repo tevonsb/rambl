@@ -36,7 +36,7 @@ export default class RamblLoadedComponent extends React.Component {
           paddingTop: 300,
           justifyContent: "center"}}
         name = "check"
-        color = '#327ba7'
+        color = '#00BFFF'
         size = {200}/>
         <View style = {{
           flex: 1,

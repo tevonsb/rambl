@@ -22,25 +22,40 @@ export default class RamblCompletedComponent extends React.Component {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
     return (
-      <View style={{flex:1}}>
-      <Text style={this.props.screenProps.globalStyle.message}>Congrats! You have finished Rambling!</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: 80}}>
+      <Text style={this.props.screenProps.globalStyle.confirmtationText}>Congrats! You have finished Rambling!</Text>
       <Icon
-        name = "star"
-        color = "#39a1f7"
-        size = {200}/>
-        <View style = {{flex: 1,
+        style=
+        {{flex:1,
+          shadowColor: "white",
+          shadowOffset: {width: 6, height: 6},
+          shadowRadius: 6,
+          marginTop: 300,
+          paddingTop: 300,
+          justifyContent: "center"}}
+          name = "star"
+          color = "#00BFFF"
+          size = {200}/>
+        <View style = {{
+          flex: 1,
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between'}}>
-        <View style = {{flex: 1}}>
-          <Button title = "View Past Rambls" onPress={() => this.props.setRamblState("History")}/>
-          </View>
-        <View style = {{flex: 1}}>
-          <Button title = "Make a New Rambl" onPress={() => this.props.setRamblState("Create")}/>
-          </View>
+          <TouchableOpacity onPress={()=> this.props.setRamblState("History")}>
+            <View style={this.props.screenProps.globalStyle.purpleButton} >
+            <Text style={this.props.screenProps.globalStyle.buttonText}>Past Rambls</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=> this.props.setRamblState("Create")}>
+            <View style={this.props.screenProps.globalStyle.purpleButton}>
+            <Text style={this.props.screenProps.globalStyle.buttonText}>New Rambl</Text>
+            </View>
+          </TouchableOpacity>
        </View>
-
       </View>
+
+
+
     );
   }
 }

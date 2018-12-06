@@ -36,7 +36,7 @@ export default class LoadingScreenComponent extends React.Component {
         <View style={{flex: 0, flexDirection: "row", justifyContent: "space-evenly"}}>
           <Text style={{color: "white", fontSize:30, marginTop: 70, marginBottom: 10}}>Your Rambl is Loading...</Text>
           </View>
-        <PulseIndicator color = "#327ba7" size = {200}/>
+        <PulseIndicator color = "#00BFFF" size = {200}/>
       </View>
     );
   }

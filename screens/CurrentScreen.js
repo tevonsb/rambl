@@ -58,7 +58,7 @@ export default class CurrentScreenComponent extends React.Component {
             coordinate = {{latitude: (footprint.latitude),
             longitude: (footprint.longitude)}}
             title = {footprint.title}
-            pinColor = {"#00E7FF"}
+            pinColor = {"#00BFFF"}
             description = {footprint.Address}
             />);
       });
