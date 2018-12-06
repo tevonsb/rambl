@@ -56,7 +56,7 @@ export default class RateandStompComponent extends React.Component {
         "percent":0,
       }
       this.props.setGlobalState({stomps: [newStomp, ...this.props.stomps]});
-      this.props.setRamblState("GeneratedStomp");
+      this.props.handleStomp();
     }
   }
 

@@ -37,10 +37,7 @@ export default class CurrentScreenComponent extends React.Component {
     }
     this.checkDuration = this.checkDuration.bind(this);
     this.createNewRambl = this.createNewRambl.bind(this);
-  }
-
-  componentWillMount(){
-
+    this.setCurrentState = this.setCurrentState.bind(this);
   }
 
   componentWillUnmount(){
@@ -98,6 +95,12 @@ export default class CurrentScreenComponent extends React.Component {
           currentView: "chooseFriend",
         });
       }
+
+      setCurrentState(state){
+        this.setState({
+          currentView: state,
+        })
+      }
       getComponentForState(){
         if(this.state.currentView === "map"){
           return(
@@ -138,17 +141,26 @@ export default class CurrentScreenComponent extends React.Component {
         }
         if(this.state.currentView === "selected"){
           return (
-            <RamblDetailComponent rambl={this.state.currentRambl} {...this.props}/>
+            <RamblDetailComponent setCurrentState={(state) => this.setCurrentState(state)} cancelLocation={false} rambl={this.state.currentRambl} {...this.props}/>
           )
         }
         if(this.state.currentView === "chooseFriend"){
           return (
-            <FriendRamblComponent rambl={this.state.currentRambl} {...this.props}/>
+            <FriendRamblComponent setCurrentState={(state) => this.setCurrentState(state)} rambl={this.state.currentRambl} {...this.props}/>
           )
         }
         if(this.state.currentView === "choose"){
           return (
-            <View style={this.props.screenProps.globalStyle.view} >
+            <View
+              style={this.props.screenProps.globalStyle.view}
+              >
+              <TouchableOpacity
+                style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
+                onPress={() => this.setCurrentState("map")}>
+                <View style={this.props.screenProps.globalStyle.purpleButton}>
+                  <Text style={this.props.screenProps.globalStyle.buttonText}> {"< Back to Map"}</Text>
+                </View>
+              </TouchableOpacity>
               <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>How long do you have to spend?</Text>
               </View>
@@ -204,13 +216,6 @@ export default class CurrentScreenComponent extends React.Component {
                   </TouchableOpacity>}
                 />
               </View>
-              <TouchableOpacity
-                style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
-                onPress={()=> this.props.handleVisitPress(footprint)}>
-                <View style={this.props.screenProps.globalStyle.purpleButton}>
-                  <Text style={this.props.screenProps.globalStyle.buttonText}> Cancel</Text>
-                </View>
-              </TouchableOpacity>
             </View>
           )
         }

@@ -20,8 +20,8 @@ import RamblLoadedComponent from './RamblLoaded.js';
 import RateandStompComponent from './RateandStomp.js';
 import ContinueRambleComponent from './ContinueRambling.js';
 import RamblCompletedComponent from './RamblComplete.js';
-import StompGeneratedComponent from './stompGenerated.js';
 import CurrentScreenComponent from "./CurrentScreen.js";
+import ProfileScreenComponent from "./AdjustedProfile.js";
 
 
 //Rambl currentRamblState options: Details, Loading, Generated, Rambbling, Rate, Complete
@@ -30,8 +30,6 @@ export default class RamblDetailComponent extends React.Component {
 
   constructor(props){
     super(props);
-    console.log('CURRENT STATE');
-    console.log(this.props.ramblingState);
     if(this.props.ramblingState !== null){
       this.state = this.props.ramblingState;
     } else {
@@ -42,6 +40,7 @@ export default class RamblDetailComponent extends React.Component {
     }
     this.setRamblState = this.setRamblState.bind(this);
     this.handleFollowPress = this.handleFollowPress.bind(this);
+    this.handleCancelPress = this.handleCancelPress.bind(this);
   }
 
   componentWillUnmount(){
@@ -54,12 +53,11 @@ export default class RamblDetailComponent extends React.Component {
   displayFootprints(){
     return this.props.rambl.footprints.map((footprint, index) => {
       return ( <MapView.Marker
-
         key = {index.toString()}
           coordinate = {{latitude: (this.props.rambl.footprints[index].latitude),
           longitude: (this.props.rambl.footprints[index].longitude)}}
           title = {footprint.title}
-          pinColor = {"00BFFF"}
+          pinColor = {"#00BFFF"}
           description = {footprint.Address}
           />);
     });
@@ -68,6 +66,20 @@ export default class RamblDetailComponent extends React.Component {
   handleFollowPress(){
     this.props.setGlobalState({currentRambl: this.props.rambl});
     this.setState({currentRamblState: "Loading"});
+  }
+
+  handleCancelPress(){
+    console.log('clicking handle cancel press');
+    if(this.props.cancelLocation){
+      this.props.cancel();
+    }else {
+      console.log(this.props.setCurrentState);
+      this.props.setCurrentState("choose");
+      this.setState({currentRamblState: "Create"});
+    }
+  }
+  handleHistoryCancelPress(){
+      this.setState({currentRamblState: "History"});
   }
 
   displayFollow(){
@@ -79,7 +91,7 @@ export default class RamblDetailComponent extends React.Component {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Create"})}>
+        <TouchableOpacity onPress={this.handleCancelPress}>
           <View style={this.props.screenProps.globalStyle.purpleButton}>
           <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
           </View>
@@ -99,7 +111,7 @@ export default class RamblDetailComponent extends React.Component {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-        <TouchableOpacity onPress={()=> this.setState({currentRamblState: "Create"})}>
+        <TouchableOpacity onPress={this.handleHistoryCancelPress}>
         <View style={this.props.screenProps.globalStyle.purpleButton}>
         <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
         </View>
@@ -150,6 +162,10 @@ export default class RamblDetailComponent extends React.Component {
       return (<LoadingScreenComponent {...this.props} setRamblState={this.setRamblState}/>);
     }
 
+    if(this.state.currentRamblState === "History"){
+      return (<ProfileScreenComponent {...this.props} value={"History"}/>);
+    }
+
     if(this.state.currentRamblState === "Generated"){
       return (<RamblLoadedComponent {...this.props} setRamblState={this.setRamblState}/>);
     }
@@ -168,10 +184,6 @@ export default class RamblDetailComponent extends React.Component {
 
     if(this.state.currentRamblState === "Create"){
       return (<CurrentScreenComponent {...this.props} setRamblState={this.setRamblState}/>);
-    }
-
-    if(this.state.currentRamblState === "GeneratedStomp"){
-      return(<StompGeneratedComponent {...this.props} setRamblState={this.setRamblState} />);
     }
   }
 }
