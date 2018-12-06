@@ -46,14 +46,9 @@ export default class RamblCompletedComponent extends React.Component {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between'}}>
-          <TouchableOpacity onPress={this.handleNewPress} >
-            <View style={this.props.screenProps.globalStyle.purpleButton} >
-            <Text style={this.props.screenProps.globalStyle.buttonText}>Past Rambls</Text>
-            </View>
-          </TouchableOpacity>
           <TouchableOpacity onPress={this.handleNewPress}>
             <View style={this.props.screenProps.globalStyle.purpleButton}>
-            <Text style={this.props.screenProps.globalStyle.buttonText}>New Rambl</Text>
+            <Text style={this.props.screenProps.globalStyle.buttonText}>OK</Text>
             </View>
           </TouchableOpacity>
        </View>

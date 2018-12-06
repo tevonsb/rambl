@@ -175,7 +175,7 @@ export default globalStyles = StyleSheet.create({
     fontSize: 15,
     marginTop: 10,
   },
-  confirmtationText:{
+  confirmationText:{
     color: '#FFFFFF',
     fontSize: 30,
     marginBottom:100,
