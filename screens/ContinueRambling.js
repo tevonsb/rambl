@@ -50,9 +50,12 @@ export default class ContinueRambleComponent extends React.Component {
       }
     });
 
-    if(this.props.ramblfootprints.filter((footprint) => !footprint.visited).length === 0){
+    if(this.props.rambl.footprints.filter((footprint) => !footprint.visited).length === 0){
       // Setting rambl as completed.
-      this.props.setGlobalState({})
+      console.log('Got into here');
+      const newRambl = this.props.rambl;
+      newRambl.key = (this.props.pastRambls.length + 1).toString();
+      this.props.setGlobalState({pastRambls: [this.props.rambl, ...this.props.pastRambls]});
     }
 
     this.props.setGlobalState({currentRambl: currentRambl});
