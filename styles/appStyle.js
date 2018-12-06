@@ -144,7 +144,7 @@ export default globalStyles = StyleSheet.create({
      width: Dimensions.get('window').width -20,
   },
   largeMap: {
-     height: 600,
+     height: 620,
      width: Dimensions.get('window').width-20,
   },
   picker:{

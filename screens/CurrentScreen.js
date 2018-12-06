@@ -151,20 +151,10 @@ export default class CurrentScreenComponent extends React.Component {
         }
         if(this.state.currentView === "choose"){
           return (
-            <View
-              style={this.props.screenProps.globalStyle.view}
-              >
-              <TouchableOpacity
-                style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
-                onPress={() => this.setCurrentState("map")}>
-                <View style={this.props.screenProps.globalStyle.purpleButton}>
-                  <Text style={this.props.screenProps.globalStyle.buttonText}> {"< Back to Map"}</Text>
-                </View>
-              </TouchableOpacity>
+            <View style={this.props.screenProps.globalStyle.view}>
               <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>How long do you have to spend?</Text>
               </View>
-
               <View style={{flex: 0, flexDirection: 'row', height: 210}}>
                 <Picker
                   selectedValue={this.state.hour}
@@ -216,6 +206,13 @@ export default class CurrentScreenComponent extends React.Component {
                   </TouchableOpacity>}
                 />
               </View>
+              <TouchableOpacity
+                style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
+                onPress={() => this.setCurrentState("map")}>
+                <View style={this.props.screenProps.globalStyle.purpleButton}>
+                  <Text style={this.props.screenProps.globalStyle.buttonText}> {"< Back to Map"}</Text>
+                </View>
+              </TouchableOpacity>
             </View>
           )
         }
@@ -224,42 +221,17 @@ export default class CurrentScreenComponent extends React.Component {
 
       render() {
         return this.getComponentForState();
-        // return (
-        //   <MapView
-        //     style={{ flex: 1 }}
-        //     initialRegion={{
-        //       latitude: 37.78825,
-        //       longitude: -122.4324,
-        //       latitudeDelta: 0.0922,
-        //       longitudeDelta: 0.0421,
-        //     }}
-        //   />
-        // );
       }
     }
 
     const styles = StyleSheet.create({
       buttonContainer: {
-        // marginTop:10,
-        // height:45,
-        // // flexDirection: 'row',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // // marginBottom:20,
-        // width:250,
-        // borderRadius:30,
-        // backgroundColor: "#00BFFF",
         width : 190,
         height: 35,
         color: 'white',
         backgroundColor: '#9839F7',
-        // alignItems: 'center',
-        marginTop: 20,
-        marginBottom: 20,
-        // marginLeft:5 ,
-        // marginRight: 3,
-        // paddingTop: 5,
-        // paddingBottom: 5,
+        marginTop: 10,
+        marginBottom: 5,
         borderRadius: 3,
         overflow: 'hidden',
         shadowColor: "white",
