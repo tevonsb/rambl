@@ -20,7 +20,6 @@ import { MonoText } from "../components/StyledText";
 import RamblDetailComponent from "./RamblDetailScreen.js";
 import LoadingScreenComponent from "./LoadingScreen.js";
 import RamblLoadedComponent from "./RamblLoaded.js";
-import RamblCompletedComponent from "./RamblComplete.js";
 import ContinueRamblComponent from "./ContinueRambling.js";
 import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";

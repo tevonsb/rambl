@@ -97,9 +97,38 @@ export default class CurrentScreenComponent extends React.Component {
       }
 
       setCurrentState(state){
+        console.log('Current Screen state being set to '+state);
         this.setState({
           currentView: state,
         })
+      }
+
+      getListOrMessage(){
+        const rambls = this.getRambls();
+        if(rambls.length === 0){
+          return (
+            <View style={{flex: 0, justifyContent: "space-evenly", margin: 20}}>
+              <Text style={this.props.screenProps.globalStyle.message}>
+                Unfortunately we don't have any Rambls in your area for your trip length, try adding more time!
+              </Text>
+            </View>
+          )
+        }
+
+        return(
+          <View style={{width: Dimensions.get('window').width-20, height:320, backgroundColor: '#353535', padding: 10, marginTop: 5, marginBottom:5}}>
+            <FlatList
+              data={this.getRambls()}
+              renderItem={({item}) =>
+              <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
+                <Text style={this.props.screenProps.globalStyle.message}>{item.title}, {item.city}</Text>
+                <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
+                <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
+                <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate per Person: ${item.cost} </Text>
+              </TouchableOpacity>}
+            />
+          </View>
+        )
       }
       getComponentForState(){
         if(this.state.currentView === "map"){
@@ -194,18 +223,7 @@ export default class CurrentScreenComponent extends React.Component {
               <View style = {{padding: 10}}>
               <Text style={this.props.screenProps.globalStyle.message}>Option(s) that fit in your timeframe:</Text>
               </View>
-              <View style={{width: Dimensions.get('window').width-20, height:320, backgroundColor: '#353535', padding: 10, marginTop: 5, marginBottom:5}}>
-                <FlatList
-                  data={this.getRambls()}
-                  renderItem={({item}) =>
-                  <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
-                    <Text style={this.props.screenProps.globalStyle.message}>{item.title}, {item.city}</Text>
-                    <Text style={this.props.screenProps.globalStyle.detail}>Rating: {item.rating} </Text>
-                    <Text style={this.props.screenProps.globalStyle.detail}>Duration: {item.duration} </Text>
-                    <Text style={this.props.screenProps.globalStyle.detail}>Cost Estimate per Person: ${item.cost} </Text>
-                  </TouchableOpacity>}
-                />
-              </View>
+              {this.getListOrMessage()}
               <TouchableOpacity
                 style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
                 onPress={() => this.setCurrentState("map")}>

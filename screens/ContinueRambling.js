@@ -58,7 +58,10 @@ export default class ContinueRambleComponent extends React.Component {
       this.setState({complete: true});
       const newRambl = this.props.rambl;
       newRambl.key = (this.props.pastRambls.length + 1).toString();
-      this.props.setGlobalState({pastRambls: [this.props.rambl, ...this.props.pastRambls]});
+      this.props.setGlobalState({
+        pastRambls: [this.props.rambl, ...this.props.pastRambls],
+        rambls: this.props.rambls.filter(rambl => rambl.title !== newRambl.title),
+      });
     }
 
     this.props.setGlobalState({currentRambl: currentRambl});
