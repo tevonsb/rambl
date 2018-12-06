@@ -33,7 +33,7 @@ export default class StompGeneratedComponent extends React.Component {
           shadowOffset: {width: 1, height: -1},
           shadowRadius: 10}}
         name = "check"
-        color = '#327ba7'
+        color = '#00BFFF'
         size = {200}/>
         <View style = {{
           flex: 1,

@@ -34,7 +34,7 @@ export default class RamblCompletedComponent extends React.Component {
           paddingTop: 300,
           justifyContent: "center"}}
           name = "star"
-          color = "#39a1f7"
+          color = "#00BFFF"
           size = {200}/>
         <View style = {{
           flex: 1,
