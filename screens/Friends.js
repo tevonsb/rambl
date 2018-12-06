@@ -83,9 +83,9 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     borderRadius: 3,
     overflow: 'hidden',
-    shadowColor: "white",
-    shadowOffset: {width: 1, height: -1},
-    shadowRadius: 10,
+    // shadowColor: "white",
+    // shadowOffset: {width: 1, height: -1},
+    // shadowRadius: 10,
     alignItems: 'center',
       opacity: .4
   },
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     width: 110,
     height: 110,
     borderRadius: 55,
-    borderWidth: 4,
+    borderWidth: 30,
     borderColor: "white",
     marginBottom:10,
     alignSelf:'center',
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   name:{
     alignSelf: 'center',
-    fontSize:28,
+    fontSize:30,
     color: "white",
     fontWeight: "600"
   },
