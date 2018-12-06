@@ -119,14 +119,16 @@ export default class FriendScreenComponent extends React.Component {
     if (this.state.currentView === "unselected") {
           if(this.state.value === "Friends\' Rambls"){
             displayView = (
-              <View  style={this.props.screenProps.globalStyle.view}>
+              <View style={this.props.screenProps.globalStyle.view}>
+                <View style = {{padding: 10}}>
                 <TouchableOpacity
                   style={{marginTop: 5, marginBottom: 5,alignSelf: "center"}}
                   onPress={() => this.props.setCurrentState("map")}>
                   <View style={this.props.screenProps.globalStyle.purpleButton}>
-                    <Text style={this.props.screenProps.globalStyle.buttonText}> {"< Back to List"}</Text>
+                    <Text style={this.props.screenProps.globalStyle.buttonText}> {"< Back to Map"}</Text>
                   </View>
                 </TouchableOpacity>
+                </View>
                 <Text style={this.props.screenProps.globalStyle.message}> Friends Rambls in Your Location </Text>
                 <View style={{width: Dimensions.get('window').width-20, height:595, backgroundColor: '#353535', padding: 10, marginTop: 5, marginBottom:5}}>
                   <FlatList style={this.props.screenProps.globalStyle.flatlist}

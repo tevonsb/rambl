@@ -78,9 +78,6 @@ export default class RamblDetailComponent extends React.Component {
       this.setState({currentRamblState: "Create"});
     }
   }
-  handleHistoryCancelPress(){
-      this.setState({currentRamblState: "History"});
-  }
 
   displayFollow(){
     if(this.props.rambl.city ==="London"){
@@ -111,7 +108,7 @@ export default class RamblDetailComponent extends React.Component {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-        <TouchableOpacity onPress={this.handleHistoryCancelPress}>
+        <TouchableOpacity onPress={this.handleCancelPress}>
         <View style={this.props.screenProps.globalStyle.purpleButton}>
         <Text style={this.props.screenProps.globalStyle.buttonText}>Cancel</Text>
         </View>
