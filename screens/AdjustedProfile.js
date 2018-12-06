@@ -362,19 +362,19 @@ const styles = StyleSheet.create({
   },
   username:{
     color: "#FFFFFF",
-    fontSize:18,
+    fontSize:20,
     alignSelf:'center',
-    marginLeft:20,
-    textShadowColor: 'white',
-    textShadowOffset: {width: 0, height: 1},
-    textShadowRadius: 80,
+    marginLeft:25,
+    // textShadowColor: 'white',
+    // textShadowOffset: {width: 0, height: 1},
+    // textShadowRadius: 80,
   },
   image:{
     width: 65,
     height: 65,
-    borderRadius: 33,
+   borderRadius: 33,
    borderColor: '#FFFFFF',
-   borderWidth: 1,
-   marginLeft: 20
+   borderWidth: 2,
+   marginLeft: 30
  },
 });

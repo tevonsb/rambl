@@ -64,7 +64,7 @@ export default class StompScreen extends React.Component {
     if(this.state.value === "Active"){
       displayView = (
         <View style={styles.view}>
-          <View style={{width: Dimensions.get('window').width, height: 600,backgroundColor: '#353535', padding: 5, marginTop: 5}}>
+          <View style={{width: Dimensions.get('window').width - 20, height: 640,backgroundColor: '#353535', padding: 5, marginTop: 10, marginLeft: 10,}}>
           <FlatList style={this.props.screenProps.globalStyle.flatlist}
             data={this.getActiveStomps()}
             renderItem={({item}) => <TouchableOpacity disabled = {true} style={this.props.screenProps.globalStyle.stompContainer}>
@@ -95,7 +95,7 @@ export default class StompScreen extends React.Component {
     }if(this.state.value === "Complete"){
       displayView = (
         <View style={styles.view}>
-            <View style={{width: Dimensions.get('window').width, height:600,backgroundColor: '#353535', padding: 5, marginTop: 5}}>
+            <View style={{width: Dimensions.get('window').width -20, height:640,backgroundColor: '#353535', padding: 5, marginTop: 10, marginLeft: 10, }}>
             <FlatList style={this.props.screenProps.globalStyle.flatlist}
               data={this.getInactiveStomps()}
               renderItem={({item}) => <TouchableOpacity disabled = {true} style={this.props.screenProps.globalStyle.stompContainer}>
