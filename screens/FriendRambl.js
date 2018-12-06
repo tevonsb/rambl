@@ -121,7 +121,7 @@ export default class FriendScreenComponent extends React.Component {
             displayView = (
               <View style={this.props.screenProps.globalStyle.view}>
                 <Text style={this.props.screenProps.globalStyle.message}> Friends Rambls in Your Location </Text>
-                <View style={{width: Dimensions.get('window').width-20, height:590, backgroundColor: '#353535', padding: 5, marginTop: 5}}>
+                <View style={{width: Dimensions.get('window').width-20, height:590, backgroundColor: '#353535', padding: 10, marginTop: 5}}>
                   <FlatList style={this.props.screenProps.globalStyle.flatlist}
                     data={this.getFriendsRamblsMyLocation()}
                     renderItem={({item}) => <TouchableOpacity style={this.props.screenProps.globalStyle.rambl} onPress={() => this.handleRamblPress(item)}>
