@@ -17,7 +17,7 @@ var rambls = require("./data/rambls");
 var users = require("./data/users");
 var friends_rambls = require("./data/friends_rambls");
 var past_rambls = require("./data/past_rambls");
-var stomps = require(". /data/stomps.json");
+var stomps = require("./data/stomps.json");
 
 import CurrentScreen from "./screens/CurrentScreen";
 import ProfileScreen from "./screens/AdjustedProfile";
