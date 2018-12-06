@@ -26,8 +26,6 @@ import TabNavigator from "../navigation/TabNavigator.js";
 import RateandStompComponent from "./RateandStomp.js";
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
-var stomps = require("../data/stomps.json");
-
 export default class ProfileScreen extends React.Component {
 
   constructor(props) {
@@ -97,11 +95,11 @@ export default class ProfileScreen extends React.Component {
   }
 
   getActiveStomps(){
-    return stomps.filter(stomp => stomp.status!=="Complete");
+    return this.props.stomps.filter(stomp => stomp.status!=="Complete");
   }
 
   getInactiveStomps(){
-    return stomps.filter(stomp => stomp.status==="Complete");
+    return this.props.stomps.filter(stomp => stomp.status==="Complete");
   }
 
   getFriendsRamblsNotMyLocation(){
