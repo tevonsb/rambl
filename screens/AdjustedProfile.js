@@ -29,7 +29,10 @@ export default class ProfileScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    if(this.props.profileState){
+      this.state = this.props.profileState;
+    } else {
+      const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       this.state = {
         selectedIndex: 0,
         values: ["Rambl History", "About", "Friends"],
@@ -47,6 +50,8 @@ export default class ProfileScreen extends React.Component {
            {image: "https://lh3.googleusercontent.com/-eCZdiJi-wDk/AAAAAAAAAAI/AAAAAAABaZA/WAewjrp5lvg/s640-il/photo.jpg", username:"Amanda Zwarenstein"},
         ]),
       };
+    }
+
     this._onChange = this._onChange.bind(this);
     this._onValueChange = this._onValueChange.bind(this);
     this.getMyRambls = this.getMyRambls.bind(this);
@@ -61,7 +66,7 @@ export default class ProfileScreen extends React.Component {
   }
 
   componentWillUnmount(){
-    this.props.setGlobalState({profileScreenState: this.state});
+    this.props.setGlobalState({profileState: this.state});
   }
 
   handleBackPress(){

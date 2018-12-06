@@ -93,7 +93,7 @@ export default class HistoryScreenComponent extends React.Component {
     var displayView = null;
     if (this.state.currentView === "selected") {
       console.log("ABOUT TO RENDER COMP");
-      return <RamblDetailComponent {...this.props} cancelLocation="unselected" cancel={this.handleBackPress} rambl={this.state.currentRambl} history={true}/>;
+      return <RamblDetailComponent />;
       //return <RateandStompComponent {...this.props} />;
     }
     if (this.state.currentView === "unselected") {
