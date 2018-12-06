@@ -37,11 +37,8 @@ export default class FootprintDetailComponent extends React.Component {
             </View>
           </View>
         )
-      }
-      if(this.props.action === "Visited"){
-        return (
-          <Text>Visited</Text>
-        )
+      } else {
+        return (<Text>You've already visited this footprint</Text>);
       }
       return null;
     }

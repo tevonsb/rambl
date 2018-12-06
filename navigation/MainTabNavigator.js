@@ -13,7 +13,7 @@ const CurrentStack = createStackNavigator({
 });
 
 CurrentStack.navigationOptions = {
-  tabBarLabel: 'Rambl!',
+  tabBarLabel: 'Rambl',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

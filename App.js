@@ -32,7 +32,7 @@ export default class App extends React.Component {
       points: "200",
       username: "Amanda",
       location: "London",
-      activeScreen: "Rambl!",
+      activeScreen: "Rambl",
       currentScreenState: null,
       ramblingState: null,
       stomps: stomps,
@@ -83,7 +83,7 @@ export default class App extends React.Component {
     if(this.state.activeScreen === "Profile"){
       return (<ProfileScreen {...this.state} screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} />);
     }
-    if(this.state.activeScreen === "Rambl!"){
+    if(this.state.activeScreen === "Rambl"){
       return (<CurrentScreen {...this.state} screenProps={this.state.screenProps} setGlobalState={this.setGlobalState} currentState={this.state.currentScreenState}/>);
     }
     if(this.state.activeScreen === "FAQs"){
@@ -169,7 +169,7 @@ export default class App extends React.Component {
 
               }}
               tabs={[
-                { title: "Rambl!" },
+                { title: "Rambl" },
                 {title: "Stomps"},
                 { title: "Profile" },
                 {title: "FAQs"}
