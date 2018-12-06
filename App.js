@@ -17,11 +17,12 @@ var rambls = require("./data/rambls");
 var users = require("./data/users");
 var friends_rambls = require("./data/friends_rambls");
 var past_rambls = require("./data/past_rambls");
-var stomps = require(". /data/stomps.json");
+var stomps = require("./data/stomps.json");
 
 import CurrentScreen from "./screens/CurrentScreen";
 import ProfileScreen from "./screens/AdjustedProfile";
-import FAQScreen from "./screens/FAQ"
+import FAQScreen from "./screens/FAQ";
+import StompScreen from "./screens/stompscreen";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -86,6 +87,9 @@ export default class App extends React.Component {
     }
     if(this.state.activeScreen === "FAQs"){
       return (<FAQScreen {...this.state} screenProps = {this.state.screenProps} />);
+    }
+    if(this.state.activeScreen === "Stomps"){
+      return (<StompScreen {...this.state} screenProps = {this.state.screenProps} />);
     }
     return null;
   }
@@ -154,17 +158,18 @@ export default class App extends React.Component {
               }}
               activeStyle={{
                 height: 60,
-                width: Dimensions.get('window').width/3,
+                width: Dimensions.get('window').width/4,
                 borderTopColor: "white",
                 borderTopWidth: 4,
               }}
               tabStyle={{
                 height: 60,
-                width: Dimensions.get('window').width/3,
+                width: Dimensions.get('window').width/4,
 
               }}
               tabs={[
                 { title: "Rambl!" },
+                {title: "Stomps"},
                 { title: "Profile" },
                 {title: "FAQs"}
               ]}
