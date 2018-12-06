@@ -95,6 +95,7 @@ export default class ProfileScreen extends React.Component {
   }
 
   getActiveStomps(){
+    console.log(this.props.stomps);
     return this.props.stomps.filter(stomp => stomp.status!=="Complete");
   }
 
