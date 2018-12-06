@@ -36,6 +36,8 @@ export default class App extends React.Component {
       currentScreenState: null,
       ramblingState: null,
       stomps: stomps,
+      pastRambls: past_rambls,
+      rambls: rambls,
     };
     this.setGlobalState = this.setGlobalState.bind(this);
     this.handleTabPress = this.handleTabPress.bind(this);
@@ -44,7 +46,6 @@ export default class App extends React.Component {
   componentWillMount() {
     const screenProps = {
       globalState: this.state,
-      rambls: rambls,
       users: users,
       friends_rambls: friends_rambls,
       past_rambls: past_rambls,

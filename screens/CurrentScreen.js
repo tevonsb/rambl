@@ -77,7 +77,7 @@ export default class CurrentScreenComponent extends React.Component {
         return rambl.duration < this.state.hour + this.state.minute / 60;
       }
       getRambls(){
-        return this.props.screenProps.rambls.filter(this.checkDuration);
+        return this.props.rambls.filter(this.checkDuration);
       }
 
       handleRamblPress(rambl){

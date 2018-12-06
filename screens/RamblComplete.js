@@ -16,23 +16,7 @@ import {Icon} from 'react-native-elements'
 export default class RamblCompletedComponent extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //     component: <LoadingScreenComponent/>
-    //   };
   }
-//
-//   componentDidMount(){
-//
-//      // Start counting when the page is loaded
-//      this.timeoutHandle = setTimeout(()=>{
-//           // Add your logic for the transition
-//           this.setState({ component: <HistoryDetailComponent/>})
-//      }, 3000);
-// }
-//
-// componentWillUnmount(){
-//      clearTimeout(this.timeoutHandle);
-// }
 
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
