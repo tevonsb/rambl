@@ -45,7 +45,7 @@ export default class RateandStompComponent extends React.Component {
     if(stompAmount === 0){
     } else {
       var newStomp = {
-        "key": Interger.toString(this.props.stomps.length+1),
+        "key": (this.props.stomps.length+1).toString(),
         "title": this.props.footprint.title,
         "Address":this.props.footprint.address,
         "rating": this.state.starCount,
@@ -55,7 +55,7 @@ export default class RateandStompComponent extends React.Component {
         "got": 0,
         "percent":0,
       }
-      this.props.setGlobalState({stomps: this.props.stomps.unshift(newStomp)});
+      this.props.setGlobalState({stomps: [newStomp, ...this.props.stomps]});
       this.props.setRamblState("GeneratedStomp");
     }
   }
