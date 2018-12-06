@@ -70,11 +70,11 @@ export default class RateandStompComponent extends React.Component {
       return (
         <View style={this.props.screenProps.globalStyle.view}>
           <View style = {this.props.screenProps.globalStyle.announcementContainer}>
-            <Text style={this.props.screenProps.globalStyle.announcementText}>How was the footprint? </Text>
+            <Text style={this.props.screenProps.globalStyle.announcementText}> How was the footprint? </Text>
           </View>
           <View style = {this.props.screenProps.globalStyle.ratingContainer}>
-            <View style ={{marginBottom: 20, marginTop: 15}}>
-              <View style ={{marginBottom: 35}}>
+            <View style ={{marginBottom: 0, marginTop: 10}}>
+              <View style ={{marginBottom: 25}}>
               <Text style={this.props.screenProps.globalStyle.message}> Rate it: </Text>
               </View>
               <StarRating
@@ -93,6 +93,9 @@ export default class RateandStompComponent extends React.Component {
           <View style={this.props.screenProps.globalStyle.view}>
             <View style = {this.props.screenProps.globalStyle.announcementContainer}>
               <Text style={this.props.screenProps.globalStyle.announcementText}>Would you like to stomp it?</Text>
+            </View>
+            <View style = {{marginLeft:10, marginBottom:15, marginTop: 10}}>
+            <Text style={this.props.screenProps.globalStyle.message}>If so, select the number of points:</Text>
             </View>
             <View style = {{marginTop: 0, marginBottom:25}}>
             <View style={{
