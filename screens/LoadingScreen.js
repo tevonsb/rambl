@@ -34,7 +34,7 @@ export default class LoadingScreenComponent extends React.Component {
     return (
       <View style={this.props.screenProps.globalStyle.view}>
 
-          <Text style={{color: "white", fontSize:30, marginTop: 70, marginBottom: 10}}>Your Rambl is Loading...</Text>
+          <Text style={{color: "white", fontSize:30, marginTop: 70, marginBottom: 10, alignSelf: "center,"}}>Your Rambl is Loading...</Text>
 
         <PulseIndicator color = "#00BFFF" size = {200} style= {{flex:0,marginTop: 100}}/>
       </View>
