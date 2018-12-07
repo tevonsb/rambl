@@ -133,7 +133,7 @@ export default class ProfileScreen extends React.Component {
           }}
         >
           <View style={{top: 250, height: 150, backgroundColor: '#686666', padding: 20, borderRadius: 3}} >
-            <Text style={styles.description}>Your transfer has been started! It may take 2-3 days to show up in your linked account.</Text>
+            <Text style={styles.description}>Your transfer of $2.00 has been started! It may take 2-3 days to show up in your linked account.</Text>
             <View style={{flex:0, flexDirection: "row", justifyContent: "space-evenly", margin: 15}}>
               <TouchableOpacity style={this.props.screenProps.globalStyle.purpleButton} onPress={()=> this.setState({modalOpen: false})}>
                 <Text style={this.props.screenProps.globalStyle.buttonText} >Okay!</Text>

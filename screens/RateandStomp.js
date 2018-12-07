@@ -130,12 +130,12 @@ export default class RateandStompComponent extends React.Component {
               }}>
                   <TouchableOpacity onPress={() => this.handleDonePress(0)}>
                     <View style={styles.buttonContainer} >
-                      <Text style={this.props.screenProps.globalStyle.buttonText}>No thanks</Text>
+                      <Text style={this.props.screenProps.globalStyle.buttonText}>Rate Only</Text>
                     </View>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={() => this.handleDonePress(this.state.stompValue)}>
                     <View style={styles.buttonContainer} >
-                      <Text style={this.props.screenProps.globalStyle.buttonText}>Stomp!</Text>
+                      <Text style={this.props.screenProps.globalStyle.buttonText}>Rate and Stomp!</Text>
                     </View>
                   </TouchableOpacity>
                 </View>
