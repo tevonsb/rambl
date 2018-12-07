@@ -63,6 +63,7 @@ export default class ProfileScreen extends React.Component {
     this.getFriendsRamblsNotMyLocation = this.getFriendsRamblsNotMyLocation.bind(this);
     this.setProfileState = this.setProfileState.bind(this);
     this.handleBackPress = this.handleBackPress.bind(this);
+    this.getModal = this.getModal.bind(this);
   }
 
   componentWillUnmount(){
@@ -121,6 +122,30 @@ export default class ProfileScreen extends React.Component {
       currentView: viewState
     })
   }
+  getModal(){
+    if(this.state.modalOpen){
+      return(
+        <View style={{
+            position: "absolute",
+            width: Dimensions.get('window').width,
+            height: Dimensions.get('window').height,
+            backgroundColor: 'rgba(0,0,0,.5)',
+          }}
+        >
+          <View style={{top: 250, height: 150, backgroundColor: '#686666', padding: 20, borderRadius: 3}} >
+            <Text style={styles.description}>Your transfer has been started! It may take 2-3 days to show up in your linked account.</Text>
+            <View style={{flex:0, flexDirection: "row", justifyContent: "space-evenly", margin: 15}}>
+              <TouchableOpacity style={this.props.screenProps.globalStyle.purpleButton} onPress={()=> this.setState({modalOpen: false})}>
+                <Text style={this.props.screenProps.globalStyle.buttonText} >Okay!</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      )
+    }else{
+      return null;
+    }
+  }
 
   render() {
     var displayView = null;
@@ -166,7 +191,7 @@ export default class ProfileScreen extends React.Component {
                   <Text style={styles.name}>Katy Lerch</Text>
                   <Text style={styles.info}>Current Location: London</Text>
                   <Text style={styles.info}>Next Stop: Morocco</Text>
-                  <Text style={styles.description}>The best trip I ever went on was with my friend who interviewed me before we left and did research on the lesser known things to do in Mexico City. I loved not having to worry that I wasn't spending my time right, or that I was missing out on something amazing.</Text>
+                  <Text style={styles.description}>The best trip I ever went on was with my friend who interviewed me before we left and did research on the lesser known things to do in Mexico City. I loved not having to worry if I was missing out on something amazing.</Text>
                   <Text style={styles.description}> Total points: {this.props.screenProps.globalState.points}</Text>
                   <Text style={styles.description}> Ramblr Status: Stomper</Text>
                   </View>
@@ -174,6 +199,10 @@ export default class ProfileScreen extends React.Component {
                     <Text style = {{ color: '#FFFFFF', textShadowColor: 'white', textShadowOffset: {width: 0, height: 1},
                     textShadowRadius: 80, fontSize: 20,}}>Submit New Footprint!</Text>
                   </TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonContainer} onPress={() => this.setState({modalOpen: true})} >
+                      <Text style = {{ color: '#FFFFFF', textShadowColor: 'white', textShadowOffset: {width: 0, height: 1},
+                      textShadowRadius: 80, fontSize: 20,}}>Convert Points to $</Text>
+                    </TouchableOpacity>
                  </View>
           </View>
         )
@@ -242,6 +271,7 @@ export default class ProfileScreen extends React.Component {
               activeTab={this.state.value}
             />
           {displayView}
+          {this.getModal()}
         </View>
       );
     }
@@ -348,7 +378,7 @@ const styles = StyleSheet.create({
   description:{
     fontSize:18,
     color: "white",
-    marginTop:15,
+    marginTop:10,
     textAlign: 'center',
   },
   buttonContainer: {
@@ -356,7 +386,7 @@ const styles = StyleSheet.create({
     height: 35,
     color: 'white',
     backgroundColor: '#9839F7',
-    marginBottom: 15,
+    marginBottom: 10,
     paddingTop: 5,
     borderRadius: 3,
     overflow: 'hidden',
