@@ -29,9 +29,9 @@ export default class FootprintDetailComponent extends React.Component {
               justifyContent: 'center',
             }}>
             <View style = {{marginTop:5}}>
-              <TouchableOpacity style={{marginBottom: 5,}}onPress={()=> this.props.handleVisitPress(footprint)}>
+              <TouchableOpacity style={{marginBottom: 5,}} onPress={()=> this.props.handleVisitPress(footprint)}>
                 <View style={this.props.screenProps.globalStyle.purpleButton}>
-                  <Text style={this.props.screenProps.globalStyle.buttonText}>I just visited!</Text>
+                  <Text style={this.props.screenProps.globalStyle.buttonText}>Visit</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -48,11 +48,16 @@ export default class FootprintDetailComponent extends React.Component {
       return this.props.rambl.footprints;
     }
 
+    countVisited(){
+      return this.props.rambl.footprints.filter(footprint => footprint.visited).length
+    }
+
     render() {
       return(
         <View style={{width: Dimensions.get('window').width-20, height: this.props.height, backgroundColor: '#353535',padding:10, marginTop: 5}}>
           <FlatList style={this.props.screenProps.globalStyle.flatlist}
             data={this.getFootprints()}
+            extraData={this.countVisited()}
             renderItem={({item}) => <TouchableOpacity disabled={true} style={this.props.screenProps.globalStyle.rambl}>
             <Text style={this.props.screenProps.globalStyle.message}>{item.title}</Text>
             <Text style={this.props.screenProps.globalStyle.footprintAddress}>{item.Address}</Text>

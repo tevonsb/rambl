@@ -24,14 +24,20 @@ export default class ContinueRambleComponent extends React.Component {
       this.state = this.props.continueRamblingState;
     } else {
       this.state ={
+        rambl: this.props.rambl,
         footprints: this.props.rambl.footprints,
         activeFootprint: null,
         currentFootprintState: "unselected",
         complete: false,
+        visitModalOpen: false,
       }
     }
     this.handleVisitPress = this.handleVisitPress.bind(this);
     this.setFootprintVisited = this.setFootprintVisited.bind(this);
+    this.getModal = this.getModal.bind(this);
+    this.getVisitModal = this.getVisitModal.bind(this);
+    this.handleModalCancel = this.handleModalCancel.bind(this);
+    this.handleModalRate = this.handleModalRate.bind(this);
   }
 
   componentWillUnmount(){
@@ -41,31 +47,54 @@ export default class ContinueRambleComponent extends React.Component {
   handleVisitPress(footprint){
     this.setState({
       activeFootprint: footprint,
-      currentFootprintState: "selected",
+      visitModalOpen: true,
     });
   }
 
+  handleModalRate(){
+    this.setState({
+      currentFootprintState: "selected",
+      visitModalOpen: false,
+    });
+  }
+
+  handleModalCancel(){
+    this.setState({
+      visitModalOpen: false,
+    });
+    this.setFootprintVisited()
+  }
+
   setFootprintVisited(){
-    var currentRambl = this.props.rambl;
+    console.log("Setting visited footprint called");
+    var currentRambl = this.state.rambl;
     currentRambl.footprints.forEach((footprint) => {
       if(footprint.title === this.state.activeFootprint.title){
         footprint.visited = true;
       }
     });
 
-    if(this.props.rambl.footprints.filter((footprint) => !footprint.visited).length === 0){
+    if(this.state.rambl.footprints.filter((footprint) => !footprint.visited).length === 0){
       // Setting rambl as completed.
       this.setState({complete: true});
-      const newRambl = this.props.rambl;
+      const newRambl = this.state.rambl;
       newRambl.key = (this.props.pastRambls.length + 1).toString();
       this.props.setGlobalState({
-        pastRambls: [this.props.rambl, ...this.props.pastRambls],
+        pastRambls: [this.state.rambl, ...this.props.pastRambls],
         rambls: this.props.rambls.filter(rambl => rambl.title !== newRambl.title),
       });
     }
 
     this.props.setGlobalState({currentRambl: currentRambl});
-    this.setState({currentFootprintState: "unselected", currentFootprint: null});
+    console.log("Setting rambl to be the new one...");
+    this.setState({
+      currentFootprintState: "unselected",
+    });
+    this.setState({
+      currentFootprintState: "unselected",
+      activeFootprint: null,
+      rambl: currentRambl,
+    });
   }
 
   getFinishButton(){
@@ -121,18 +150,49 @@ export default class ContinueRambleComponent extends React.Component {
     }
   }
 
+  getVisitModal(){
+    if(this.state.visitModalOpen){
+      return(
+        <View style={{
+            position: "absolute",
+            width: Dimensions.get('window').width,
+            height: Dimensions.get('window').height,
+            backgroundColor: 'rgba(0,0,0,.5)',
+          }}
+        >
+          <View style={{top: 250, height: 150, backgroundColor: '#686666', padding: 20, borderRadius: 3,}} >
+            <Text style={this.props.screenProps.globalStyle.message}>You just visited this footprint with the Wizard of Oz!</Text>
+            <View style={{flex:0, flexDirection: "row", justifyContent: "space-evenly", margin: 10}}>
+              <TouchableOpacity style={this.props.screenProps.globalStyle.purpleButton} onPress={this.handleModalCancel}>
+                <Text style={this.props.screenProps.globalStyle.buttonText} >No Thanks</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={this.props.screenProps.globalStyle.purpleButton} onPress={this.handleModalRate}>
+                <Text style={this.props.screenProps.globalStyle.buttonText} >Rate and Stomp</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      )
+    }else{
+      return null;
+    }
+  }
+
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
     * content, we just wanted to give you a quick view of your config */
     if(this.state.currentFootprintState === "unselected"){
+      console.log('Rendering the FootprintDetailScreen');
+      console.log(this.state.rambl);
       return (
         <View style={this.props.screenProps.globalStyle.view}>
           <View style={this.props.screenProps.globalStyle.questionContainer}>
             <Text style={this.props.screenProps.globalStyle.announcementText}>Let's get going!</Text>
           </View>
-          <FootprintDetailComponent height={560} action="Visit" handleVisitPress={this.handleVisitPress} {...this.props} />
+          <FootprintDetailComponent {...this.props} height={560} action="Visit" handleVisitPress={this.handleVisitPress} rambl={this.state.rambl} />
           {this.getFinishButton()}
           {this.getModal()}
+          {this.getVisitModal()}
         </View>
       );
     }
