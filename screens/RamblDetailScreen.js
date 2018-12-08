@@ -44,7 +44,11 @@ export default class RamblDetailComponent extends React.Component {
   }
 
   componentWillUnmount(){
-    this.props.setGlobalState({ramblingState: this.state});
+    if(this.state.currentRamblState === "Complete"){
+      this.props.setGlobalState({ramblingState: null});
+    } else {
+      this.props.setGlobalState({ramblingState: this.state});
+    }  
   }
   getFootprints(){
     return (<FootprintDetailComponent height={250 } {...this.props}/>);
